@@ -583,6 +583,11 @@ h4 { font-size: 1.5rem; }
     display: none;
 }
 
+.tour-details-toggle:focus-visible {
+    outline: 2px solid var(--accent-color);
+    outline-offset: -2px;
+}
+
 .tour-details-toggle::after {
     content: "+";
     float: right;
@@ -649,7 +654,9 @@ h4 { font-size: 1.5rem; }
     position: relative;
     overflow: hidden;
     padding: 5rem 0 1.25rem;
-    background: radial-gradient(circle at 85% 10%, rgba(245, 158, 11, 0.2), transparent 40%), linear-gradient(160deg, #020617 0%, #0f172a 45%, #111827 100%);
+    background:
+        radial-gradient(circle at 85% 10%, rgba(245, 158, 11, 0.2), transparent 40%),
+        linear-gradient(160deg, #020617 0%, #0f172a 45%, #111827 100%);
     color: #fff;
 }
 
