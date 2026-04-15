@@ -45,7 +45,7 @@ get_header();
                 </div>
                 <div>
                     <label class="block text-sm font-bold mb-2 uppercase tracking-widest text-white"><?php _e( 'Subject', 'raikot-tours' ); ?></label>
-                    <input type="text" name="subject" value="<?php echo isset($_GET['rental']) ? esc_attr('Rental Inquiry: ' . $_GET['rental']) : ''; ?>" placeholder="<?php esc_attr_e( 'How can we help?', 'raikot-tours' ); ?>" class="w-full bg-white/10 border border-white/20 p-4 rounded-lg text-white placeholder-white/40 focus:border-[#d4af37] focus:ring-2 focus:ring-[#d4af37]/30 outline-none transition-all">
+                    <input type="text" name="subject" placeholder="<?php esc_attr_e( 'How can we help?', 'raikot-tours' ); ?>" class="w-full bg-white/10 border border-white/20 p-4 rounded-lg text-white placeholder-white/40 focus:border-[#d4af37] focus:ring-2 focus:ring-[#d4af37]/30 outline-none transition-all">
                 </div>
                 <div>
                     <label class="block text-sm font-bold mb-2 uppercase tracking-widest text-white"><?php _e( 'Message', 'raikot-tours' ); ?></label>

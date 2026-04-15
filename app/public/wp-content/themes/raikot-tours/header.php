@@ -163,10 +163,7 @@
                     </a>
                 </li>
                 <li class="relative group">
-                    <a href="<?php echo home_url('/trekking'); ?>" class="hover:text-luxury-gold transition-colors py-4 px-2 border-b-2 border-transparent hover:border-luxury-gold">Expeditions</a>
-                </li>
-                <li class="relative group">
-                    <a href="<?php echo home_url('/rental'); ?>" class="hover:text-luxury-gold transition-colors py-4 px-2 border-b-2 border-transparent hover:border-luxury-gold">Rental</a>
+                    <a href="<?php echo home_url('/trekking'); ?>" class="hover:text-luxury-gold transition-colors py-4 px-2 border-b-2 border-transparent hover:border-luxury-gold">Trekking &amp; Horse Riding</a>
                 </li>
                 <li class="relative group">
                     <a href="<?php echo home_url('/reviews'); ?>" class="hover:text-luxury-gold transition-colors py-4 px-2 border-b-2 border-transparent hover:border-luxury-gold">Reviews</a>
@@ -199,7 +196,7 @@
         <ul class="flex flex-col space-y-4 text-white font-medium">
             <li><a href="<?php echo home_url('/'); ?>" class="block py-2 hover:text-[#d4af37] transition-colors">Home</a></li>
             <li><a href="<?php echo home_url('/our-tours'); ?>" class="block py-2 hover:text-[#d4af37] transition-colors">Tours</a></li>
-            <li><a href="<?php echo home_url('/trekking'); ?>" class="block py-2 hover:text-[#d4af37] transition-colors">Trekking &amp; Riding</a></li>
+            <li><a href="<?php echo home_url('/trekking'); ?>" class="block py-2 hover:text-[#d4af37] transition-colors">Trekking &amp; Horse Riding</a></li>
             <li><a href="<?php echo home_url('/about'); ?>" class="block py-2 hover:text-[#d4af37] transition-colors">About Us</a></li>
             <li><a href="<?php echo home_url('/reviews'); ?>" class="block py-2 hover:text-[#d4af37] transition-colors">Reviews</a></li>
             <li class="border-t border-white/10 pt-4">
