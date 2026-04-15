@@ -90,10 +90,12 @@ function render_tour_card($tour) {
 
                 <div class="flex flex-col gap-2 min-w-[170px]">
                     <a href="<?php echo esc_url($tour['permalink']); ?>"
+                       aria-label="<?php echo esc_attr( sprintf( __( 'Learn more about %s', 'raikot-tours' ), $tour['title'] ) ); ?>"
                        class="w-full text-center px-4 py-2 rounded-xl bg-primary-color text-white text-xs font-black uppercase tracking-[0.18em] transition-all duration-300 hover:bg-luxury-gold hover:text-primary-color">
                         <?php esc_html_e( 'Learn More', 'raikot-tours' ); ?>
                     </a>
                     <a href="<?php echo esc_url($tour['permalink']); ?>"
+                       aria-label="<?php echo esc_attr( sprintf( __( 'View full tour details for %s', 'raikot-tours' ), $tour['title'] ) ); ?>"
                        class="w-full text-center px-4 py-2 rounded-xl border border-primary-color/20 text-primary-color text-[11px] font-bold uppercase tracking-[0.14em] transition-all duration-300 hover:border-luxury-gold hover:text-luxury-gold">
                         <?php esc_html_e( 'View Full Tour Details', 'raikot-tours' ); ?>
                     </a>

@@ -139,10 +139,10 @@ function render_archive_tour_card($tour) {
                 </div>
             </details>
             <div class="mt-auto space-y-3">
-                <a href="<?php echo esc_url($tour['permalink']); ?>" class="btn-gold w-full text-center py-4 rounded-xl block">
+                <a href="<?php echo esc_url($tour['permalink']); ?>" aria-label="<?php echo esc_attr( sprintf( __( 'Learn more about %s', 'raikot-tours' ), $tour['title'] ) ); ?>" class="btn-gold w-full text-center py-4 rounded-xl block">
                     <?php _e( 'Learn More', 'raikot-tours' ); ?>
                 </a>
-                <a href="<?php echo esc_url($tour['permalink']); ?>" class="w-full text-center py-3 rounded-xl block border border-[#1a2e44]/20 text-[#1a2e44] font-bold uppercase tracking-wider text-xs hover:border-[#d4af37] hover:text-[#d4af37] transition-colors">
+                <a href="<?php echo esc_url($tour['permalink']); ?>" aria-label="<?php echo esc_attr( sprintf( __( 'View full tour details for %s', 'raikot-tours' ), $tour['title'] ) ); ?>" class="w-full text-center py-3 rounded-xl block border border-[#1a2e44]/20 text-[#1a2e44] font-bold uppercase tracking-wider text-xs hover:border-[#d4af37] hover:text-[#d4af37] transition-colors">
                     <?php _e( 'View Full Tour Details', 'raikot-tours' ); ?>
                 </a>
             </div>
