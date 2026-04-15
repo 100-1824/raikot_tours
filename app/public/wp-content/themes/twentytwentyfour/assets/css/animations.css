@@ -1,0 +1,744 @@
+/**
+ * Raikot Tours Premium Animation System
+ * Performance-optimized animations with GPU acceleration
+ *
+ * Specifications:
+ * - Primary easing: cubic-bezier(0.34, 1.56, 0.64, 1) for spring feel
+ * - Smooth easing: cubic-bezier(0.34, 0.1, 0.64, 1) for transitions
+ * - GPU acceleration: transform and opacity only
+ * - Intersection Observer support for scroll reveals
+ * - Glassmorphism effects with backdrop-filter
+ *
+ * File size target: < 15KB (gzipped)
+ */
+
+/* ============================================================================
+   HERO SECTION STAGGERED ANIMATIONS
+   ============================================================================ */
+
+/**
+ * Hero overline animation (PREMIUM EXPEDITIONS)
+ * Stagger: 0ms
+ */
+@keyframes heroOverlineIn {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/**
+ * Hero headline animation (The Earth Breathes)
+ * Stagger: 200ms
+ */
+@keyframes heroHeadlineIn {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/**
+ * Hero subtext animation (description)
+ * Stagger: 400ms
+ */
+@keyframes heroSubtextIn {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/**
+ * Hero buttons animation (EXPLORE, BESPOKE)
+ * Stagger: 600ms
+ */
+@keyframes heroButtonsIn {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* Apply animations to hero elements */
+.hero-overline {
+  animation: heroOverlineIn 800ms cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+  will-change: opacity, transform;
+}
+
+.hero-headline {
+  animation: heroHeadlineIn 800ms cubic-bezier(0.34, 1.56, 0.64, 1) 0.2s forwards;
+  opacity: 0;
+  will-change: opacity, transform;
+}
+
+.hero-subtext {
+  animation: heroSubtextIn 800ms cubic-bezier(0.34, 1.56, 0.64, 1) 0.4s forwards;
+  opacity: 0;
+  will-change: opacity, transform;
+}
+
+.hero-buttons {
+  animation: heroButtonsIn 800ms cubic-bezier(0.34, 1.56, 0.64, 1) 0.6s forwards;
+  opacity: 0;
+  will-change: opacity, transform;
+}
+
+/* ============================================================================
+   NAVBAR GLASSMORPHIC SCROLL ANIMATION
+   ============================================================================ */
+
+/**
+ * Navbar scroll effect
+ * - Transition from transparent at top to glassmorphic on scroll
+ * - Duration: 400ms
+ * - Properties: background, backdrop-filter, box-shadow
+ */
+@keyframes navbarGlassIn {
+  from {
+    background-color: rgba(15, 23, 42, 0);
+    backdrop-filter: blur(0px);
+    box-shadow: 0 0 0 transparent;
+    border-bottom-color: transparent;
+  }
+  to {
+    background-color: rgba(15, 23, 42, 0.8);
+    backdrop-filter: blur(16px);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    border-bottom-color: rgba(212, 175, 55, 0.1);
+  }
+}
+
+/* Default navbar state - transparent at page top */
+.navbar {
+  background-color: rgba(15, 23, 42, 0);
+  backdrop-filter: blur(0px);
+  border-bottom: 1px solid transparent;
+  transition: all 400ms cubic-bezier(0.34, 0.1, 0.64, 1);
+  will-change: background-color, backdrop-filter, border-bottom-color, box-shadow;
+  position: relative;
+  z-index: 40;
+}
+
+/* Sticky navbar state - triggered by scroll */
+.navbar.is-scrolled {
+  animation: navbarGlassIn 400ms cubic-bezier(0.34, 0.1, 0.64, 1) forwards;
+  position: sticky;
+  top: 0;
+}
+
+/**
+ * Navbar logo scale animation on scroll
+ * Subtle 0.9x scale for compact sticky state
+ */
+.navbar__logo {
+  transition: transform 300ms cubic-bezier(0.34, 0.1, 0.64, 1);
+  will-change: transform;
+}
+
+.navbar.is-scrolled .navbar__logo {
+  transform: scale(0.9);
+}
+
+/**
+ * Navigation link underline animation
+ * Expands from center with spring easing
+ */
+@keyframes navLinkUnderline {
+  from {
+    transform: scaleX(0);
+    opacity: 0;
+  }
+  to {
+    transform: scaleX(1);
+    opacity: 1;
+  }
+}
+
+.navbar__nav-link {
+  position: relative;
+  transition: color 250ms cubic-bezier(0.34, 0.1, 0.64, 1);
+}
+
+.navbar__nav-link::after {
+  content: '';
+  position: absolute;
+  bottom: -4px;
+  left: 50%;
+  width: 100%;
+  height: 2px;
+  background-color: #d4af37;
+  transform: translateX(-50%) scaleX(0);
+  transform-origin: center;
+  transition: transform 250ms cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.navbar__nav-link:hover::after {
+  transform: translateX(-50%) scaleX(1);
+}
+
+/* ============================================================================
+   BUTTON ANIMATIONS
+   ============================================================================ */
+
+/**
+ * Primary button hover state
+ * - Easing: cubic-bezier(0.34, 0.1, 0.64, 1)
+ * - Duration: 300ms
+ * - Effects: scale, gold glow, drop shadow
+ */
+@keyframes buttonHoverGlow {
+  from {
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3), 0 0 0 0 rgba(212, 175, 55, 0);
+    background-color: #d4af37;
+    transform: scale(1);
+  }
+  to {
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3), 0 0 30px rgba(212, 175, 55, 0.5);
+    background-color: #c9a227;
+    transform: scale(1.05);
+  }
+}
+
+.navbar__button--primary,
+.hero-button--primary {
+  background-color: #d4af37;
+  color: #0f172a;
+  transition: all 300ms cubic-bezier(0.34, 0.1, 0.64, 1);
+  will-change: transform, box-shadow, background-color;
+  font-weight: 600;
+}
+
+.navbar__button--primary:hover,
+.hero-button--primary:hover {
+  animation: buttonHoverGlow 300ms cubic-bezier(0.34, 0.1, 0.64, 1) forwards;
+}
+
+/**
+ * Secondary button hover state
+ * - Border shift from muted to gold
+ * - Subtle color transition
+ */
+@keyframes buttonSecondaryHover {
+  from {
+    border-color: rgba(212, 175, 55, 0.2);
+    color: #ffffff;
+  }
+  to {
+    border-color: #d4af37;
+    color: #d4af37;
+  }
+}
+
+.navbar__button--secondary,
+.hero-button--secondary {
+  border: 1px solid rgba(212, 175, 55, 0.2);
+  color: #ffffff;
+  background-color: transparent;
+  transition: all 300ms cubic-bezier(0.34, 0.1, 0.64, 1);
+  will-change: border-color, color;
+  font-weight: 600;
+}
+
+.navbar__button--secondary:hover,
+.hero-button--secondary:hover {
+  animation: buttonSecondaryHover 300ms cubic-bezier(0.34, 0.1, 0.64, 1) forwards;
+}
+
+/**
+ * Button active/press state
+ */
+@keyframes buttonPress {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(0.98);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+.navbar__button--primary:active,
+.navbar__button--secondary:active,
+.hero-button--primary:active,
+.hero-button--secondary:active {
+  animation: buttonPress 200ms ease-out;
+}
+
+/* ============================================================================
+   SCROLL-TRIGGERED REVEAL ANIMATIONS (Intersection Observer)
+   ============================================================================ */
+
+/**
+ * Fade-in + slide up animation
+ * Used for elements entering viewport
+ * Duration: 600ms, Easing: cubic-bezier(0.34, 0.1, 0.64, 1)
+ */
+@keyframes revealSlideUp {
+  from {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/**
+ * Fade-in + slide left animation
+ */
+@keyframes revealSlideLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/**
+ * Fade-in + slide right animation
+ */
+@keyframes revealSlideRight {
+  from {
+    opacity: 0;
+    transform: translateX(40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/**
+ * Fade-in + scale animation
+ */
+@keyframes revealScale {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* Reveal element base state - invisible until intersection */
+.reveal-on-scroll {
+  opacity: 0;
+  will-change: opacity, transform;
+}
+
+/* Apply reveal animation when element enters viewport */
+.reveal-on-scroll.is-visible {
+  animation: revealSlideUp 600ms cubic-bezier(0.34, 0.1, 0.64, 1) forwards;
+}
+
+.reveal-on-scroll.is-visible--left {
+  animation: revealSlideLeft 600ms cubic-bezier(0.34, 0.1, 0.64, 1) forwards;
+}
+
+.reveal-on-scroll.is-visible--right {
+  animation: revealSlideRight 600ms cubic-bezier(0.34, 0.1, 0.64, 1) forwards;
+}
+
+.reveal-on-scroll.is-visible--scale {
+  animation: revealScale 600ms cubic-bezier(0.34, 0.1, 0.64, 1) forwards;
+}
+
+/**
+ * Staggered reveal for multiple elements
+ * Each child staggered by 100ms
+ */
+.reveal-stagger > * {
+  opacity: 0;
+  will-change: opacity, transform;
+}
+
+.reveal-stagger.is-visible > :nth-child(1) {
+  animation: revealSlideUp 600ms cubic-bezier(0.34, 0.1, 0.64, 1) 0ms forwards;
+}
+
+.reveal-stagger.is-visible > :nth-child(2) {
+  animation: revealSlideUp 600ms cubic-bezier(0.34, 0.1, 0.64, 1) 100ms forwards;
+}
+
+.reveal-stagger.is-visible > :nth-child(3) {
+  animation: revealSlideUp 600ms cubic-bezier(0.34, 0.1, 0.64, 1) 200ms forwards;
+}
+
+.reveal-stagger.is-visible > :nth-child(4) {
+  animation: revealSlideUp 600ms cubic-bezier(0.34, 0.1, 0.64, 1) 300ms forwards;
+}
+
+.reveal-stagger.is-visible > :nth-child(5) {
+  animation: revealSlideUp 600ms cubic-bezier(0.34, 0.1, 0.64, 1) 400ms forwards;
+}
+
+.reveal-stagger.is-visible > :nth-child(6) {
+  animation: revealSlideUp 600ms cubic-bezier(0.34, 0.1, 0.64, 1) 500ms forwards;
+}
+
+/* ============================================================================
+   CARD HOVER ANIMATIONS
+   ============================================================================ */
+
+/**
+ * Feature card lift effect
+ * - Lift: -8px (translateY)
+ * - Shadow: 0 20px 40px with gold glow
+ * - Border: Subtle gold reveal
+ * - Duration: 300ms
+ */
+@keyframes cardLift {
+  from {
+    transform: translateY(0) translateZ(0);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+  to {
+    transform: translateY(-8px) translateZ(0);
+    box-shadow: 0 20px 40px rgba(212, 175, 55, 0.3);
+  }
+}
+
+/**
+ * Card border and background glow
+ */
+@keyframes cardGlow {
+  from {
+    border-color: transparent;
+    background: rgba(30, 41, 59, 1);
+  }
+  to {
+    border-color: rgba(212, 175, 55, 0.3);
+    background: rgba(30, 41, 59, 1.05);
+  }
+}
+
+.feature-card {
+  border: 1px solid transparent;
+  border-radius: 8px;
+  padding: 32px;
+  background-color: rgba(30, 41, 59, 1);
+  transition: all 300ms cubic-bezier(0.34, 0.1, 0.64, 1);
+  will-change: transform, box-shadow, border-color, background-color;
+  position: relative;
+  overflow: hidden;
+  min-height: 200px;
+}
+
+.feature-card:hover {
+  animation: cardLift 300ms cubic-bezier(0.34, 0.1, 0.64, 1) forwards,
+    cardGlow 300ms cubic-bezier(0.34, 0.1, 0.64, 1) forwards;
+}
+
+/**
+ * Card number animation
+ * Gold color, font-size 48px
+ * Hover: opacity 1, scale-up (1.05)
+ */
+@keyframes numberPop {
+  from {
+    color: #d4af37;
+    opacity: 0.8;
+    transform: scale(1);
+  }
+  to {
+    color: #e8c547;
+    opacity: 1;
+    transform: scale(1.05);
+  }
+}
+
+.feature-card__number {
+  color: #d4af37;
+  font-size: 48px;
+  opacity: 0.8;
+  font-weight: 700;
+  transition: color 250ms cubic-bezier(0.34, 0.1, 0.64, 1),
+    opacity 250ms cubic-bezier(0.34, 0.1, 0.64, 1),
+    transform 250ms cubic-bezier(0.34, 0.1, 0.64, 1);
+  will-change: color, opacity, transform;
+}
+
+.feature-card:hover .feature-card__number {
+  animation: numberPop 250ms cubic-bezier(0.34, 0.1, 0.64, 1) forwards;
+}
+
+/**
+ * Card icon animation
+ * Default: Gold color, 40px
+ * Hover: Lighter gold, slight rotation, scale-up
+ */
+@keyframes iconPop {
+  from {
+    color: #d4af37;
+    transform: rotate(0deg) scale(1);
+  }
+  to {
+    color: #e8c547;
+    transform: rotate(5deg) scale(1.05);
+  }
+}
+
+.feature-card__icon {
+  color: #d4af37;
+  font-size: 40px;
+  transition: color 250ms cubic-bezier(0.34, 0.1, 0.64, 1),
+    transform 250ms cubic-bezier(0.34, 0.1, 0.64, 1);
+  will-change: color, transform;
+  transform-origin: center;
+}
+
+.feature-card:hover .feature-card__icon {
+  animation: iconPop 250ms cubic-bezier(0.34, 0.1, 0.64, 1) forwards;
+}
+
+/* ============================================================================
+   FOOTER LINK ANIMATIONS
+   ============================================================================ */
+
+/**
+ * Footer link hover effect
+ * - Color: Gray → Gold (#d4af37)
+ * - Transform: translateX(4px)
+ * - Duration: 200ms
+ */
+@keyframes footerLinkHover {
+  from {
+    color: #94a3b8;
+    transform: translateX(0);
+  }
+  to {
+    color: #d4af37;
+    transform: translateX(4px);
+  }
+}
+
+.footer__link {
+  color: #94a3b8;
+  transition: color 200ms cubic-bezier(0.34, 0.1, 0.64, 1),
+    transform 200ms cubic-bezier(0.34, 0.1, 0.64, 1);
+  will-change: color, transform;
+}
+
+.footer__link:hover {
+  animation: footerLinkHover 200ms cubic-bezier(0.34, 0.1, 0.64, 1) forwards;
+}
+
+/* ============================================================================
+   SECTION HEADING ANIMATIONS
+   ============================================================================ */
+
+/**
+ * Section heading reveal
+ * - Used for major section titles
+ * - Duration: 800ms
+ */
+@keyframes sectionHeadingIn {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.section-heading {
+  animation: sectionHeadingIn 800ms cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+  will-change: opacity, transform;
+}
+
+/* ============================================================================
+   ACCESSIBILITY & PERFORMANCE OPTIMIZATIONS
+   ============================================================================ */
+
+/**
+ * Respect user motion preferences
+ * Disable animations for users who prefer reduced motion
+ */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/**
+ * Mobile optimization
+ * Reduce animation duration and disable will-change on lower-end devices
+ */
+@media (max-width: 768px) {
+  .hero-overline,
+  .hero-headline,
+  .hero-subtext,
+  .hero-buttons,
+  .navbar__logo,
+  .reveal-on-scroll,
+  .feature-card,
+  .navbar__button--primary,
+  .navbar__button--secondary {
+    will-change: auto;
+  }
+
+  /* Shorter animations on mobile for snappier feel */
+  .hero-overline {
+    animation-duration: 0.6s;
+  }
+
+  .hero-headline {
+    animation-duration: 0.6s;
+    animation-delay: 0.15s;
+  }
+
+  .hero-subtext {
+    animation-duration: 0.6s;
+    animation-delay: 0.3s;
+  }
+
+  .hero-buttons {
+    animation-duration: 0.6s;
+    animation-delay: 0.45s;
+  }
+
+  /* Reduce scroll animation duration */
+  .reveal-on-scroll.is-visible,
+  .reveal-on-scroll.is-visible--left,
+  .reveal-on-scroll.is-visible--right,
+  .reveal-on-scroll.is-visible--scale {
+    animation-duration: 500ms;
+  }
+
+  /* Reduce navbar animation */
+  .navbar {
+    transition-duration: 300ms;
+  }
+}
+
+/**
+ * Ultra-mobile optimization
+ * Disable complex animations on very small screens
+ */
+@media (max-width: 480px) {
+  .navbar.is-scrolled .navbar__logo {
+    transform: none;
+  }
+
+  .navbar__nav-link::after {
+    display: none;
+  }
+
+  .feature-card:hover {
+    animation: none;
+    transform: none;
+  }
+
+  .feature-card:hover .feature-card__number,
+  .feature-card:hover .feature-card__icon {
+    animation: none;
+    color: inherit;
+    transform: none;
+  }
+
+  .navbar__button--primary:hover,
+  .navbar__button--secondary:hover {
+    animation: none;
+    transform: none;
+  }
+}
+
+/**
+ * Dark mode color adjustments
+ */
+@media (prefers-color-scheme: dark) {
+  .navbar.is-scrolled {
+    background-color: rgba(20, 20, 20, 0.7);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.5);
+  }
+
+  .feature-card:hover {
+    box-shadow: 0 20px 40px rgba(212, 175, 55, 0.25);
+  }
+}
+
+/* ============================================================================
+   HIGH CONTRAST MODE SUPPORT
+   ============================================================================ */
+
+@media (prefers-contrast: more) {
+  .navbar__nav-link::after {
+    height: 3px;
+    background-color: #d4af37;
+  }
+
+  .feature-card {
+    border-width: 2px;
+  }
+
+  .navbar__button--secondary {
+    border-width: 2px;
+  }
+}
+
+/* ============================================================================
+   UTILITY ANIMATIONS
+   ============================================================================ */
+
+/**
+ * Generic fade-in animation
+ */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.fade-in {
+  animation: fadeIn 600ms cubic-bezier(0.34, 0.1, 0.64, 1) forwards;
+}
+
+/**
+ * Pulse animation for attention-grabbing elements
+ */
+@keyframes pulse {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+}
+
+.pulse {
+  animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}

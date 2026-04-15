@@ -1,0 +1,24 @@
+[14-Apr-2026 08:20:51 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function render_tour_card() in /home/sherlock/Local Sites/raikottours/app/public/wp-content/themes/raikot-tours/template-parts/tours-carousel.php:83
+Stack trace:
+#0 /home/sherlock/Local Sites/raikottours/app/public/wp-includes/template.php(816): require()
+#1 /home/sherlock/Local Sites/raikottours/app/public/wp-includes/template.php(749): load_template('/home/sherlock/...', false, Array)
+#2 /home/sherlock/Local Sites/raikottours/app/public/wp-includes/general-template.php(206): locate_template(Array, true, false, Array)
+#3 /home/sherlock/Local Sites/raikottours/app/public/wp-content/themes/raikot-tours/front-page.php(23): get_template_part('template-parts/...')
+#4 /home/sherlock/Local Sites/raikottours/app/public/wp-includes/template-loader.php(132): include('/home/sherlock/...')
+#5 /home/sherlock/Local Sites/raikottours/app/public/wp-blog-header.php(19): require_once('/home/sherlock/...')
+#6 /home/sherlock/Local Sites/raikottours/app/public/index.php(17): require('/home/sherlock/...')
+#7 {main}
+  thrown in /home/sherlock/Local Sites/raikottours/app/public/wp-content/themes/raikot-tours/template-parts/tours-carousel.php on line 83
+[14-Apr-2026 08:22:24 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function render_tour_card() in /home/sherlock/Local Sites/raikottours/app/public/wp-content/themes/raikot-tours/template-parts/tours-carousel.php:83
+Stack trace:
+#0 /home/sherlock/Local Sites/raikottours/app/public/wp-includes/template.php(816): require()
+#1 /home/sherlock/Local Sites/raikottours/app/public/wp-includes/template.php(749): load_template('/home/sherlock/...', false, Array)
+#2 /home/sherlock/Local Sites/raikottours/app/public/wp-includes/general-template.php(206): locate_template(Array, true, false, Array)
+#3 /home/sherlock/Local Sites/raikottours/app/public/wp-content/themes/raikot-tours/front-page.php(23): get_template_part('template-parts/...')
+#4 /home/sherlock/Local Sites/raikottours/app/public/wp-includes/template-loader.php(132): include('/home/sherlock/...')
+#5 /home/sherlock/Local Sites/raikottours/app/public/wp-blog-header.php(19): require_once('/home/sherlock/...')
+#6 /home/sherlock/Local Sites/raikottours/app/public/index.php(17): require('/home/sherlock/...')
+#7 {main}
+  thrown in /home/sherlock/Local Sites/raikottours/app/public/wp-content/themes/raikot-tours/template-parts/tours-carousel.php on line 83
+[14-Apr-2026 19:45:56 UTC] PHP Parse error:  syntax error, unexpected token "?" in /home/sherlock/Local Sites/raikottours/app/public/wp-content/themes/raikot-tours/template-parts/cluster-carousel.php on line 123
+[14-Apr-2026 19:48:49 UTC] PHP Parse error:  syntax error, unexpected token "?" in /home/sherlock/Local Sites/raikottours/app/public/wp-content/themes/raikot-tours/template-parts/cluster-carousel.php on line 123

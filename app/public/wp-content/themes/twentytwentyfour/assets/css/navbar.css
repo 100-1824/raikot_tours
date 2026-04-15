@@ -1,0 +1,552 @@
+/**
+ * Navbar Styles - Premium Raikot Tours
+ * Features: Glassmorphism, responsive design, scroll state, animations
+ * Architecture: BEM methodology
+ *
+ * @since 1.0
+ * @package Twenty Twenty-Four
+ */
+
+/* ============================================================================
+   Navbar Container & Base Styles
+   ========================================================================== */
+
+.navbar {
+	position: fixed;
+	top: 0;
+	left: 0;
+	right: 0;
+	width: 100%;
+	z-index: 40;
+	transition: all 0.4s ease-in-out;
+	background-color: transparent;
+	backdrop-filter: none;
+	border-bottom: 1px solid transparent;
+	padding: 0;
+	margin: 0;
+}
+
+/* Navbar scroll state - sticky glassmorphism */
+.navbar--sticky {
+	background-color: rgba(15, 23, 42, 0.8);
+	backdrop-filter: blur(16px);
+	box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+	border-bottom-color: rgba(212, 175, 55, 0.1);
+}
+
+/* Main navbar wrapper */
+.navbar__container {
+	display: grid;
+	grid-template-columns: 1fr 2fr 1fr;
+	align-items: center;
+	justify-items: start;
+	max-width: 1400px;
+	margin: 0 auto;
+	padding: 1rem 2rem;
+	height: auto;
+	min-height: 70px;
+	gap: 2rem;
+}
+
+/* 3-Column Layout */
+.navbar__column {
+	display: flex;
+	align-items: center;
+	gap: 2rem;
+	width: 100%;
+}
+
+/* Left column - Logo */
+.navbar__column--left {
+	justify-self: start;
+	justify-content: flex-start;
+	flex: 0 0 auto;
+	min-width: auto;
+}
+
+/* Center column - Navigation links */
+.navbar__column--center {
+	justify-self: center;
+	justify-content: center;
+	flex: 1;
+	display: none;
+	gap: 3rem;
+}
+
+/* Right column - Action buttons */
+.navbar__column--right {
+	justify-self: end;
+	justify-content: flex-end;
+	flex: 0 0 auto;
+	display: flex;
+	align-items: center;
+	gap: 1rem;
+}
+
+/* ============================================================================
+   Logo Section
+   ========================================================================== */
+
+.navbar__logo {
+	display: flex;
+	align-items: center;
+	gap: 1rem;
+	text-decoration: none;
+	transition: opacity 0.3s ease;
+	color: #ffffff;
+	font-size: 1.25rem;
+	font-weight: 700;
+	letter-spacing: 0.5px;
+}
+
+.navbar__logo:hover {
+	opacity: 0.8;
+}
+
+.navbar__logo img {
+	height: 60px;
+	width: auto;
+	object-fit: contain;
+	display: block;
+}
+
+.navbar__brand {
+	display: none;
+	font-size: 1.25rem;
+	font-weight: 700;
+	color: #ffffff;
+	letter-spacing: 0.5px;
+}
+
+.navbar__brand span {
+	color: #d4af37;
+}
+
+/* ============================================================================
+   Navigation Links
+   ========================================================================== */
+
+.navbar__nav {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+	display: flex;
+	gap: 3rem;
+	align-items: center;
+}
+
+.navbar__nav-item {
+	position: relative;
+	margin: 0;
+	padding: 0;
+}
+
+.navbar__nav-link {
+	color: #e2e8f0;
+	text-decoration: none;
+	font-size: 0.95rem;
+	font-weight: 500;
+	transition: color 0.3s ease;
+	position: relative;
+	display: block;
+	padding: 0.5rem 0;
+}
+
+/* Expanding underline animation */
+.navbar__nav-link::after {
+	content: '';
+	position: absolute;
+	bottom: -4px;
+	left: 50%;
+	width: 0;
+	height: 2px;
+	background: linear-gradient(90deg, #d4af37, #e8c547);
+	transform: translateX(-50%);
+	transition: width 0.25s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.navbar__nav-link:hover {
+	color: #f59e0b;
+}
+
+.navbar__nav-link:hover::after {
+	width: 100%;
+}
+
+.navbar__nav-link--active {
+	color: #d4af37;
+}
+
+.navbar__nav-link--active::after {
+	width: 100%;
+}
+
+/* ============================================================================
+   Action Buttons
+   ========================================================================== */
+
+.navbar__button {
+	padding: 0.625rem 1.5rem;
+	border-radius: 0.5rem;
+	font-size: 0.9rem;
+	font-weight: 600;
+	text-decoration: none;
+	border: none;
+	cursor: pointer;
+	transition: all 0.3s cubic-bezier(0.34, 0.1, 0.64, 1);
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	gap: 0.5rem;
+	white-space: nowrap;
+}
+
+/* Secondary button - Client Portal (outline) */
+.navbar__button--secondary {
+	color: #f3f4f6;
+	background-color: transparent;
+	border: 1.5px solid #d4af37;
+	transition: all 0.25s cubic-bezier(0.34, 0.1, 0.64, 1);
+}
+
+.navbar__button--secondary:hover {
+	background-color: rgba(212, 175, 55, 0.1);
+	border-color: #e8c547;
+	color: #e8c547;
+	transform: translateY(-2px);
+}
+
+.navbar__button--secondary:active {
+	transform: translateY(0);
+}
+
+.navbar__button--secondary:focus {
+	outline: 2px solid #e8c547;
+	outline-offset: 2px;
+}
+
+/* Primary button - Book Expedition (gold) */
+.navbar__button--primary {
+	background: linear-gradient(135deg, #d4af37 0%, #e8c547 100%);
+	color: #0f172a;
+	border: none;
+	box-shadow: 0 4px 12px rgba(212, 175, 55, 0.3);
+	position: relative;
+	overflow: hidden;
+	font-weight: 600;
+	padding: 0.75rem 1.75rem;
+}
+
+.navbar__button--primary::before {
+	content: '';
+	position: absolute;
+	top: 0;
+	left: -100%;
+	width: 100%;
+	height: 100%;
+	background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+	transition: left 0.6s ease;
+	z-index: 1;
+	pointer-events: none;
+}
+
+.navbar__button--primary:hover {
+	background: linear-gradient(135deg, #b5922e 0%, #d4af37 100%);
+	box-shadow: 0 8px 20px rgba(212, 175, 55, 0.5);
+	transform: scale(1.05);
+}
+
+.navbar__button--primary:hover::before {
+	left: 100%;
+}
+
+.navbar__button--primary:active {
+	transform: scale(0.98);
+}
+
+.navbar__button--primary:focus {
+	outline: 2px solid #e8c547;
+	outline-offset: 2px;
+}
+
+/* ============================================================================
+   Hamburger Menu (Mobile)
+   ========================================================================== */
+
+.navbar__hamburger {
+	display: none;
+	flex-direction: column;
+	gap: 6px;
+	background: transparent;
+	border: none;
+	cursor: pointer;
+	padding: 0.5rem;
+	transition: all 0.3s ease;
+	z-index: 41;
+}
+
+.navbar__hamburger:hover {
+	opacity: 0.8;
+}
+
+.navbar__hamburger span {
+	display: block;
+	width: 24px;
+	height: 2px;
+	background-color: #f3f4f6;
+	border-radius: 2px;
+	transition: all 0.3s cubic-bezier(0.34, 0.1, 0.64, 1);
+}
+
+/* Hamburger active state */
+.navbar__hamburger.active span:nth-child(1) {
+	transform: rotate(45deg) translate(8px, 8px);
+}
+
+.navbar__hamburger.active span:nth-child(2) {
+	opacity: 0;
+}
+
+.navbar__hamburger.active span:nth-child(3) {
+	transform: rotate(-45deg) translate(7px, -7px);
+}
+
+.navbar__hamburger:focus {
+	outline: 2px solid #d4af37;
+	outline-offset: 2px;
+}
+
+/* ============================================================================
+   Mobile Navigation Menu
+   ========================================================================== */
+
+.navbar__mobile-menu {
+	display: none;
+	position: fixed;
+	top: 70px;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	background: rgba(15, 23, 42, 0.95);
+	backdrop-filter: blur(12px);
+	border-top: 1px solid rgba(212, 175, 55, 0.1);
+	padding: 1.5rem 0;
+	animation: slideDown 0.3s cubic-bezier(0.34, 0.1, 0.64, 1) forwards;
+	z-index: 39;
+	overflow-y: auto;
+}
+
+.navbar__mobile-menu.active {
+	display: block;
+}
+
+@keyframes slideDown {
+	from {
+		opacity: 0;
+		transform: translateY(-10px);
+	}
+	to {
+		opacity: 1;
+		transform: translateY(0);
+	}
+}
+
+.navbar__mobile-menu .navbar__nav {
+	flex-direction: column;
+	gap: 0;
+	padding: 0 1.5rem;
+	width: 100%;
+}
+
+.navbar__mobile-menu .navbar__nav-item {
+	width: 100%;
+}
+
+.navbar__mobile-menu .navbar__nav-link {
+	display: block;
+	padding: 1rem 0;
+	border-bottom: 1px solid rgba(212, 175, 55, 0.1);
+	font-size: 1rem;
+}
+
+.navbar__mobile-menu .navbar__nav-link::after {
+	display: none;
+}
+
+.navbar__mobile-menu .navbar__nav-link:hover {
+	padding-left: 0.5rem;
+}
+
+/* Mobile menu buttons */
+.navbar__mobile-menu-buttons {
+	display: flex;
+	flex-direction: column;
+	gap: 1rem;
+	padding: 1.5rem;
+	border-top: 1px solid rgba(212, 175, 55, 0.1);
+	margin-top: 1rem;
+}
+
+.navbar__mobile-menu-buttons .navbar__button {
+	width: 100%;
+	justify-content: center;
+}
+
+/* ============================================================================
+   Responsive Breakpoints
+   ========================================================================== */
+
+/* Mobile (< 768px) */
+@media (max-width: 767px) {
+	.navbar__container {
+		grid-template-columns: 1fr auto auto;
+		gap: 0.5rem;
+		padding: 0.75rem 1.5rem;
+		min-height: 60px;
+	}
+
+	.navbar__column--center {
+		display: none !important;
+	}
+
+	.navbar__hamburger {
+		display: flex;
+	}
+
+	.navbar__column--right {
+		gap: 0.5rem;
+		justify-content: flex-end;
+	}
+
+	.navbar__button {
+		padding: 0.5rem 1rem;
+		font-size: 0.85rem;
+	}
+
+	/* Hide button text on small screens, show icon only */
+	.navbar__button span:not([class]) {
+		display: none;
+	}
+}
+
+/* Tablet (768px - 1023px) */
+@media (min-width: 768px) and (max-width: 1023px) {
+	.navbar__container {
+		grid-template-columns: 1fr auto 1fr;
+		gap: 1rem;
+		padding: 1rem 2.5rem;
+	}
+
+	.navbar__column--center {
+		display: flex !important;
+		gap: 2rem;
+	}
+
+	.navbar__hamburger {
+		display: none;
+	}
+
+	.navbar__mobile-menu {
+		display: none !important;
+	}
+
+	.navbar__brand {
+		display: inline;
+	}
+
+	.navbar__button {
+		padding: 0.75rem 1.75rem;
+	}
+}
+
+/* Desktop (1024px+) */
+@media (min-width: 1024px) {
+	.navbar__container {
+		grid-template-columns: 1fr 2fr 1fr;
+		gap: 2rem;
+		padding: 1rem 3rem;
+	}
+
+	.navbar__column--center {
+		display: flex !important;
+		justify-self: center;
+	}
+
+	.navbar__hamburger {
+		display: none !important;
+	}
+
+	.navbar__mobile-menu {
+		display: none !important;
+	}
+
+	.navbar__brand {
+		display: inline;
+	}
+
+	.navbar__nav {
+		gap: 4rem;
+	}
+
+	.navbar__column--right {
+		gap: 1.5rem;
+	}
+
+	.navbar__button {
+		padding: 0.75rem 2rem;
+	}
+}
+
+/* ============================================================================
+   Accessibility & Utility Classes
+   ========================================================================== */
+
+.navbar a:focus-visible,
+.navbar button:focus-visible {
+	outline: 2px solid #d4af37;
+	outline-offset: 2px;
+}
+
+/* Utility for screen readers */
+.sr-only {
+	position: absolute;
+	width: 1px;
+	height: 1px;
+	padding: 0;
+	margin: -1px;
+	overflow: hidden;
+	clip: rect(0, 0, 0, 0);
+	white-space: nowrap;
+	border-width: 0;
+}
+
+/* Reduced motion support */
+@media (prefers-reduced-motion: reduce) {
+	.navbar,
+	.navbar * {
+		animation-duration: 0.01ms !important;
+		animation-iteration-count: 1 !important;
+		transition-duration: 0.01ms !important;
+	}
+}
+
+/* ============================================================================
+   Print Styles
+   ========================================================================== */
+
+@media print {
+	.navbar {
+		position: static;
+		background: transparent;
+		backdrop-filter: none;
+		border: none;
+	}
+
+	.navbar__hamburger {
+		display: none !important;
+	}
+
+	.navbar__mobile-menu {
+		display: none !important;
+	}
+}

@@ -1,0 +1,391 @@
+/**
+ * Hero Section Styles - Premium Raikot Tours
+ * Features: Staggered animations, serif typography, gold button effects
+ * Architecture: Animations optimized for GPU acceleration
+ *
+ * @since 1.0
+ * @package Twenty Twenty-Four
+ */
+
+/* ============================================================================
+   Keyframe Animations
+   ========================================================================== */
+
+@keyframes fadeInSlideUp {
+	from {
+		opacity: 0;
+		transform: translateY(30px);
+	}
+	to {
+		opacity: 1;
+		transform: translateY(0);
+	}
+}
+
+@keyframes fadeInScale {
+	from {
+		opacity: 0;
+		transform: scale(0.95);
+	}
+	to {
+		opacity: 1;
+		transform: scale(1);
+	}
+}
+
+@keyframes goldGlow {
+	0%, 100% {
+		box-shadow: 0 8px 20px rgba(212, 175, 55, 0.3);
+	}
+	50% {
+		box-shadow: 0 12px 30px rgba(212, 175, 55, 0.5);
+	}
+}
+
+/* ============================================================================
+   Hero Container
+   ========================================================================== */
+
+.hero {
+	position: relative;
+	width: 100%;
+	min-height: 100vh;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	padding: 80px 2rem 2rem;
+	margin-top: 70px;
+	overflow: hidden;
+	background-size: cover;
+	background-position: center;
+	background-attachment: fixed;
+}
+
+/* Dark overlay for contrast */
+.hero::before {
+	content: '';
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	background: linear-gradient(180deg, rgba(0, 0, 0, 0.3) 0%, rgba(0, 0, 0, 0.5) 100%);
+	z-index: 1;
+	pointer-events: none;
+}
+
+/* ============================================================================
+   Hero Content Wrapper
+   ========================================================================== */
+
+.hero__content {
+	position: relative;
+	z-index: 2;
+	max-width: 1200px;
+	width: 100%;
+	padding: 0 2rem;
+	text-align: center;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	gap: 1.5rem;
+}
+
+/* ============================================================================
+   Hero Overline (PREMIUM EXPEDITIONS)
+   ========================================================================== */
+
+.hero__overline {
+	font-size: 0.875rem;
+	font-weight: 600;
+	letter-spacing: 3px;
+	text-transform: uppercase;
+	color: #d4af37;
+	margin: 0;
+	opacity: 0;
+	animation: fadeInSlideUp 0.8s cubic-bezier(0.34, 1.56, 0.64, 1) 0ms forwards;
+	will-change: transform, opacity;
+}
+
+/* ============================================================================
+   Hero Headline (The Earth Breathes)
+   ========================================================================== */
+
+.hero__headline {
+	font-family: 'Cardo', 'Georgia', 'Garamond', serif;
+	font-size: clamp(2.25rem, 8vw, 4.5rem);
+	font-weight: 600;
+	line-height: 1.2;
+	color: #ffffff;
+	margin: 0;
+	padding: 0 1rem;
+	opacity: 0;
+	animation: fadeInSlideUp 0.8s cubic-bezier(0.34, 1.56, 0.64, 1) 200ms forwards;
+	will-change: transform, opacity;
+}
+
+/* ============================================================================
+   Hero Subtext
+   ========================================================================== */
+
+.hero__subtext {
+	font-family: 'Inter', 'Segoe UI', 'Roboto', '-apple-system', sans-serif;
+	font-size: 1rem;
+	line-height: 1.6;
+	color: rgba(255, 255, 255, 0.9);
+	max-width: 600px;
+	margin: 0;
+	padding: 0 1rem;
+	opacity: 0;
+	animation: fadeInSlideUp 0.8s cubic-bezier(0.34, 1.56, 0.64, 1) 400ms forwards;
+	will-change: transform, opacity;
+}
+
+/* ============================================================================
+   Hero Button Group
+   ========================================================================== */
+
+.hero__buttons {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 1rem;
+	justify-content: center;
+	margin-top: 1.5rem;
+	opacity: 0;
+	animation: fadeInScale 0.8s cubic-bezier(0.34, 1.56, 0.64, 1) 600ms forwards;
+	will-change: transform, opacity;
+}
+
+/* ============================================================================
+   Hero Button Base
+   ========================================================================== */
+
+.hero__button {
+	padding: 0.75rem 1.75rem;
+	border-radius: 0.5rem;
+	font-size: 1rem;
+	font-weight: 600;
+	text-decoration: none;
+	border: none;
+	cursor: pointer;
+	transition: all 0.3s cubic-bezier(0.34, 0.1, 0.64, 1);
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	gap: 0.5rem;
+	position: relative;
+	overflow: hidden;
+}
+
+/* Primary button - EXPLORE / BESPOKE (gold) */
+.hero__button--primary {
+	background: linear-gradient(135deg, #d4af37 0%, #e8c547 100%);
+	color: #0f172a;
+	border: none;
+	box-shadow: 0 4px 12px rgba(212, 175, 55, 0.3);
+	padding: 0.875rem 2rem;
+}
+
+.hero__button--primary::before {
+	content: '';
+	position: absolute;
+	top: 0;
+	left: -100%;
+	width: 100%;
+	height: 100%;
+	background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+	transition: left 0.6s ease;
+	z-index: 1;
+	pointer-events: none;
+}
+
+.hero__button--primary:hover {
+	background: linear-gradient(135deg, #c9a227 0%, #d4af37 100%);
+	box-shadow: 0 8px 20px rgba(212, 175, 55, 0.5);
+	transform: scale(1.05);
+}
+
+.hero__button--primary:hover::before {
+	left: 100%;
+}
+
+.hero__button--primary:active {
+	transform: scale(0.98);
+}
+
+/* Secondary button - outline style */
+.hero__button--secondary {
+	background-color: transparent;
+	color: #ffffff;
+	border: 2px solid rgba(255, 255, 255, 0.8);
+	box-shadow: none;
+}
+
+.hero__button--secondary:hover {
+	background-color: rgba(255, 255, 255, 0.1);
+	border-color: #d4af37;
+	color: #d4af37;
+	transform: translateY(-2px);
+}
+
+.hero__button--secondary:active {
+	transform: translateY(0);
+}
+
+/* ============================================================================
+   Focus & Accessibility
+   ========================================================================== */
+
+.hero__button:focus-visible {
+	outline: 2px solid #d4af37;
+	outline-offset: 2px;
+}
+
+.hero__button:focus:not(:focus-visible) {
+	outline: none;
+}
+
+/* ============================================================================
+   Responsive Typography
+   ========================================================================== */
+
+/* Mobile (< 768px) */
+@media (max-width: 767px) {
+	.hero {
+		min-height: auto;
+		padding: 60px 1.5rem 2rem;
+		margin-top: 60px;
+	}
+
+	.hero__content {
+		gap: 1rem;
+	}
+
+	.hero__overline {
+		font-size: 0.75rem;
+		letter-spacing: 2px;
+	}
+
+	.hero__headline {
+		font-size: clamp(1.5rem, 6vw, 2.5rem);
+		padding: 0 0.5rem;
+	}
+
+	.hero__subtext {
+		font-size: 0.9rem;
+		padding: 0 0.5rem;
+	}
+
+	.hero__buttons {
+		flex-direction: column;
+		width: 100%;
+		gap: 0.75rem;
+		margin-top: 1rem;
+	}
+
+	.hero__button {
+		width: 100%;
+		padding: 0.75rem 1.5rem;
+		font-size: 0.95rem;
+	}
+
+	.hero__button--primary {
+		padding: 0.875rem 1.5rem;
+	}
+}
+
+/* Tablet (768px - 1023px) */
+@media (min-width: 768px) and (max-width: 1023px) {
+	.hero {
+		padding: 80px 2rem 2rem;
+		margin-top: 70px;
+	}
+
+	.hero__overline {
+		font-size: 0.875rem;
+	}
+
+	.hero__headline {
+		font-size: clamp(2.5rem, 7vw, 4rem);
+	}
+
+	.hero__subtext {
+		font-size: 1rem;
+	}
+
+	.hero__buttons {
+		gap: 1rem;
+	}
+}
+
+/* Desktop (1024px+) */
+@media (min-width: 1024px) {
+	.hero {
+		padding: 80px 2rem 2rem;
+		margin-top: 70px;
+	}
+
+	.hero__headline {
+		font-size: clamp(3.5rem, 8vw, 4.5rem);
+	}
+
+	.hero__buttons {
+		gap: 1.5rem;
+	}
+
+	.hero__button {
+		padding: 0.875rem 2.5rem;
+		font-size: 1rem;
+	}
+}
+
+/* ============================================================================
+   Scroll-specific adjustments
+   ========================================================================== */
+
+/* When page has scrolled, adjust hero margins */
+body.has-scrolled .hero {
+	margin-top: 0;
+	padding-top: 70px;
+}
+
+/* ============================================================================
+   Reduced Motion Support
+   ========================================================================== */
+
+@media (prefers-reduced-motion: reduce) {
+	.hero__overline,
+	.hero__headline,
+	.hero__subtext,
+	.hero__buttons {
+		animation: none;
+		opacity: 1;
+	}
+
+	.hero__button,
+	.hero__button--primary,
+	.hero__button--secondary {
+		transition: none;
+	}
+}
+
+/* ============================================================================
+   Print Styles
+   ========================================================================== */
+
+@media print {
+	.hero {
+		margin: 0;
+		padding: 0;
+		background: transparent;
+		min-height: auto;
+	}
+
+	.hero::before {
+		display: none;
+	}
+
+	.hero__button {
+		display: none;
+	}
+}

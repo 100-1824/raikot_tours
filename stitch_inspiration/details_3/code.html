@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,200..800;1,6..72,200..800&amp;family=Inter:wght@100..900&amp;family=Playfair+Display:ital,wght@0,400..900;1,400..900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "primary-container": "#151b2d",
+                    "primary-fixed-dim": "#c0c6de",
+                    "outline-variant": "#c6c6cd",
+                    "error-container": "#ffdad6",
+                    "error": "#ba1a1a",
+                    "surface-container-high": "#e6e8ea",
+                    "surface": "#f7f9fb",
+                    "secondary-fixed": "#ffe088",
+                    "on-secondary-fixed-variant": "#574500",
+                    "on-secondary-container": "#745c00",
+                    "on-secondary-fixed": "#241a00",
+                    "on-error-container": "#93000a",
+                    "inverse-surface": "#2d3133",
+                    "tertiary-fixed-dim": "#e9c176",
+                    "surface-variant": "#e0e3e5",
+                    "surface-container-lowest": "#ffffff",
+                    "primary": "#000000",
+                    "secondary-fixed-dim": "#e9c349",
+                    "surface-container-highest": "#e0e3e5",
+                    "inverse-primary": "#c0c6de",
+                    "surface-bright": "#f7f9fb",
+                    "surface-dim": "#d8dadc",
+                    "background": "#f7f9fb",
+                    "secondary": "#735c00",
+                    "on-error": "#ffffff",
+                    "outline": "#76767d",
+                    "on-surface": "#191c1e",
+                    "on-tertiary": "#ffffff",
+                    "on-background": "#191c1e",
+                    "on-tertiary-container": "#a17f3b",
+                    "primary-fixed": "#dce1fb",
+                    "on-primary-container": "#7d839a",
+                    "surface-container": "#eceef0",
+                    "on-primary-fixed": "#151b2d",
+                    "surface-container-low": "#f2f4f6",
+                    "on-primary": "#ffffff",
+                    "secondary-container": "#fed65b",
+                    "on-tertiary-fixed": "#261900",
+                    "inverse-on-surface": "#eff1f3",
+                    "tertiary": "#000000",
+                    "on-secondary": "#ffffff",
+                    "tertiary-container": "#261900",
+                    "on-surface-variant": "#46464c",
+                    "tertiary-fixed": "#ffdea5",
+                    "on-tertiary-fixed-variant": "#5d4201",
+                    "surface-tint": "#585e73",
+                    "on-primary-fixed-variant": "#40465a"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.125rem",
+                    "lg": "0.25rem",
+                    "xl": "0.5rem",
+                    "full": "0.75rem"
+            },
+            "fontFamily": {
+                    "headline": ["Playfair Display", "serif"],
+                    "body": ["Inter", "sans-serif"],
+                    "label": ["Inter", "sans-serif"]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 24;
+        }
+        .signature-gold-gradient {
+            background: linear-gradient(135deg, #c5a059 0%, #f7ef8a 50%, #aa8913 100%);
+        }
+        .glass-nav {
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+        }
+    </style>
+</head>
+<body class="bg-[#f8fafc] font-body text-on-surface selection:bg-secondary-fixed">
+<!-- TopNavBar -->
+<nav class="fixed top-0 w-full z-50 bg-slate-950/40 backdrop-blur-xl flex justify-between items-center px-6 md:px-12 py-6 w-full">
+<div class="font-serif text-2xl tracking-tighter text-white uppercase">RAIKOT</div>
+<!-- Desktop Links -->
+<div class="hidden md:flex items-center gap-10">
+<a class="font-serif italic tracking-wide text-lg text-white/80 hover:text-white transition-colors" href="#">Expeditions</a>
+<a class="font-serif italic tracking-wide text-lg text-amber-400 border-b-2 border-amber-500 pb-1" href="#">Destinations</a>
+<a class="font-serif italic tracking-wide text-lg text-white/80 hover:text-white transition-colors" href="#">Heritage</a>
+<a class="font-serif italic tracking-wide text-lg text-white/80 hover:text-white transition-colors" href="#">Journal</a>
+</div>
+<div class="flex items-center gap-6">
+<button class="hidden md:block signature-gold-gradient text-on-secondary-fixed px-6 py-2 rounded-lg font-label font-semibold text-sm scale-95 active:opacity-80 transition-all">Book Now</button>
+<button class="text-white hover:bg-white/10 p-2 rounded-full transition-all duration-300">
+<span class="material-symbols-outlined">menu</span>
+</button>
+</div>
+</nav>
+<main class="pt-32 pb-24">
+<!-- Header Section -->
+<header class="px-6 md:px-12 mb-16 max-w-7xl mx-auto">
+<div class="flex flex-col md:flex-row md:items-end justify-between gap-8">
+<div class="max-w-2xl">
+<span class="text-secondary font-label tracking-[0.2em] uppercase text-xs mb-4 block">Curated Collections</span>
+<h1 class="font-headline text-5xl md:text-7xl text-primary leading-tight">Summit Prestige <br/><span class="italic font-light">Destinations</span></h1>
+</div>
+<div class="flex items-center gap-4 text-on-surface-variant font-label text-sm uppercase tracking-widest border-b border-outline-variant/30 pb-2">
+<span>Filter By Altitude</span>
+<span class="material-symbols-outlined text-sm">expand_more</span>
+</div>
+</div>
+</header>
+<!-- Gallery Grid (Bento Style) -->
+<section class="px-6 md:px-12 max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-12 gap-8">
+<!-- Card 1: Large Featured -->
+<div class="md:col-span-8 group relative overflow-hidden rounded-xl border border-secondary/20 bg-primary-container h-[600px]">
+<div class="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-105" data-alt="dramatic jagged mountain peak shrouded in dark clouds at dusk with moody alpenglow highlights on the ridges" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuBwUeukH717-CEbquYp01T7g7PcYU4aKG_j_tK-cArQd2OYUYdseFwB3U1KFr2KpTdMiw5ozF-y5gb4hJi7xogJi7WFXMwadURsMbRWoliBIqByq4fOLyfrJ2316sCqcUgFHxDx8_M8APbzZuXqqAjT49ZLhKfrRijmzjY--pcXr35Y1vpLSRNGoN-GA8HjOd5PMLxcKFok8zKT_DBlKBePmmi45SIA3xKkA_mSq8_oKlVvmrEqae_12TyBl6gBb9lh6myT_ZszdPQ')"></div>
+<div class="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/20 to-transparent opacity-80"></div>
+<div class="absolute bottom-0 left-0 p-8 md:p-12 w-full flex flex-col md:flex-row md:items-end justify-between gap-6">
+<div class="max-w-md">
+<div class="flex items-center gap-3 mb-4">
+<span class="px-3 py-1 bg-secondary/20 backdrop-blur-md border border-secondary/30 text-secondary-fixed text-[10px] uppercase tracking-widest rounded-full">High Altitude</span>
+<span class="text-white/60 text-[10px] uppercase tracking-widest">Karakoram Range</span>
+</div>
+<h3 class="font-headline text-4xl text-white mb-4">Nanga Parbat <br/><span class="italic font-light">The Killer Peak</span></h3>
+<p class="text-white/70 font-body text-sm leading-relaxed mb-6">Experience the raw majesty of the world's ninth highest mountain through a lens of absolute exclusivity.</p>
+<button class="signature-gold-gradient text-on-secondary-fixed px-8 py-3 rounded-lg font-label font-bold text-xs uppercase tracking-widest flex items-center gap-2 group-hover:shadow-[0_0_30px_rgba(212,175,55,0.3)] transition-all">
+                            View Details <span class="material-symbols-outlined text-sm">arrow_forward</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Card 2: Vertical Small -->
+<div class="md:col-span-4 group relative overflow-hidden rounded-xl border border-secondary/20 bg-primary-container h-[600px]">
+<div class="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-105" data-alt="serene alpine lake reflecting dark pine trees and snowy mountain peaks under a deep navy twilight sky" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuCnhXqzaYPIj4fZYzjlfqSdIbMhiKqmg20ZTI820e41uBQ5pN6G_FurSLwPZs1v3jtep-2o8W2CtVOnV7OEeSnSUKf4g47OJwWUHeuvTEXkiv4bqOwExHDwZmxSm8u4CoJEDlVHW-2u9bMKgP4sSoRpf-AjO2DEaQteNTj36nKw5M3XycwfqMJM5TXV0pzncDM-WjYWCTVA__oiA_FBz4uI2I0grC6zwzpBDjR6PnRpkfr-7hHWvSAxCSotciUdnglBpM_kVNPlpsI')"></div>
+<div class="absolute inset-0 bg-gradient-to-t from-slate-950 to-transparent opacity-90"></div>
+<div class="absolute bottom-0 left-0 p-8">
+<span class="text-secondary-fixed text-[10px] uppercase tracking-widest mb-2 block">Sanctuary</span>
+<h3 class="font-headline text-3xl text-white mb-4">Sheosar Lake</h3>
+<p class="text-white/60 font-body text-sm leading-relaxed mb-8">The heart of Deosai National Park, where the sky meets the earth in silence.</p>
+<button class="signature-gold-gradient text-on-secondary-fixed px-6 py-3 rounded-lg font-label font-bold text-xs uppercase tracking-widest flex items-center gap-2 transition-all">
+                        Explore <span class="material-symbols-outlined text-sm">explore</span>
+</button>
+</div>
+</div>
+<!-- Card 3: Horizontal Medium -->
+<div class="md:col-span-5 group relative overflow-hidden rounded-xl border border-secondary/20 bg-primary-container h-[450px]">
+<div class="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-105" data-alt="historical stone fortress nestled against a steep dark mountain side with warm interior lights glowing through windows" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuBkZ4cPZoRXSHUxTUncqb26D2NZYg_KVFO_fFesEyW-A1Zls_RXARyulD6WMKgKcRt1-gaK9HSQM1eFSBld5lIUVfZUU39Mks88WnevaiB4OreMNsOmUIbBDqinIaL33cqXO8_b7fG9JZxxBtyaC8Meqp41dEQ9Hjx-sooEwKPum6Vl16HSEOcsu8Va9X3KCvR3GzkwZsrj_xbBPYDiwPOzAShjCmS0TZNGvcsYIg9plEKgJl4RvUzU-BpuTeOhPxxeJdJH7Vsx4h4')"></div>
+<div class="absolute inset-0 bg-gradient-to-t from-slate-950/90 to-transparent"></div>
+<div class="absolute top-6 right-6">
+<span class="material-symbols-outlined text-white/40" style="font-variation-settings: 'FILL' 1;">bookmark</span>
+</div>
+<div class="absolute bottom-0 left-0 p-8">
+<h3 class="font-headline text-2xl text-white mb-2">Altit Fort</h3>
+<p class="text-white/60 font-body text-xs mb-6 uppercase tracking-widest">Hunza Valley • Heritage</p>
+<button class="signature-gold-gradient text-on-secondary-fixed px-6 py-3 rounded-lg font-label font-bold text-xs uppercase tracking-widest transition-all">
+                        View Details
+                    </button>
+</div>
+</div>
+<!-- Card 4: Horizontal Medium -->
+<div class="md:col-span-7 group relative overflow-hidden rounded-xl border border-secondary/20 bg-primary-container h-[450px]">
+<div class="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-105" data-alt="vast snowy mountain landscape under a starry night sky with the milky way clearly visible above the peaks" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuBEDIPz8O0HJf_1dqe0twzEaasCGAe8yLXFOoNaqantdv4-GifUCF51A_1pZJoNqJmHlWqhstitUhjGeWgPel1HJVjPrTHlU0eKnwKkxovBzkIbJodjoev61-2sTsZEmChClomxhyryBawPrwIv9q80jZH6GLKkOFOZq_BwFDxpqdh2ZwSvJ1LpsazcSsKtydv8wVJ37M69VbupkxMBhEjim8dHp2sTs1Vg1OKWQQGP0MNuZxaT1Z7T0PAala-kR_iNrMGBk5Ra5dg')"></div>
+<div class="absolute inset-0 bg-gradient-to-r from-slate-950 via-slate-950/40 to-transparent"></div>
+<div class="absolute inset-0 p-12 flex flex-col justify-center max-w-sm">
+<span class="text-amber-400 font-label text-[10px] uppercase tracking-[0.3em] mb-4">Celestial Series</span>
+<h3 class="font-headline text-4xl text-white mb-4 italic">Skardu Nightscape</h3>
+<p class="text-white/70 font-body text-sm leading-relaxed mb-6">A stargazer's private retreat at the edge of the world's highest plateau.</p>
+<div class="flex gap-4">
+<button class="signature-gold-gradient text-on-secondary-fixed px-6 py-3 rounded-lg font-label font-bold text-xs uppercase tracking-widest transition-all">
+                            View Details
+                        </button>
+</div>
+</div>
+</div>
+</section>
+<!-- Newsletter / Contact Teaser -->
+<section class="mt-32 px-6 md:px-12 max-w-4xl mx-auto text-center">
+<div class="bg-surface-container p-12 md:p-20 rounded-xl relative overflow-hidden">
+<div class="absolute top-0 left-1/2 -translate-x-1/2 w-px h-12 bg-secondary/30"></div>
+<h2 class="font-headline text-3xl md:text-5xl text-primary mb-6">Your Expedition Begins <br/><span class="italic font-light">With A Single Note</span></h2>
+<p class="text-on-surface-variant max-w-lg mx-auto mb-10 font-body leading-relaxed">Join our inner circle for priority access to seasonal openings and bespoke mountain itineraries.</p>
+<form class="flex flex-col md:flex-row gap-4 max-w-md mx-auto">
+<input class="flex-grow bg-transparent border-b-2 border-surface-dim focus:border-amber-500 transition-colors py-3 px-1 font-label text-sm outline-none placeholder:text-outline" placeholder="Your Email Address" type="email"/>
+<button class="font-label font-bold text-xs uppercase tracking-widest py-3 px-8 text-primary border-b-2 border-secondary">Inquire</button>
+</form>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="bg-slate-950 py-20 px-6 md:px-12">
+<div class="flex flex-col items-center gap-12 max-w-7xl mx-auto">
+<div class="font-serif text-3xl text-white tracking-widest">RAIKOT</div>
+<div class="flex flex-wrap justify-center gap-8 md:gap-16">
+<a class="font-sans text-xs uppercase tracking-widest text-slate-500 hover:text-amber-200 transition-colors" href="#">Privacy Policy</a>
+<a class="font-sans text-xs uppercase tracking-widest text-slate-500 hover:text-amber-200 transition-colors" href="#">Terms of Service</a>
+<a class="font-sans text-xs uppercase tracking-widest text-slate-500 hover:text-amber-200 transition-colors" href="#">Press</a>
+<a class="font-sans text-xs uppercase tracking-widest text-slate-500 hover:text-amber-200 transition-colors" href="#">Contact</a>
+</div>
+<div class="text-center">
+<p class="font-sans text-xs uppercase tracking-widest text-slate-400 opacity-60">© 2024 RAIKOT TOURS. THE PEAK OF LUXURY.</p>
+</div>
+</div>
+</footer>
+</body></html>
