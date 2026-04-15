@@ -1,0 +1,11 @@
+{
+  "timestamp": "2026-04-15T07:35:20.685Z",
+  "projectRoot": "/home/sherlock/Local Sites/raikottours",
+  "structure": {
+    "hasPackageJson": false,
+    "hasTsConfig": false,
+    "hasClaudeConfig": true,
+    "hasClaudeFlow": true
+  },
+  "scannedAt": 1776238520685
+}

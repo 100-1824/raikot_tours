@@ -1,0 +1,135 @@
+{
+  "running": true,
+  "startedAt": "2026-04-14T19:08:25.740Z",
+  "workers": {
+    "map": {
+      "runCount": 8,
+      "successCount": 8,
+      "failureCount": 0,
+      "averageDurationMs": 2.5,
+      "isRunning": false,
+      "nextRun": "2026-04-15T07:50:20.686Z",
+      "lastRun": "2026-04-15T07:35:20.686Z"
+    },
+    "audit": {
+      "runCount": 11,
+      "successCount": 11,
+      "failureCount": 0,
+      "averageDurationMs": 11178.636363636364,
+      "isRunning": false,
+      "nextRun": "2026-04-15T07:44:12.263Z",
+      "lastRun": "2026-04-15T07:34:12.256Z"
+    },
+    "optimize": {
+      "runCount": 8,
+      "successCount": 8,
+      "failureCount": 0,
+      "averageDurationMs": 11146.75,
+      "isRunning": false,
+      "nextRun": "2026-04-15T07:40:40.729Z",
+      "lastRun": "2026-04-15T07:40:49.805Z"
+    },
+    "consolidate": {
+      "runCount": 4,
+      "successCount": 4,
+      "failureCount": 0,
+      "averageDurationMs": 3.25,
+      "isRunning": false,
+      "nextRun": "2026-04-15T07:56:20.606Z",
+      "lastRun": "2026-04-15T07:26:20.605Z"
+    },
+    "testgaps": {
+      "runCount": 6,
+      "successCount": 6,
+      "failureCount": 0,
+      "averageDurationMs": 12753.333333333334,
+      "isRunning": false,
+      "nextRun": "2026-04-15T07:59:37.053Z",
+      "lastRun": "2026-04-15T07:39:37.052Z"
+    },
+    "predict": {
+      "runCount": 0,
+      "successCount": 0,
+      "failureCount": 0,
+      "averageDurationMs": 0,
+      "isRunning": false
+    },
+    "document": {
+      "runCount": 0,
+      "successCount": 0,
+      "failureCount": 0,
+      "averageDurationMs": 0,
+      "isRunning": false
+    }
+  },
+  "config": {
+    "autoStart": false,
+    "logDir": "/home/sherlock/Local Sites/raikottours/.claude-flow/logs",
+    "stateFile": "/home/sherlock/Local Sites/raikottours/.claude-flow/daemon-state.json",
+    "maxConcurrent": 2,
+    "workerTimeoutMs": 960000,
+    "resourceThresholds": {
+      "maxCpuLoad": 6.4,
+      "minFreeMemoryPercent": 10
+    },
+    "workers": [
+      {
+        "type": "map",
+        "intervalMs": 900000,
+        "offsetMs": 0,
+        "priority": "normal",
+        "description": "Codebase mapping",
+        "enabled": true
+      },
+      {
+        "type": "audit",
+        "intervalMs": 600000,
+        "offsetMs": 120000,
+        "priority": "critical",
+        "description": "Security analysis",
+        "enabled": true
+      },
+      {
+        "type": "optimize",
+        "intervalMs": 900000,
+        "offsetMs": 240000,
+        "priority": "high",
+        "description": "Performance optimization",
+        "enabled": true
+      },
+      {
+        "type": "consolidate",
+        "intervalMs": 1800000,
+        "offsetMs": 360000,
+        "priority": "low",
+        "description": "Memory consolidation",
+        "enabled": true
+      },
+      {
+        "type": "testgaps",
+        "intervalMs": 1200000,
+        "offsetMs": 480000,
+        "priority": "normal",
+        "description": "Test coverage analysis",
+        "enabled": true
+      },
+      {
+        "type": "predict",
+        "intervalMs": 600000,
+        "offsetMs": 0,
+        "priority": "low",
+        "description": "Predictive preloading",
+        "enabled": false
+      },
+      {
+        "type": "document",
+        "intervalMs": 3600000,
+        "offsetMs": 0,
+        "priority": "low",
+        "description": "Auto-documentation",
+        "enabled": false
+      }
+    ]
+  },
+  "savedAt": "2026-04-15T07:40:49.805Z"
+}

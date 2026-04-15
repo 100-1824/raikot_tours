@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>RAIKOT | Journeys</title>
+<!-- Google Fonts -->
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,200..800;1,6..72,200..800&amp;family=Inter:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<!-- Material Symbols -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "primary-container": "#151b2d",
+                        "primary-fixed-dim": "#c0c6de",
+                        "outline-variant": "#c6c6cd",
+                        "error-container": "#ffdad6",
+                        "error": "#ba1a1a",
+                        "surface-container-high": "#e6e8ea",
+                        "surface": "#f7f9fb",
+                        "secondary-fixed": "#ffe088",
+                        "on-secondary-fixed-variant": "#574500",
+                        "on-secondary-container": "#745c00",
+                        "on-secondary-fixed": "#241a00",
+                        "on-error-container": "#93000a",
+                        "inverse-surface": "#2d3133",
+                        "tertiary-fixed-dim": "#e9c176",
+                        "surface-variant": "#e0e3e5",
+                        "surface-container-lowest": "#ffffff",
+                        "primary": "#000000",
+                        "secondary-fixed-dim": "#e9c349",
+                        "surface-container-highest": "#e0e3e5",
+                        "inverse-primary": "#c0c6de",
+                        "surface-bright": "#f7f9fb",
+                        "surface-dim": "#d8dadc",
+                        "background": "#f7f9fb",
+                        "secondary": "#735c00",
+                        "on-error": "#ffffff",
+                        "outline": "#76767d",
+                        "on-surface": "#191c1e",
+                        "on-tertiary": "#ffffff",
+                        "on-background": "#191c1e",
+                        "on-tertiary-container": "#a17f3b",
+                        "primary-fixed": "#dce1fb",
+                        "on-primary-container": "#7d839a",
+                        "surface-container": "#eceef0",
+                        "on-primary-fixed": "#151b2d",
+                        "surface-container-low": "#f2f4f6",
+                        "on-primary": "#ffffff",
+                        "secondary-container": "#fed65b",
+                        "on-tertiary-fixed": "#261900",
+                        "inverse-on-surface": "#eff1f3",
+                        "tertiary": "#000000",
+                        "on-secondary": "#ffffff",
+                        "tertiary-container": "#261900",
+                        "on-surface-variant": "#46464c",
+                        "tertiary-fixed": "#ffdea5",
+                        "on-tertiary-fixed-variant": "#5d4201",
+                        "surface-tint": "#585e73",
+                        "on-primary-fixed-variant": "#40465a"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "fontFamily": {
+                        "headline": ["Newsreader", "serif"],
+                        "body": ["Inter", "sans-serif"],
+                        "label": ["Inter", "sans-serif"]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 24;
+            vertical-align: middle;
+        }
+        .alpenglow-gradient {
+            background: linear-gradient(135deg, #c5a059 0%, #f7ef8a 50%, #aa8913 100%);
+        }
+        .glass-nav {
+            background: rgba(2, 6, 23, 0.4);
+            backdrop-filter: blur(20px);
+        }
+    </style>
+</head>
+<body class="bg-surface font-body text-on-surface antialiased">
+<!-- TopNavBar -->
+<nav class="fixed top-0 w-full z-50 flex justify-between items-center px-12 py-6 glass-nav">
+<div class="font-headline text-2xl tracking-tighter text-white uppercase">RAIKOT</div>
+<div class="hidden md:flex items-center space-x-10">
+<a class="font-headline italic tracking-wide text-lg text-white/80 hover:text-white transition-colors" href="#">Expeditions</a>
+<a class="font-headline italic tracking-wide text-lg text-amber-400 border-b-2 border-amber-500 pb-1" href="#">Destinations</a>
+<a class="font-headline italic tracking-wide text-lg text-white/80 hover:text-white transition-colors" href="#">Heritage</a>
+<a class="font-headline italic tracking-wide text-lg text-white/80 hover:text-white transition-colors" href="#">Journal</a>
+</div>
+<div class="flex items-center gap-6">
+<button class="hidden md:block alpenglow-gradient px-6 py-2 text-on-secondary-fixed text-xs font-bold uppercase tracking-widest rounded-md hover:opacity-90 transition-all scale-95 active:opacity-80">
+                Book Now
+            </button>
+<span class="material-symbols-outlined text-white text-2xl cursor-pointer">menu</span>
+</div>
+</nav>
+<main class="pt-32 pb-20">
+<!-- Hero Section -->
+<header class="px-12 mb-20">
+<div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-12 gap-8 items-end">
+<div class="md:col-span-7">
+<h1 class="font-headline text-6xl md:text-8xl text-primary leading-none mb-6">Unveiling the <br/><span class="italic text-secondary">High Altitudes</span></h1>
+<p class="font-body text-on-surface-variant max-w-md text-lg leading-relaxed">Curated luxury expeditions through the Karakoram and Himalayan ranges. Experience the summit prestige of Raikot.</p>
+</div>
+<div class="md:col-span-5 flex justify-end">
+<div class="flex gap-4 items-center">
+<span class="text-xs uppercase tracking-widest font-bold text-outline">Filter Journeys</span>
+<div class="h-[1px] w-12 bg-outline-variant"></div>
+<span class="material-symbols-outlined text-secondary text-3xl">tune</span>
+</div>
+</div>
+</div>
+</header>
+<!-- Featured Journey: Skardu & Shangrila -->
+<section class="px-12 mb-32">
+<div class="max-w-7xl mx-auto">
+<div class="relative group overflow-hidden bg-surface-container-lowest flex flex-col md:flex-row shadow-sm">
+<div class="md:w-3/5 h-[600px] overflow-hidden">
+<img alt="Skardu Valley" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" data-alt="Cinematic wide shot of Skardu Valley with turquoise Shangrila lake and towering jagged snow-capped peaks in golden hour sunlight" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDs1oj46h0lW-DTUcs9cvgvg2rmv_F901JB7QTtUjHunwbEp1svL-SSMwKtQ0Fo8xgy2sOsLaVtAf7ga9p_zG1Mr1KgOurlgXfja71-h7CsSQto1weJEsoDD29eSJUUOpKLU61zL9cRfDb8YZurhuuK-kt8jMI9gHtz28WFrLG_xht_1IrwieeOjuduzjQbx7WQmHh5US3G7XLalfvRqUBgMSecNWyppJ2SGZPg2CrtX0DAOu5m0mMr-3dkE3FaYSuYdlNW6bOaO3Y"/>
+</div>
+<div class="md:w-2/5 p-12 md:p-16 flex flex-col justify-center bg-surface-container-lowest">
+<div class="mb-4 flex items-center gap-2">
+<span class="w-8 h-[1px] bg-secondary"></span>
+<span class="text-xs font-bold uppercase tracking-[0.3em] text-secondary">Signature Series</span>
+</div>
+<h2 class="font-headline text-5xl mb-6 text-primary">Skardu &amp; <br/><span class="italic">Shangrila</span></h2>
+<div class="space-y-6 mb-10">
+<div class="flex items-start gap-4">
+<span class="material-symbols-outlined text-secondary" style="font-variation-settings: 'FILL' 1;">calendar_today</span>
+<div>
+<p class="text-xs font-bold uppercase tracking-widest text-outline">Duration</p>
+<p class="text-sm font-medium">10 Days, 9 Nights</p>
+</div>
+</div>
+<div class="flex items-start gap-4">
+<span class="material-symbols-outlined text-secondary" style="font-variation-settings: 'FILL' 1;">landscape</span>
+<div>
+<p class="text-xs font-bold uppercase tracking-widest text-outline">Elevation</p>
+<p class="text-sm font-medium">Max Altitude 4,115m</p>
+</div>
+</div>
+</div>
+<button class="group flex items-center gap-4 text-primary font-bold text-sm uppercase tracking-widest">
+                            Explore Itinerary
+                            <span class="h-8 w-8 rounded-full border border-outline-variant flex items-center justify-center transition-all group-hover:bg-secondary group-hover:text-white">
+<span class="material-symbols-outlined text-sm">arrow_forward</span>
+</span>
+</button>
+</div>
+</div>
+</div>
+</section>
+<!-- Asymmetric Grid for More Journeys -->
+<section class="px-12 mb-32 bg-surface-container-low py-24">
+<div class="max-w-7xl mx-auto">
+<div class="grid grid-cols-1 md:grid-cols-12 gap-12">
+<!-- Journey Card 1 -->
+<div class="md:col-span-5 md:mt-20">
+<div class="bg-surface-container-lowest p-0 relative group">
+<div class="aspect-[3/4] overflow-hidden mb-8">
+<img alt="Hunza Valley" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" data-alt="Dramatic mountain landscape of Hunza Valley with ancient terraced fields and sharp granite peaks under a deep blue sky" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA-oge3JbR4xG_7nWDoCCMcpMnE1OaifA9Q7UQD-Q7qF1ojMVVWEkXI2tGsoP9T0tJgX4UbHu-NZBnu7K9M3Wsp6Q9K_5Ii4VYS8Vop5BNod_hyJY_rkweqvvQ_YKsgK0MuTHtWUvKqYSxFG4IyJUACkncHPy32vY1KYvVMqpW3BmeN_guZu3q2TnDuqe0_4p9WVLOGTW0Vt7qaflg-R9Q8P_-eKLC7oiQxNtLwzSk09mlmk_d-milbMkEb6VZFAFjvpTKQ4G6LQkE"/>
+</div>
+<div class="px-8 pb-12">
+<p class="text-[10px] font-bold uppercase tracking-[0.4em] text-outline mb-2">Cultural Heritage</p>
+<h3 class="font-headline text-3xl mb-4">Hunza: The <span class="italic">Eternal Valley</span></h3>
+<p class="text-on-surface-variant text-sm mb-8 leading-relaxed">A deep dive into the longevity secrets of the Hunzakuts and the architectural marvels of Baltit Fort.</p>
+<div class="flex justify-between items-center border-t border-surface-variant pt-6">
+<span class="text-lg font-headline italic text-secondary">$4,250 <span class="text-xs font-sans not-italic text-outline">/ person</span></span>
+<span class="material-symbols-outlined text-outline group-hover:text-secondary transition-colors">add_circle</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Journey Card 2 -->
+<div class="md:col-span-7">
+<div class="bg-surface-container-lowest p-0 relative group">
+<div class="aspect-video overflow-hidden mb-8">
+<img alt="Fairy Meadows" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" data-alt="The massive snowy face of Nanga Parbat mountain glowing in morning alpenglow from the green Fairy Meadows plateau" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDtbs1Zezt0h7lvdc_vlK2XEjna37Qz4oVzUITzM6pTbAJywj6TabxObSKvWNsCeYvWr8mI54_ooOfb1yM-tUlfot1ghi7ZsgnRO3EDNfm59ZMU4GpC07_nHpGUjQeSslyWWFap0vPcgk_HGOV8ScJyTaeol1RUhVkvFlErkQ8Pe18p5fBIvIw8MQokZE25vOxFRSUj6EVmeo_KcAEa-W7g1ZUX10NW_qpbFuQva16oc6wFx7rC5SFny5M3fH4nMH5xNV4AA2oFqKM"/>
+</div>
+<div class="px-8 pb-12 grid grid-cols-1 md:grid-cols-2 gap-8">
+<div>
+<p class="text-[10px] font-bold uppercase tracking-[0.4em] text-outline mb-2">High Adventure</p>
+<h3 class="font-headline text-3xl mb-4">The Base of <span class="italic">Killer Mountain</span></h3>
+</div>
+<div class="flex flex-col justify-end">
+<p class="text-on-surface-variant text-sm mb-6 leading-relaxed">Trek to the base camp of Nanga Parbat and sleep under the stars at Fairy Meadows.</p>
+<button class="w-full py-4 border-2 border-primary text-xs font-bold uppercase tracking-widest hover:bg-primary hover:text-white transition-all">
+                                        View Expedition
+                                    </button>
+</div>
+</div>
+</div>
+<!-- Secondary smaller card nested in layout -->
+<div class="mt-12 grid grid-cols-1 md:grid-cols-2 gap-12">
+<div class="bg-surface-container-lowest p-8 flex flex-col justify-between aspect-square">
+<div>
+<span class="material-symbols-outlined text-amber-500 text-4xl mb-6">camera_indoor</span>
+<h4 class="font-headline text-2xl">Bespoke <br/>Photography</h4>
+<p class="text-xs text-on-surface-variant mt-4 leading-relaxed">Private sessions with award-winning mountain photographers during your trip.</p>
+</div>
+<a class="text-[10px] font-bold uppercase tracking-widest text-secondary border-b border-secondary w-fit" href="#">Learn More</a>
+</div>
+<div class="alpenglow-gradient p-8 flex flex-col justify-between aspect-square">
+<div>
+<span class="material-symbols-outlined text-on-secondary-fixed text-4xl mb-6">flight_takeoff</span>
+<h4 class="font-headline text-2xl text-on-secondary-fixed">Private <br/>Heli-Charter</h4>
+<p class="text-xs text-on-secondary-fixed-variant mt-4 leading-relaxed">Exclusive access to remote peaks via luxury helicopter transfers.</p>
+</div>
+<a class="text-[10px] font-bold uppercase tracking-widest text-on-secondary-fixed border-b border-on-secondary-fixed w-fit" href="#">Request Access</a>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Journal Teaser -->
+<section class="px-12 mb-32">
+<div class="max-w-7xl mx-auto flex flex-col md:flex-row items-center gap-16">
+<div class="md:w-1/2">
+<img alt="Expedition Journal" class="w-full grayscale hover:grayscale-0 transition-all duration-1000" data-alt="Bespoke leather-bound journal and vintage mountain map on a rustic wooden table with a soft directional mountain light" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDVXlpdkwqGK9t-qroaKwo8BIDh86CNuByGI2OTQgLXMFiXLuQdWjF1TApmAUmV3JJnOImjisxIHW7H83T-_ro-h6vasDDQc1M1p7CX5_AxcMRAH2h1Un2lQs1QBs89Ia3gYlwukBIRQG5iteRwYvy6mXNjzds-Vxo_nFzi80fcD0LMGZjvZ52OngwuLmrVsWFoOVJWVFDoVHD5fMoOa72DdzlRtCyqtDQtOVD4__2770LHFujc2I7iCq4bHAqTjbNsqH-tFguaO1E"/>
+</div>
+<div class="md:w-1/2">
+<span class="text-xs font-bold uppercase tracking-[0.4em] text-outline mb-6 block">The Journal</span>
+<h2 class="font-headline text-5xl mb-8 leading-tight text-primary">Voices from the <br/><span class="italic">Thin Air</span></h2>
+<p class="font-body text-on-surface-variant text-lg mb-8 leading-relaxed italic">"In the silence of the Karakoram, I found a luxury that gold could never buy—the stillness of my own soul against the vastness of K2."</p>
+<div class="flex items-center gap-4">
+<div class="w-12 h-12 rounded-full bg-surface-variant"></div>
+<div>
+<p class="text-sm font-bold">Arthur Kensington</p>
+<p class="text-xs text-outline uppercase tracking-widest">Expedition Leader, 2023</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="bg-primary-container text-white py-20 px-12 tonal-shift-from-surface">
+<div class="max-w-7xl mx-auto flex flex-col items-center gap-12">
+<div class="font-headline text-5xl text-white tracking-tighter">RAIKOT</div>
+<div class="flex flex-wrap justify-center gap-12">
+<a class="font-sans text-xs uppercase tracking-widest text-slate-400 hover:text-amber-200 transition-colors" href="#">Privacy Policy</a>
+<a class="font-sans text-xs uppercase tracking-widest text-slate-400 hover:text-amber-200 transition-colors" href="#">Terms of Service</a>
+<a class="font-sans text-xs uppercase tracking-widest text-slate-400 hover:text-amber-200 transition-colors" href="#">Press</a>
+<a class="font-sans text-xs uppercase tracking-widest text-slate-400 hover:text-amber-200 transition-colors" href="#">Contact</a>
+</div>
+<div class="w-full max-w-2xl h-[1px] bg-white/10"></div>
+<div class="flex flex-col items-center gap-4">
+<p class="font-sans text-xs uppercase tracking-widest text-slate-500 text-center">
+                    © 2024 RAIKOT TOURS. THE PEAK OF LUXURY.
+                </p>
+<div class="flex gap-6 mt-4">
+<span class="material-symbols-outlined text-amber-500 cursor-pointer hover:scale-110 transition-transform">share</span>
+<span class="material-symbols-outlined text-amber-500 cursor-pointer hover:scale-110 transition-transform">mail</span>
+<span class="material-symbols-outlined text-amber-500 cursor-pointer hover:scale-110 transition-transform">public</span>
+</div>
+</div>
+</div>
+</footer>
+</body></html>

@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,200..800;1,6..72,200..800&amp;family=Inter:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "primary-container": "#151b2d",
+                        "primary-fixed-dim": "#c0c6de",
+                        "outline-variant": "#c6c6cd",
+                        "error-container": "#ffdad6",
+                        "error": "#ba1a1a",
+                        "surface-container-high": "#e6e8ea",
+                        "surface": "#f7f9fb",
+                        "secondary-fixed": "#ffe088",
+                        "on-secondary-fixed-variant": "#574500",
+                        "on-secondary-container": "#745c00",
+                        "on-secondary-fixed": "#241a00",
+                        "on-error-container": "#93000a",
+                        "inverse-surface": "#2d3133",
+                        "tertiary-fixed-dim": "#e9c176",
+                        "surface-variant": "#e0e3e5",
+                        "surface-container-lowest": "#ffffff",
+                        "primary": "#000000",
+                        "secondary-fixed-dim": "#e9c349",
+                        "surface-container-highest": "#e0e3e5",
+                        "inverse-primary": "#c0c6de",
+                        "surface-bright": "#f7f9fb",
+                        "surface-dim": "#d8dadc",
+                        "background": "#f7f9fb",
+                        "secondary": "#735c00",
+                        "on-error": "#ffffff",
+                        "outline": "#76767d",
+                        "on-surface": "#191c1e",
+                        "on-tertiary": "#ffffff",
+                        "on-background": "#191c1e",
+                        "on-tertiary-container": "#a17f3b",
+                        "primary-fixed": "#dce1fb",
+                        "on-primary-container": "#7d839a",
+                        "surface-container": "#eceef0",
+                        "on-primary-fixed": "#151b2d",
+                        "surface-container-low": "#f2f4f6",
+                        "on-primary": "#ffffff",
+                        "secondary-container": "#fed65b",
+                        "on-tertiary-fixed": "#261900",
+                        "inverse-on-surface": "#eff1f3",
+                        "tertiary": "#000000",
+                        "on-secondary": "#ffffff",
+                        "tertiary-container": "#261900",
+                        "on-surface-variant": "#46464c",
+                        "tertiary-fixed": "#ffdea5",
+                        "on-tertiary-fixed-variant": "#5d4201",
+                        "surface-tint": "#585e73",
+                        "on-primary-fixed-variant": "#40465a"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "fontFamily": {
+                        "headline": ["Newsreader", "serif"],
+                        "body": ["Inter", "sans-serif"],
+                        "label": ["Inter", "sans-serif"]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 24;
+        }
+        .glass-card {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+        }
+        .gold-gradient-bg {
+            background: linear-gradient(135deg, #c5a059 0%, #f7ef8a 50%, #aa8913 100%);
+        }
+        .timeline-connector::after {
+            content: '';
+            position: absolute;
+            left: 11px;
+            top: 24px;
+            bottom: -24px;
+            width: 1px;
+            background-color: #d4af37;
+            opacity: 0.3;
+        }
+        .timeline-item:last-child .timeline-connector::after {
+            display: none;
+        }
+    </style>
+</head>
+<body class="bg-surface font-body text-on-surface antialiased">
+<!-- TopNavBar -->
+<nav class="fixed top-0 w-full z-50 bg-slate-950/40 backdrop-blur-xl flex justify-between items-center px-12 py-6 w-full">
+<div class="font-serif text-2xl tracking-tighter text-white uppercase">RAIKOT</div>
+<div class="hidden md:flex items-center gap-8">
+<a class="font-serif italic tracking-wide text-lg text-white/80 hover:text-white transition-colors" href="#">Expeditions</a>
+<a class="font-serif italic tracking-wide text-lg text-amber-400 border-b-2 border-amber-500 pb-1" href="#">Destinations</a>
+<a class="font-serif italic tracking-wide text-lg text-white/80 hover:text-white transition-colors" href="#">Heritage</a>
+<a class="font-serif italic tracking-wide text-lg text-white/80 hover:text-white transition-colors" href="#">Journal</a>
+</div>
+<div class="flex items-center gap-6">
+<button class="gold-gradient-bg text-on-secondary-fixed px-6 py-2 rounded-md font-label text-sm font-semibold tracking-widest uppercase hover:opacity-90 transition-opacity">Book Now</button>
+<span class="material-symbols-outlined text-white cursor-pointer" data-icon="menu">menu</span>
+</div>
+</nav>
+<!-- Hero Header -->
+<header class="relative h-[614px] w-full overflow-hidden">
+<img alt="The Peak Expedition" class="absolute inset-0 w-full h-full object-cover" data-alt="Stunning panoramic view of snow-capped Himalayan peaks at golden hour with soft orange light hitting the summits" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBHJEBdwh_-Vh7MD8iq-SceTmlRfnrJlVe9PkdcJAnbHO_Vi9NSy8LOQAPR_wpc0tzuruZGMa9Ti994NgLSgE-2YJ22BAJIeJH3LH7day63qjgAWjjpg_AebS_MSEs7aAFcoSxI5ECk42S4dJ_Lx-UwYrWSN3ynuUchb574jRUasjzGUAsG9eGD_sG6LB8GK49Uhz6xezhDNF1UNmWMbpxO0f3D_sShevtAdq4UYUulTtnKlexL-OcA3kKfofoqvy0cmvcGWRRfLVs"/>
+<div class="absolute inset-0 bg-gradient-to-t from-surface via-transparent to-black/20"></div>
+<div class="absolute bottom-0 left-0 px-12 pb-16 max-w-4xl">
+<span class="font-label text-xs tracking-[0.3em] uppercase text-white/80 mb-4 block">Expedition Journal</span>
+<h1 class="font-headline text-6xl md:text-8xl text-white leading-tight italic tracking-tighter">Nanga Parbat <br/>The Base Camp Trek</h1>
+</div>
+</header>
+<main class="max-w-7xl mx-auto px-12 py-24 grid grid-cols-1 lg:grid-cols-12 gap-16 relative">
+<!-- Left: Itinerary Details -->
+<div class="lg:col-span-7">
+<div class="mb-16">
+<h2 class="font-headline text-4xl mb-6 text-primary italic">The Vertical Odyssey</h2>
+<p class="text-on-surface-variant leading-relaxed text-lg font-light">A curated 12-day sanctuary journey into the heart of the Himalayas. This isn't just a trek; it's a choreographed ascent through alpine meadows, glacial valleys, and the profound silence of the high peaks.</p>
+</div>
+<!-- Timeline -->
+<div class="space-y-0">
+<!-- Day 1 -->
+<div class="timeline-item flex gap-8 pb-12 relative">
+<div class="timeline-connector relative flex-shrink-0">
+<div class="w-6 h-6 rounded-full border border-secondary flex items-center justify-center bg-surface">
+<div class="w-2 h-2 rounded-full bg-secondary"></div>
+</div>
+</div>
+<div>
+<span class="font-label text-xs font-bold text-secondary uppercase tracking-[0.2em] mb-1 block">Day 01</span>
+<h3 class="font-headline text-2xl mb-3">Arrival in the Valley of Lights</h3>
+<p class="text-on-surface-variant font-light mb-4">Touchdown in Islamabad. Private transfer to the Serena for an evening of luxury briefing and high-altitude gear check over saffron tea.</p>
+<div class="flex gap-4">
+<img alt="The Serena" class="w-40 h-24 object-cover rounded shadow-sm" data-alt="Close up of luxury hotel interior with rich fabrics and warm lighting in Islamabad" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBf4mKx3M-enrCTzJvITpetb63UOnVc_HrplUFbqmtDPF2XkyLXMmjalPNLb8flPChVt0uL8vM2vFBLDBeRkM9EK-lKCjXGXQ5oxqcY9cwWM3oQ4Devag-6V38EhGrvppV1pC1FHOyZdSUTeXXhdFZbvnkhQooVZYjgHXk-IKwdgcp9bFiUBFGSBczaM4bWQoYHcIgRMlyGe8YtFDKqCrBXPvH2-_9HOWcLHfVBMElVdhsvRzqR2EDWPQC_HKOIzrB29UKcZflV0Ok"/>
+</div>
+</div>
+</div>
+<!-- Day 2-3 -->
+<div class="timeline-item flex gap-8 pb-12 relative">
+<div class="timeline-connector relative flex-shrink-0">
+<div class="w-6 h-6 rounded-full border border-secondary flex items-center justify-center bg-surface">
+<span class="material-symbols-outlined text-[14px] text-secondary" data-icon="flight" data-weight="fill">flight</span>
+</div>
+</div>
+<div>
+<span class="font-label text-xs font-bold text-secondary uppercase tracking-[0.2em] mb-1 block">Day 02 - 03</span>
+<h3 class="font-headline text-2xl mb-3">The Gateway to the North</h3>
+<p class="text-on-surface-variant font-light mb-4">Scenic flight to Gilgit or Skardu. A private 4x4 journey through the Karakoram Highway's dramatic canyons to the doorstep of the Raikot Bridge.</p>
+<div class="bg-surface-container-low p-4 rounded flex items-center gap-4">
+<span class="material-symbols-outlined text-secondary" data-icon="terrain">terrain</span>
+<span class="text-xs font-label uppercase tracking-widest text-on-surface-variant">Elevation Gain: +1,200m</span>
+</div>
+</div>
+</div>
+<!-- Day 4-6 -->
+<div class="timeline-item flex gap-8 pb-12 relative">
+<div class="timeline-connector relative flex-shrink-0">
+<div class="w-6 h-6 rounded-full border border-secondary flex items-center justify-center bg-surface">
+<span class="material-symbols-outlined text-[14px] text-secondary" data-icon="hiking" data-weight="fill">hiking</span>
+</div>
+</div>
+<div>
+<span class="font-label text-xs font-bold text-secondary uppercase tracking-[0.2em] mb-1 block">Day 04 - 06</span>
+<h3 class="font-headline text-2xl mb-3">Fairy Meadows &amp; The Base Camp</h3>
+<p class="text-on-surface-variant font-light mb-4">Ascend to the ethereal Fairy Meadows. Stay in luxury cabins with unobstructed views of Nanga Parbat's North Face. Morning yoga sessions facing the Killer Mountain.</p>
+<div class="grid grid-cols-2 gap-4">
+<img alt="Fairy Meadows" class="w-full h-32 object-cover rounded" data-alt="Lush green mountain meadow with majestic snow peak in the background at sunrise" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBSmnS_qWztd9s-licqE8AfNWAmsXpsQze0q1_1lfpWOfxsmDCy6Yr_zULxJa7hGHklRLm2tsIehNNMSJiPQVq5NKF_xxlS1rpjlENfjXGzAwLEWUfC7KnRMQuCl8H4KInceU91WjY2duAE3Slyd878SGvUfo_mtZS9IBKRLjUXaseYe0YtG9Y3Kw5QqKAjeuabukN2dDSRmH-5Hf6Fg3V9ZUdsmPE3njdGHtcYm-2T7lpD0D_Z0wsRkP7_GOfp1u63WT1l670p-y0"/>
+<img alt="Base Camp View" class="w-full h-32 object-cover rounded" data-alt="Hiker sitting on a rock edge looking at a massive glacier valley with high peaks" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAusCIMBMLtS7bEQ_kwD6DrNM-rZEMiVVC3a8oKBdhqlQmW3Lf4CvFG7xs3yfPvUoQzpvf37S6ekbbCKrxrKDFuuc_bzAI13VUc5exthK8K89LLcU1Ovmt8YFD48N_Uu-OS4b3UM7uOcw2cuRlR5HxjZeeX-86v1eSQevhbBMV5eZDBOVd2DMNi0g7UaM5BlrRUc3Kgf_w5VvAepplOYukPhT8WIdNTzKs3WgVEyauXzmiqUCFGE-cHpSM6Ed0A8ooyLnugTgUQtcE"/>
+</div>
+</div>
+</div>
+<!-- Day 7-10 -->
+<div class="timeline-item flex gap-8 pb-12 relative">
+<div class="timeline-connector relative flex-shrink-0">
+<div class="w-6 h-6 rounded-full border border-secondary flex items-center justify-center bg-surface">
+<span class="material-symbols-outlined text-[14px] text-secondary" data-icon="restaurant" data-weight="fill">restaurant</span>
+</div>
+</div>
+<div>
+<span class="font-label text-xs font-bold text-secondary uppercase tracking-[0.2em] mb-1 block">Day 07 - 10</span>
+<h3 class="font-headline text-2xl mb-3">Alpine Gastronomy &amp; Rest</h3>
+<p class="text-on-surface-variant font-light mb-4">Acclimatization with a private chef curating local organic mountain cuisine. Guided glacier walks and sunset photography workshops led by National Geographic alumni.</p>
+</div>
+</div>
+</div>
+</div>
+<!-- Right: Sticky Booking Card -->
+<div class="lg:col-span-5 relative">
+<div class="sticky top-32">
+<div class="glass-card p-10 rounded-xl shadow-2xl border border-white/40">
+<div class="mb-8 border-b border-secondary/10 pb-8">
+<h4 class="font-headline text-3xl mb-2">Reserve Your Ascent</h4>
+<div class="flex items-baseline gap-2">
+<span class="font-label text-4xl font-bold text-primary">$12,450</span>
+<span class="font-label text-xs text-on-surface-variant uppercase tracking-widest">/ Per Explorer</span>
+</div>
+</div>
+<div class="space-y-6 mb-10">
+<div class="flex justify-between items-center text-sm">
+<span class="text-on-surface-variant font-label uppercase tracking-widest">Duration</span>
+<span class="font-semibold">12 Days / 11 Nights</span>
+</div>
+<div class="flex justify-between items-center text-sm">
+<span class="text-on-surface-variant font-label uppercase tracking-widest">Group Size</span>
+<span class="font-semibold">Exclusive (Max 6)</span>
+</div>
+<div class="flex justify-between items-center text-sm">
+<span class="text-on-surface-variant font-label uppercase tracking-widest">Next Expedition</span>
+<span class="font-semibold">Sept 14, 2024</span>
+</div>
+<div class="pt-4 space-y-3">
+<div class="flex items-center gap-3 text-xs text-secondary font-label font-medium uppercase tracking-tighter">
+<span class="material-symbols-outlined text-sm" data-icon="check_circle">check_circle</span>
+                                Private Helicopter Standby
+                            </div>
+<div class="flex items-center gap-3 text-xs text-secondary font-label font-medium uppercase tracking-tighter">
+<span class="material-symbols-outlined text-sm" data-icon="check_circle">check_circle</span>
+                                5-Star Alpine Lodging
+                            </div>
+<div class="flex items-center gap-3 text-xs text-secondary font-label font-medium uppercase tracking-tighter">
+<span class="material-symbols-outlined text-sm" data-icon="check_circle">check_circle</span>
+                                1:1 Porter Support
+                            </div>
+</div>
+</div>
+<button class="w-full gold-gradient-bg py-5 rounded-lg font-label text-sm font-bold tracking-[0.3em] uppercase text-on-secondary-fixed shadow-lg hover:shadow-xl transition-all active:scale-[0.98]">
+                        Initiate Booking
+                    </button>
+<p class="text-center mt-6 text-[10px] text-on-surface-variant font-label uppercase tracking-widest">
+                        Inclusive of all local permits and gear.
+                    </p>
+</div>
+<!-- Secondary Content Card -->
+<div class="mt-8 bg-primary-container p-8 rounded-xl text-white overflow-hidden relative">
+<div class="relative z-10">
+<h5 class="font-headline text-xl italic mb-4">Expedition Map</h5>
+<p class="text-xs text-white/60 font-light mb-6">Explore the precise coordinates of the Raikot Face trail and Fairy Meadows sanctuary.</p>
+<div class="w-full h-40 bg-slate-900 rounded-lg overflow-hidden grayscale opacity-50 contrast-125 border border-white/10">
+<div class="w-full h-full" data-location="Nanga Parbat Base Camp" style=""></div>
+</div>
+</div>
+<div class="absolute -right-4 -bottom-4 opacity-5">
+<span class="material-symbols-outlined text-9xl" data-icon="explore">explore</span>
+</div>
+</div>
+</div>
+</div>
+</main>
+<!-- Map/Visual Section -->
+<section class="w-full py-24 bg-surface-container">
+<div class="max-w-7xl mx-auto px-12 grid grid-cols-1 md:grid-cols-2 gap-24 items-center">
+<div class="relative">
+<div class="absolute -top-12 -left-12 w-64 h-64 bg-secondary/5 rounded-full blur-3xl"></div>
+<img alt="The Vertical Face" class="relative z-10 w-full aspect-[4/5] object-cover rounded shadow-2xl" data-alt="Black and white artistic photograph of high mountain peak textures and vertical rock faces" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB9zkyCXyNP8_Fx7G5PqaS6iYROMlBZITL4mrytmuW7fgGSpQi0g71vdlT4Pm0APDxtv7W94rM61dMTeOxV9TlNFNbTmqKvgzz7yBq6xcN3gHd9q7DKzFpB-qsMxeU-cryYAdZlFP22uHhiLanvdyRuWESl64vaqkp9X8bZLmSgJ9QDiPgcGZzGxONzgnYSRz6ZgsGG5i-BydQAHNfvN8UeZi4BGeYWeK5rxZQRMSVhfj6WUCXPGfgZ48edT2RvZx1yhfBOXV-mZ4U"/>
+</div>
+<div>
+<h2 class="font-headline text-5xl mb-8 leading-tight">The Alpenglow Experience</h2>
+<div class="space-y-8">
+<div class="flex gap-6">
+<span class="material-symbols-outlined text-secondary text-3xl" data-icon="bedtime">bedtime</span>
+<div>
+<h4 class="font-label font-bold uppercase tracking-widest mb-2 text-sm">Celestial Stays</h4>
+<p class="text-on-surface-variant font-light leading-relaxed">Experience the highest level of comfort in our bespoke geodesic domes, designed for maximum visibility of the night sky.</p>
+</div>
+</div>
+<div class="flex gap-6">
+<span class="material-symbols-outlined text-secondary text-3xl" data-icon="camera">camera</span>
+<div>
+<h4 class="font-label font-bold uppercase tracking-widest mb-2 text-sm">Visual Legacy</h4>
+<p class="text-on-surface-variant font-light leading-relaxed">Each expedition includes a professional documentary of your journey, captured by world-class high-altitude filmmakers.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Footer -->
+<footer class="bg-slate-950">
+<div class="flex flex-col items-center gap-12 max-w-7xl mx-auto w-full py-20 px-12">
+<div class="font-serif text-3xl text-white">RAIKOT TOURS</div>
+<div class="flex gap-12">
+<a class="font-sans text-xs uppercase tracking-widest text-slate-500 hover:text-amber-200 transition-colors" href="#">Privacy Policy</a>
+<a class="font-sans text-xs uppercase tracking-widest text-slate-500 hover:text-amber-200 transition-colors" href="#">Terms of Service</a>
+<a class="font-sans text-xs uppercase tracking-widest text-slate-500 hover:text-amber-200 transition-colors" href="#">Press</a>
+<a class="font-sans text-xs uppercase tracking-widest text-slate-500 hover:text-amber-200 transition-colors" href="#">Contact</a>
+</div>
+<div class="font-sans text-xs uppercase tracking-widest text-slate-400">© 2024 RAIKOT TOURS. THE PEAK OF LUXURY.</div>
+</div>
+</footer>
+</body></html>

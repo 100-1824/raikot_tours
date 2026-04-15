@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>RAIKOT | The Peak of Luxury</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,200..800;1,6..72,200..800&amp;family=Inter:wght@300;400;500;600;700&amp;family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "primary-container": "#151b2d",
+                    "primary-fixed-dim": "#c0c6de",
+                    "outline-variant": "#c6c6cd",
+                    "error-container": "#ffdad6",
+                    "error": "#ba1a1a",
+                    "surface-container-high": "#e6e8ea",
+                    "surface": "#f7f9fb",
+                    "secondary-fixed": "#ffe088",
+                    "on-secondary-fixed-variant": "#574500",
+                    "on-secondary-container": "#745c00",
+                    "on-secondary-fixed": "#241a00",
+                    "on-error-container": "#93000a",
+                    "inverse-surface": "#2d3133",
+                    "tertiary-fixed-dim": "#e9c176",
+                    "surface-variant": "#e0e3e5",
+                    "surface-container-lowest": "#ffffff",
+                    "primary": "#020617",
+                    "secondary-fixed-dim": "#e9c349",
+                    "surface-container-highest": "#e0e3e5",
+                    "inverse-primary": "#c0c6de",
+                    "surface-bright": "#f7f9fb",
+                    "surface-dim": "#d8dadc",
+                    "background": "#f7f9fb",
+                    "secondary": "#d4af37",
+                    "on-error": "#ffffff",
+                    "outline": "#76767d",
+                    "on-surface": "#191c1e",
+                    "on-tertiary": "#ffffff",
+                    "on-background": "#191c1e",
+                    "on-tertiary-container": "#a17f3b",
+                    "primary-fixed": "#dce1fb",
+                    "on-primary-container": "#7d839a",
+                    "surface-container": "#eceef0",
+                    "on-primary-fixed": "#151b2d",
+                    "surface-container-low": "#f2f4f6",
+                    "on-primary": "#ffffff",
+                    "secondary-container": "#fed65b",
+                    "on-tertiary-fixed": "#261900",
+                    "inverse-on-surface": "#eff1f3",
+                    "tertiary": "#000000",
+                    "on-secondary": "#ffffff",
+                    "tertiary-container": "#261900",
+                    "on-surface-variant": "#46464c",
+                    "tertiary-fixed": "#ffdea5",
+                    "on-tertiary-fixed-variant": "#5d4201",
+                    "surface-tint": "#585e73",
+                    "on-primary-fixed-variant": "#40465a"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.125rem",
+                    "lg": "0.25rem",
+                    "xl": "0.5rem",
+                    "full": "0.75rem"
+            },
+            "fontFamily": {
+                    "headline": ["Newsreader", "serif"],
+                    "body": ["Inter", "sans-serif"],
+                    "label": ["Inter", "sans-serif"]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 24;
+        }
+        .signature-gradient {
+            background: linear-gradient(135deg, #c5a059 0%, #f7ef8a 50%, #aa8913 100%);
+        }
+        .glass-panel {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+        }
+        .hero-overlay {
+            background: linear-gradient(to bottom, rgba(2, 6, 23, 0.4) 0%, rgba(2, 6, 23, 0.8) 100%);
+        }
+    </style>
+</head>
+<body class="bg-surface font-body text-on-surface overflow-x-hidden">
+<!-- TopNavBar (Shared Component) -->
+<nav class="fixed top-0 w-full z-50 bg-slate-950/40 backdrop-blur-xl flex justify-between items-center px-12 py-6 w-full">
+<div class="font-serif text-2xl tracking-tighter text-white uppercase">RAIKOT</div>
+<div class="hidden md:flex gap-12">
+<a class="font-serif italic tracking-wide text-lg text-amber-400 border-b-2 border-amber-500 pb-1" href="#">Expeditions</a>
+<a class="font-serif italic tracking-wide text-lg text-white/80 hover:text-white transition-colors" href="#">Destinations</a>
+<a class="font-serif italic tracking-wide text-lg text-white/80 hover:text-white transition-colors" href="#">Heritage</a>
+<a class="font-serif italic tracking-wide text-lg text-white/80 hover:text-white transition-colors" href="#">Journal</a>
+</div>
+<div class="flex items-center gap-6">
+<button class="signature-gradient text-on-secondary-fixed px-6 py-2 text-sm font-medium rounded-lg hover:scale-95 active:opacity-80 transition-all duration-300 uppercase tracking-widest">Book Now</button>
+<span class="material-symbols-outlined text-white cursor-pointer hover:bg-white/10 p-2 rounded-full transition-all duration-300" data-icon="menu">menu</span>
+</div>
+</nav>
+<main>
+<!-- Cinematic Hero Section -->
+<section class="relative h-screen w-full flex items-center justify-center overflow-hidden">
+<div class="absolute inset-0 z-0">
+<img alt="Cinematic Mountain" class="w-full h-full object-cover" data-alt="Cinematic aerial view of majestic snow-capped mountain peaks during golden hour with warm orange light hitting the summits against a deep navy sky" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCoqkhzNvpWVfteA3Asu9GZ9FM7YV9-yxp_6EaAkpJc5prWtkcJnZm8px-fYEv4AHFlcxUolqiWvfSWn7I9imo2ZgiENkcugSCVpyuOpTFL8shlzwsMkuI7UeYMbYZK0mbBpJ8DR6QFJGUrTCwqBBF3DKgPwDnZa0bWRY9VDr5s3nf1uwzDyToNx0ZyyXyLokHS9Tmdq09j4StWi-W0yvE7mRzg7_6wDjcQ7zU7NeiwJQoAVVbYKEr3osCfAOIwx9rpaNDVwTE4NgI"/>
+<div class="absolute inset-0 hero-overlay"></div>
+</div>
+<div class="relative z-10 text-center px-6 max-w-5xl">
+<div class="flex items-center justify-center gap-4 mb-6">
+<div class="h-[1px] w-12 bg-secondary"></div>
+<span class="text-secondary font-label tracking-[0.3em] uppercase text-xs font-semibold">The Summit Prestige</span>
+<div class="h-[1px] w-12 bg-secondary"></div>
+</div>
+<h1 class="font-headline italic text-6xl md:text-9xl text-white mb-8 leading-[1.1] tracking-tighter">
+                    Where Earth <br/> <span class="text-secondary">Meets Heaven</span>
+</h1>
+<p class="text-white/70 font-body text-lg md:text-xl max-w-2xl mx-auto mb-12 font-light leading-relaxed">
+                    Ascend beyond the ordinary into a realm of curated mountain experiences where luxury finds its highest expression.
+                </p>
+<div class="flex flex-col md:flex-row items-center justify-center gap-8">
+<button class="signature-gradient text-on-secondary-fixed px-10 py-5 rounded-md font-label font-bold text-sm tracking-[0.2em] uppercase shadow-2xl hover:scale-105 transition-transform">
+                        Explore Expeditions
+                    </button>
+<button class="group flex items-center gap-3 text-white font-label text-sm tracking-widest uppercase hover:text-secondary transition-colors">
+<span class="material-symbols-outlined border border-white/20 rounded-full p-3 group-hover:border-secondary transition-colors" data-icon="play_arrow">play_arrow</span>
+                        Watch the Film
+                    </button>
+</div>
+</div>
+<!-- Scroll Indicator -->
+<div class="absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-4">
+<span class="text-white/40 text-[10px] tracking-[0.4em] uppercase font-bold">Discover More</span>
+<div class="w-[1px] h-16 bg-gradient-to-b from-secondary to-transparent"></div>
+</div>
+</section>
+<!-- Asymmetrical Editorial Content -->
+<section class="py-32 px-12 bg-surface">
+<div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-12 gap-16 items-center">
+<!-- Narrative Side -->
+<div class="md:col-span-5 space-y-8">
+<div class="space-y-4">
+<h2 class="text-secondary font-label tracking-widest uppercase text-sm font-bold">A Legacy of Ascent</h2>
+<h3 class="font-headline text-5xl md:text-6xl text-primary leading-tight">Defined by the <br/> <span class="italic">Elements</span></h3>
+</div>
+<p class="text-on-surface-variant font-body leading-relaxed text-lg">
+                        At Raikot, we don't just guide you to the peak; we curate the atmospheric journey that leads there. Our expeditions are designed for those who seek the silence of the clouds and the warmth of a mountain sunset.
+                    </p>
+<div class="pt-6">
+<a class="inline-block font-label text-sm tracking-widest uppercase text-primary border-b-2 border-secondary pb-2 font-bold hover:text-secondary transition-colors" href="#">Learn our philosophy</a>
+</div>
+</div>
+<!-- Asymmetrical Visual Side -->
+<div class="md:col-span-7 relative">
+<div class="grid grid-cols-6 grid-rows-6 h-[600px] gap-4">
+<div class="col-span-4 row-span-6 overflow-hidden rounded-lg shadow-2xl">
+<img alt="Mountain Camp" class="w-full h-full object-cover hover:scale-110 transition-transform duration-700" data-alt="Luxury base camp with orange tents set against high altitude snowy peaks under a vast starry night sky" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCzoU50n3K52_b-HT6r8AT2sD3WTE9KGoyfMr_8MPNbP_vTx50dOpj7KRTXjVyVDrq--MygDwLF9-Ka1ic3cWWBAcBHYVYgtQRXFoUwrjKfQMgDat5Vg-q-j1WOpganp0U_YOpRc4xqyzXL8FUYA-O0QxLiRu3LdkfFchFdPW2VrkOpRirBV16DV6QBiK6JbFvuojXFvSWBUuWS2N-L9CkxnDaEnd8vtX01uCVbKHQC90xupIGWkIi2Xt2i0r-OHuey9pMVt9K5ym0"/>
+</div>
+<div class="col-span-2 row-start-2 row-span-3 overflow-hidden rounded-lg shadow-xl translate-x-8 translate-y-8 border-4 border-surface">
+<img alt="Luxury Interior" class="w-full h-full object-cover" data-alt="Interior of a luxury mountain cabin with warm lighting, wood paneling, and a large window looking out at snow-covered trees" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC6I54R4Cn6Hj6BkciDVsIdCKDeOT5r1BaBYMe0uNJff-MPtSiZXu3l1uBefWyAd0Vgcf6XWHjA9EyUpkg6yI4g3Fu0G7zlmVlXdfrOu34W833LMOebMf0xTwvfSDTplMBRVZGxDlyltjUfEgevMlBw1B06MynOeRw92XgGo6rapLBWB-VVAPQi-HzLByGv7k6E1uSMTrfl2wGBMaOmBZqXX-87rGj8dm7PM9Ibzem63STUMmlWVKAYWSYFIOyESDFO2JeIDD7V9d4"/>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Glassmorphism Stats/Features (The Altitude Compass) -->
+<section class="relative py-24 px-12">
+<div class="absolute inset-0 z-0">
+<img alt="Mist" class="w-full h-full object-cover opacity-20 grayscale" data-alt="Ethereal landscape showing distant mountain silhouettes through layers of morning mist and fog in soft cool tones" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDB-rDv9XI9Vx21FTfeQw7oinHMp6x_gwfVUoEcZ02d8x0VE6NtyXyfqCGrDHkn3F6EUoUgd2VsNLje-EWHTevs4sMWduYDXsouxr7HY1G2hvJTbbTDQPZWp4UqprUT4y_Mm1tcRV8rI4iRfF48wTBzjtvG_srq7xNN0gNZaN3wfl-EPBa3PbUSBJd0rbNFJ71RTA2BET1OINkeL0CyMqKDkyzFl5pu8EOeEq8m4rQY__Lney3rEIzMIhRSOb1PzzABIq_-FzNLTa8"/>
+</div>
+<div class="relative z-10 max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-4 gap-8">
+<div class="glass-panel p-12 rounded-xl text-center border border-white/10 hover:border-secondary transition-colors">
+<span class="material-symbols-outlined text-secondary text-4xl mb-4" data-icon="elevation">elevation</span>
+<div class="text-4xl font-headline italic mb-2">8,126m</div>
+<div class="text-on-surface-variant font-label text-[10px] uppercase tracking-widest font-bold">Peak Altitude</div>
+</div>
+<div class="glass-panel p-12 rounded-xl text-center border border-white/10 hover:border-secondary transition-colors">
+<span class="material-symbols-outlined text-secondary text-4xl mb-4" data-icon="ac_unit">ac_unit</span>
+<div class="text-4xl font-headline italic mb-2">-24°C</div>
+<div class="text-on-surface-variant font-label text-[10px] uppercase tracking-widest font-bold">Avg. Night Temp</div>
+</div>
+<div class="glass-panel p-12 rounded-xl text-center border border-white/10 hover:border-secondary transition-colors">
+<span class="material-symbols-outlined text-secondary text-4xl mb-4" data-icon="group">group</span>
+<div class="text-4xl font-headline italic mb-2">1:2</div>
+<div class="text-on-surface-variant font-label text-[10px] uppercase tracking-widest font-bold">Guide-Guest Ratio</div>
+</div>
+<div class="glass-panel p-12 rounded-xl text-center border border-white/10 hover:border-secondary transition-colors">
+<span class="material-symbols-outlined text-secondary text-4xl mb-4" data-icon="hotel">hotel</span>
+<div class="text-4xl font-headline italic mb-2">5-Star</div>
+<div class="text-on-surface-variant font-label text-[10px] uppercase tracking-widest font-bold">Summit Lodging</div>
+</div>
+</div>
+</section>
+<!-- Signature Experience Grid -->
+<section class="py-32 bg-surface-container-low">
+<div class="px-12 mb-16 max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-end gap-6">
+<div class="max-w-xl">
+<h2 class="text-secondary font-label tracking-widest uppercase text-sm font-bold mb-4">Curated Journeys</h2>
+<h3 class="font-headline text-5xl text-primary">The Winter Collection</h3>
+</div>
+<div class="flex gap-4">
+<button class="p-3 border border-outline-variant hover:border-secondary transition-colors rounded-full">
+<span class="material-symbols-outlined" data-icon="arrow_back">arrow_back</span>
+</button>
+<button class="p-3 border border-outline-variant hover:border-secondary transition-colors rounded-full">
+<span class="material-symbols-outlined" data-icon="arrow_forward">arrow_forward</span>
+</button>
+</div>
+</div>
+<div class="flex overflow-x-auto gap-8 px-12 pb-12 scrollbar-hide snap-x no-scrollbar">
+<!-- Expedition Card 1 -->
+<div class="min-w-[450px] snap-center group">
+<div class="relative h-[600px] overflow-hidden rounded-lg mb-6">
+<img alt="K2 Expedition" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="Stunning portrait of the K2 mountain peak with fresh snow and deep blue sky in the background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCMNsa6C0f4Wy-evoU-JGP9Vm9rT25-Z_5JPLl14wp6MEJg7gHeQJeyhuBhUn9EtUR9Wx-nl2U1AqcWh6BdnT_oNWFdtWLR5w1TaZ8cEN6wKooliMah0XfHvya-KpuuL1xig7xUjWCNFeDZy1cT38hZi0c6uNj1N-S3q2ChY1Le9sHK9vtD50nF1aC-hAcwdB-HPQyn7_eIhiCLnG9DSO2HyoQC5zTcQcEcL_9YBAeaJK_IBILvj3Nnhckldh0JQaJOlPPjBHOJvo0"/>
+<div class="absolute top-6 left-6 glass-panel px-4 py-1 text-[10px] text-white tracking-[0.2em] uppercase font-bold border border-white/20">Elite Expedition</div>
+</div>
+<div class="space-y-3">
+<div class="flex justify-between items-center">
+<h4 class="font-headline text-3xl">The K2 Sanctuary</h4>
+<span class="text-secondary font-bold">$24,500</span>
+</div>
+<p class="text-on-surface-variant text-sm font-light">14 Days of unprecedented access to the world's most dramatic peak.</p>
+</div>
+</div>
+<!-- Expedition Card 2 -->
+<div class="min-w-[450px] snap-center group">
+<div class="relative h-[600px] overflow-hidden rounded-lg mb-6">
+<img alt="Nanga Parbat" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="Wide landscape of the Nanga Parbat mountain massif at dawn with purple and pink atmospheric lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBA5OMb6cXR5R9kL3sZu79XiefA_07RBGJowsJg_sx3hheQbcS7kW-Bwber93GFOU0WnY-ZftKnkSBmtsoWrIOHePA8qkF6UK4Gi8dSL9Ss252sk5KaviTLzWYkhHqU61dGCJ8lLcUnv-1Tnd5NQ2fSoKwcBlTraxYECA7hLBVZGgFc86yC6cd-UVRJS2RV3UURYDFN__eqRb-azaz67qN2qPi-S_iNRZA8DcuUebOEdbEOuWEl1TFtmWtxMPyUirVj65Rz6T80ZNA"/>
+<div class="absolute top-6 left-6 glass-panel px-4 py-1 text-[10px] text-white tracking-[0.2em] uppercase font-bold border border-white/20">Signature Journey</div>
+</div>
+<div class="space-y-3">
+<div class="flex justify-between items-center">
+<h4 class="font-headline text-3xl">Nanga Parbat Dawn</h4>
+<span class="text-secondary font-bold">$18,200</span>
+</div>
+<p class="text-on-surface-variant text-sm font-light">Experience the "Killer Mountain" from the safety of luxury bivouacs.</p>
+</div>
+</div>
+<!-- Expedition Card 3 -->
+<div class="min-w-[450px] snap-center group">
+<div class="relative h-[600px] overflow-hidden rounded-lg mb-6">
+<img alt="Rakaposhi" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="Sharp snow-covered mountain ridge cutting across a turquoise sky with swirling clouds at high altitude" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC4mx9XD75pmLHB3htUx9u34fZrr1gZ_eWAenPBC9pwuvNjc3Gguyojw0omHPWjC2ftDLiXK-3P16ymUt0PCNw0mRyonx0PNv9KzB3R5Tsm4-JidgLvAXYQZ1kvUL2xugP8L4MZfQqkO23Bho_K8Fi1JcadnureqtIVX9Joa0mT35EXBMSt4b5sts0sN_Mr6jNFN2bRnKtz16jQ28wYKJT3RrxOOj1crnoDvTBPcDdT8ije4vaCMTHVkLsGq-Pyjh4y6RhxPi9ogAQ"/>
+<div class="absolute top-6 left-6 glass-panel px-4 py-1 text-[10px] text-white tracking-[0.2em] uppercase font-bold border border-white/20">Alpine Heritage</div>
+</div>
+<div class="space-y-3">
+<div class="flex justify-between items-center">
+<h4 class="font-headline text-3xl">Rakaposhi Crest</h4>
+<span class="text-secondary font-bold">$12,900</span>
+</div>
+<p class="text-on-surface-variant text-sm font-light">A technical yet luxurious ascent for the modern alpinist.</p>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer (Shared Component) -->
+<footer class="bg-slate-950 w-full py-20 px-12">
+<div class="flex flex-col items-center gap-12 max-w-7xl mx-auto">
+<div class="font-serif text-3xl text-white">RAIKOT</div>
+<div class="grid grid-cols-2 md:grid-cols-4 gap-12 w-full text-center md:text-left">
+<div class="space-y-4">
+<h5 class="text-amber-500 text-xs uppercase tracking-widest font-bold">Explore</h5>
+<ul class="space-y-2">
+<li><a class="font-sans text-xs uppercase tracking-widest text-slate-500 hover:text-amber-200 transition-colors" href="#">Expeditions</a></li>
+<li><a class="font-sans text-xs uppercase tracking-widest text-slate-500 hover:text-amber-200 transition-colors" href="#">Destinations</a></li>
+<li><a class="font-sans text-xs uppercase tracking-widest text-slate-500 hover:text-amber-200 transition-colors" href="#">Lodging</a></li>
+</ul>
+</div>
+<div class="space-y-4">
+<h5 class="text-amber-500 text-xs uppercase tracking-widest font-bold">Heritage</h5>
+<ul class="space-y-2">
+<li><a class="font-sans text-xs uppercase tracking-widest text-slate-500 hover:text-amber-200 transition-colors" href="#">Our Story</a></li>
+<li><a class="font-sans text-xs uppercase tracking-widest text-slate-500 hover:text-amber-200 transition-colors" href="#">Guides</a></li>
+<li><a class="font-sans text-xs uppercase tracking-widest text-slate-500 hover:text-amber-200 transition-colors" href="#">Safety</a></li>
+</ul>
+</div>
+<div class="space-y-4">
+<h5 class="text-amber-500 text-xs uppercase tracking-widest font-bold">Company</h5>
+<ul class="space-y-2">
+<li><a class="font-sans text-xs uppercase tracking-widest text-slate-500 hover:text-amber-200 transition-colors" href="#">Privacy Policy</a></li>
+<li><a class="font-sans text-xs uppercase tracking-widest text-slate-500 hover:text-amber-200 transition-colors" href="#">Terms of Service</a></li>
+<li><a class="font-sans text-xs uppercase tracking-widest text-slate-500 hover:text-amber-200 transition-colors" href="#">Press</a></li>
+</ul>
+</div>
+<div class="space-y-4">
+<h5 class="text-amber-500 text-xs uppercase tracking-widest font-bold">Contact</h5>
+<ul class="space-y-2">
+<li><a class="font-sans text-xs uppercase tracking-widest text-slate-500 hover:text-amber-200 transition-colors" href="#">Base Camp HQ</a></li>
+<li><a class="font-sans text-xs uppercase tracking-widest text-slate-500 hover:text-amber-200 transition-colors" href="#">Email Us</a></li>
+<li><a class="font-sans text-xs uppercase tracking-widest text-slate-500 hover:text-amber-200 transition-colors" href="#">Concierge</a></li>
+</ul>
+</div>
+</div>
+<div class="w-full pt-12 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-6">
+<div class="font-sans text-xs uppercase tracking-widest text-slate-400">© 2024 RAIKOT TOURS. THE PEAK OF LUXURY.</div>
+<div class="flex gap-6">
+<span class="material-symbols-outlined text-slate-500 hover:text-amber-400 cursor-pointer" data-icon="public">public</span>
+<span class="material-symbols-outlined text-slate-500 hover:text-amber-400 cursor-pointer" data-icon="travel_explore">travel_explore</span>
+<span class="material-symbols-outlined text-slate-500 hover:text-amber-400 cursor-pointer" data-icon="star">star</span>
+</div>
+</div>
+</div>
+</footer>
+</body></html>

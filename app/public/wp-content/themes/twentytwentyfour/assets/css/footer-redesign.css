@@ -1,0 +1,936 @@
+/**
+ * Enhanced Footer Redesign - Premium Raikot Tours
+ * Features: CTA-first layout, 3-column grid, gold accents, newsletter signup
+ * Architecture: BEM methodology with responsive design and accessibility
+ *
+ * @since 1.0
+ * @package Twenty Twenty-Four
+ */
+
+/* ============================================================================
+   Footer Dividers & Container
+   ========================================================================== */
+
+/**
+ * Gradient Divider: Teal-to-Gold fade
+ * Creates smooth visual transition from content to footer
+ */
+.footer-divider {
+	height: 1px;
+	width: 100%;
+	background: linear-gradient(
+		90deg,
+		rgba(0, 0, 0, 0),
+		rgba(251, 191, 36, 0.2),
+		rgba(0, 0, 0, 0)
+	);
+	margin: 0;
+	padding: 0;
+	border: none;
+}
+
+.footer-divider--gradient {
+	background: linear-gradient(
+		90deg,
+		rgba(0, 0, 0, 0),
+		rgba(20, 184, 184, 0.3) 25%,
+		rgba(251, 191, 36, 0.2) 75%,
+		rgba(0, 0, 0, 0)
+	);
+	height: 2px;
+}
+
+/**
+ * Premium Footer Container
+ * Dark navy background with semantic footer element
+ */
+.footer,
+.footer--premium {
+	background: linear-gradient(180deg, #0f172a 0%, #1a2543 100%);
+	color: #e2e8f0;
+	padding: 4rem 2rem 3rem;
+	margin-top: 0;
+	border-top: 1px solid rgba(251, 191, 36, 0.08);
+	position: relative;
+	overflow: hidden;
+}
+
+/* Optional subtle background texture */
+.footer--premium::before {
+	content: '';
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	background: radial-gradient(
+		circle at 20% 50%,
+		rgba(251, 191, 36, 0.03) 0%,
+		transparent 50%
+	);
+	pointer-events: none;
+	z-index: 0;
+}
+
+/* Ensure content appears above background */
+.footer--premium > * {
+	position: relative;
+	z-index: 1;
+}
+
+/* ============================================================================
+   Primary CTA Section (Above Main Content)
+   ========================================================================== */
+
+/**
+ * Prominent Call-to-Action Section
+ * Positioned before main footer content to drive engagement
+ */
+.footer__cta-section {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	text-align: center;
+	gap: 1.5rem;
+	margin-bottom: 2rem;
+	padding: 2rem 0;
+	animation: fadeIn 0.6s cubic-bezier(0.34, 0.1, 0.64, 1);
+}
+
+/* CTA Label Text */
+.footer__cta-label {
+	font-size: 1.1rem;
+	color: #cbd5e1;
+	margin: 0;
+	padding: 0;
+	font-weight: 500;
+	letter-spacing: 0.5px;
+}
+
+/* CTA Buttons Container */
+.footer__cta-buttons {
+	display: flex;
+	gap: 1rem;
+	justify-content: center;
+	flex-wrap: wrap;
+	width: 100%;
+}
+
+/**
+ * Primary Footer Button: "Explore Expeditions"
+ * Premium styling with gold gradient and glow effect
+ */
+.footer__button--primary {
+	background: linear-gradient(135deg, #fbbf24 0%, #f59e0b 100%);
+	color: #0f172a;
+	border: none;
+	padding: 0.875rem 2.5rem;
+	border-radius: 8px;
+	height: 48px;
+	min-width: 48px;
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	font-size: 0.95rem;
+	font-weight: 700;
+	letter-spacing: 1px;
+	text-transform: uppercase;
+	cursor: pointer;
+	transition: all 0.3s cubic-bezier(0.34, 0.1, 0.64, 1);
+	box-shadow: 0 6px 16px rgba(251, 191, 36, 0.35);
+	position: relative;
+	overflow: hidden;
+	white-space: nowrap;
+	will-change: transform, box-shadow, background;
+}
+
+/* Shimmer effect */
+.footer__button--primary::before {
+	content: '';
+	position: absolute;
+	top: 0;
+	left: -100%;
+	width: 100%;
+	height: 100%;
+	background: linear-gradient(
+		90deg,
+		transparent,
+		rgba(255, 255, 255, 0.25),
+		transparent
+	);
+	transition: left 0.6s ease;
+	z-index: 1;
+	pointer-events: none;
+}
+
+/* Hover State: Enhanced Glow & Scale */
+.footer__button--primary:hover {
+	background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);
+	box-shadow: 0 10px 28px rgba(251, 191, 36, 0.45),
+		0 0 40px rgba(251, 191, 36, 0.35);
+	transform: scale(1.06) translateY(-3px);
+}
+
+.footer__button--primary:hover::before {
+	left: 100%;
+}
+
+/* Active State */
+.footer__button--primary:active {
+	transform: scale(0.97) translateY(-1px);
+	box-shadow: 0 3px 10px rgba(251, 191, 36, 0.25);
+}
+
+/* Focus Visible */
+.footer__button--primary:focus-visible {
+	outline: 2px solid #fbbf24;
+	outline-offset: 2px;
+}
+
+/* ============================================================================
+   Footer Divider Line (Between CTA and Content)
+   ========================================================================== */
+
+.footer__divider-line {
+	height: 1px;
+	width: 100%;
+	background: linear-gradient(
+		90deg,
+		rgba(0, 0, 0, 0),
+		rgba(251, 191, 36, 0.1),
+		rgba(0, 0, 0, 0)
+	);
+	margin: 1rem 0 2rem;
+}
+
+/* ============================================================================
+   Footer Main Content Grid (3-Column Layout)
+   ========================================================================== */
+
+/**
+ * Main footer grid layout
+ * Desktop: 3 equal columns
+ * Tablet: 2 columns with brand spanning
+ * Mobile: Single column, stacked
+ */
+.footer__content {
+	display: grid;
+	grid-template-columns: 1fr 1fr 1fr;
+	gap: 3rem;
+	width: 100%;
+	margin-bottom: 2rem;
+	align-items: flex-start;
+}
+
+/* ============================================================================
+   Footer Column - Brand (Left)
+   ========================================================================== */
+
+/**
+ * Brand column with logo, tagline, contact info, social links
+ */
+.footer__column--brand {
+	display: flex;
+	flex-direction: column;
+	gap: 1.5rem;
+	align-items: flex-start;
+}
+
+/* Logo Container */
+.footer__logo-container {
+	display: flex;
+	align-items: center;
+	gap: 1rem;
+	text-decoration: none;
+	color: #ffffff;
+	font-size: 1.25rem;
+	font-weight: 700;
+	letter-spacing: 0.5px;
+	transition: opacity 0.3s ease;
+}
+
+.footer__logo-container:hover {
+	opacity: 0.85;
+}
+
+.footer__logo-container img {
+	height: 50px;
+	width: auto;
+	object-fit: contain;
+	display: block;
+}
+
+.footer__brand-name {
+	font-size: 1.25rem;
+	font-weight: 700;
+	color: #ffffff;
+	letter-spacing: 0.5px;
+	margin: 0;
+	padding: 0;
+}
+
+/* Brand Tagline */
+.footer__brand-tagline {
+	font-size: 0.95rem;
+	color: rgba(226, 232, 240, 0.65);
+	line-height: 1.7;
+	margin: 0;
+	padding: 0;
+	font-weight: 400;
+}
+
+/* Contact Information Section */
+.footer__contact-section {
+	width: 100%;
+}
+
+.footer__contact-label {
+	font-size: 0.85rem;
+	font-weight: 700;
+	color: #fbbf24;
+	text-transform: uppercase;
+	letter-spacing: 1px;
+	margin: 0 0 0.75rem 0;
+	padding: 0;
+}
+
+.footer__contact-item {
+	font-size: 0.95rem;
+	color: rgba(226, 232, 240, 0.7);
+	margin: 0.5rem 0;
+	padding: 0;
+	line-height: 1.5;
+}
+
+.footer__contact-link {
+	color: rgba(226, 232, 240, 0.7);
+	text-decoration: none;
+	transition: all 0.2s cubic-bezier(0.34, 0.1, 0.64, 1);
+	position: relative;
+}
+
+.footer__contact-link:hover {
+	color: #fbbf24;
+	text-decoration: underline;
+}
+
+.footer__contact-link:focus-visible {
+	outline: 2px solid #fbbf24;
+	outline-offset: 2px;
+}
+
+/* Social Media Links */
+.footer__social-links {
+	display: flex;
+	gap: 1rem;
+	margin: 0;
+	padding: 0;
+	flex-wrap: wrap;
+}
+
+.footer__social-link {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	width: 40px;
+	height: 40px;
+	background: rgba(251, 191, 36, 0.08);
+	border: 1.5px solid rgba(251, 191, 36, 0.25);
+	border-radius: 50%;
+	color: #fbbf24;
+	text-decoration: none;
+	font-weight: 600;
+	transition: all 0.25s cubic-bezier(0.34, 0.1, 0.64, 1);
+	will-change: background, color, transform;
+}
+
+.footer__social-link:hover {
+	background: #fbbf24;
+	color: #0f172a;
+	border-color: #fbbf24;
+	transform: translateY(-4px);
+}
+
+.footer__social-link:focus-visible {
+	outline: 2px solid #fbbf24;
+	outline-offset: 2px;
+}
+
+/* ============================================================================
+   Footer Columns - Links (Center & Right)
+   ========================================================================== */
+
+/**
+ * Standard footer columns for navigation and featured links
+ */
+.footer__column {
+	display: flex;
+	flex-direction: column;
+	gap: 1.5rem;
+	align-items: flex-start;
+}
+
+/* Section Heading */
+.footer__section-title {
+	font-size: 1rem;
+	font-weight: 700;
+	color: #fbbf24;
+	margin: 0;
+	padding: 0;
+	text-transform: uppercase;
+	letter-spacing: 1px;
+	position: relative;
+	display: inline-block;
+}
+
+/* Secondary section title (smaller) */
+.footer__section-title--secondary {
+	font-size: 0.85rem;
+	margin-top: 1.5rem;
+	padding-top: 1.5rem;
+	border-top: 1px solid rgba(251, 191, 36, 0.1);
+}
+
+/* Links List */
+.footer__links {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+	display: flex;
+	flex-direction: column;
+	gap: 0.75rem;
+	width: 100%;
+}
+
+.footer__link-item {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+
+/**
+ * Footer Links with Hover Effects
+ * - Color transition to gold
+ * - Underline animation
+ * - Subtle translate effect
+ */
+.footer__link {
+	color: rgba(226, 232, 240, 0.7);
+	text-decoration: none;
+	font-size: 0.95rem;
+	line-height: 1.6;
+	transition: all 0.2s cubic-bezier(0.34, 0.1, 0.64, 1);
+	display: inline-block;
+	position: relative;
+	will-change: color, transform;
+}
+
+/* Underline animation on hover */
+.footer__link::after {
+	content: '';
+	position: absolute;
+	bottom: -2px;
+	left: 0;
+	width: 0;
+	height: 2px;
+	background: linear-gradient(90deg, #fbbf24, #f59e0b);
+	transition: width 0.2s cubic-bezier(0.34, 0.1, 0.64, 1);
+}
+
+.footer__link:hover {
+	color: #fbbf24;
+	transform: translateX(4px);
+}
+
+.footer__link:hover::after {
+	width: 100%;
+}
+
+.footer__link:focus-visible {
+	outline: 2px solid #fbbf24;
+	outline-offset: 2px;
+}
+
+/* ============================================================================
+   Newsletter Signup Section
+   ========================================================================== */
+
+/**
+ * Email subscription input field
+ * Responsive design with focus states
+ */
+.footer__newsletter-text {
+	font-size: 0.9rem;
+	color: rgba(226, 232, 240, 0.6);
+	margin: 0;
+	padding: 0;
+	line-height: 1.5;
+}
+
+.footer__newsletter-subscribe {
+	display: flex;
+	gap: 0.5rem;
+	width: 100%;
+	max-width: 300px;
+}
+
+.footer__newsletter-input {
+	flex: 1;
+	padding: 0.75rem 1rem;
+	border: 1px solid rgba(251, 191, 36, 0.2);
+	border-radius: 4px;
+	background: rgba(255, 255, 255, 0.05);
+	color: #e2e8f0;
+	font-size: 0.9rem;
+	transition: all 0.2s cubic-bezier(0.34, 0.1, 0.64, 1);
+	min-height: 40px;
+}
+
+.footer__newsletter-input::placeholder {
+	color: rgba(226, 232, 240, 0.4);
+}
+
+.footer__newsletter-input:focus {
+	outline: none;
+	background: rgba(255, 255, 255, 0.08);
+	border-color: #fbbf24;
+	box-shadow: 0 0 0 2px rgba(251, 191, 36, 0.1);
+}
+
+/* Submit Button */
+.footer__newsletter-btn-submit {
+	padding: 0.75rem 1.25rem;
+	background: #fbbf24;
+	color: #0f172a;
+	border: none;
+	border-radius: 4px;
+	font-weight: 600;
+	cursor: pointer;
+	transition: all 0.2s cubic-bezier(0.34, 0.1, 0.64, 1);
+	min-height: 40px;
+	white-space: nowrap;
+	font-size: 0.9rem;
+}
+
+.footer__newsletter-btn-submit:hover {
+	background: #f59e0b;
+	transform: translateY(-2px);
+	box-shadow: 0 4px 12px rgba(251, 191, 36, 0.3);
+}
+
+.footer__newsletter-btn-submit:active {
+	transform: translateY(0);
+}
+
+.footer__newsletter-btn-submit:focus-visible {
+	outline: 2px solid #fbbf24;
+	outline-offset: 2px;
+}
+
+/* ============================================================================
+   Footer Bottom - Copyright & Secondary Links
+   ========================================================================== */
+
+/**
+ * Bottom footer section with copyright and legal links
+ */
+.footer__bottom {
+	display: flex;
+	flex-direction: row;
+	gap: 2rem;
+	padding-top: 1.5rem;
+	border-top: 1px solid rgba(251, 191, 36, 0.1);
+	align-items: center;
+	justify-content: space-between;
+	flex-wrap: wrap;
+	width: 100%;
+}
+
+/* Copyright Text - WCAG AA Compliant Color */
+.footer__copyright {
+	font-size: 0.85rem;
+	color: rgba(226, 232, 240, 0.5);
+	margin: 0;
+	padding: 0;
+	line-height: 1.6;
+	flex: 1;
+	min-width: 200px;
+}
+
+.footer__copyright-link {
+	color: rgba(226, 232, 240, 0.6);
+	text-decoration: none;
+	transition: color 0.2s ease;
+}
+
+.footer__copyright-link:hover {
+	color: #fbbf24;
+	text-decoration: underline;
+}
+
+.footer__copyright-link:focus-visible {
+	outline: 2px solid #fbbf24;
+	outline-offset: 2px;
+}
+
+/* Secondary Links List */
+.footer__secondary-links {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 1.5rem;
+	list-style: none;
+	margin: 0;
+	padding: 0;
+}
+
+.footer__secondary-links li {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+
+.footer__secondary-link {
+	color: rgba(226, 232, 240, 0.5);
+	text-decoration: none;
+	font-size: 0.85rem;
+	transition: color 0.2s ease;
+}
+
+.footer__secondary-link:hover {
+	color: #fbbf24;
+	text-decoration: underline;
+}
+
+.footer__secondary-link:focus-visible {
+	outline: 2px solid #fbbf24;
+	outline-offset: 2px;
+}
+
+/* ============================================================================
+   Responsive Design
+   ========================================================================== */
+
+/* Desktop (1024px+) */
+@media (min-width: 1024px) {
+	.footer,
+	.footer--premium {
+		padding: 4rem 3rem 3rem;
+	}
+
+	.footer__content {
+		grid-template-columns: 1fr 1fr 1fr;
+		gap: 3.5rem;
+	}
+
+	.footer__bottom {
+		flex-direction: row;
+		justify-content: space-between;
+	}
+
+	.footer__column--brand {
+		padding-right: 1rem;
+	}
+}
+
+/* Tablet (768px - 1023px) */
+@media (min-width: 768px) and (max-width: 1023px) {
+	.footer,
+	.footer--premium {
+		padding: 3rem 2rem;
+	}
+
+	.footer__content {
+		grid-template-columns: 1fr 1fr;
+		gap: 2.5rem;
+	}
+
+	.footer__column--brand {
+		grid-column: 1 / -1;
+		margin-bottom: 1rem;
+	}
+
+	.footer__bottom {
+		flex-direction: column;
+		align-items: flex-start;
+		gap: 1.5rem;
+	}
+
+	.footer__cta-section {
+		margin-bottom: 1.5rem;
+		padding: 1.5rem 0;
+	}
+}
+
+/* Mobile (< 768px) */
+@media (max-width: 767px) {
+	.footer,
+	.footer--premium {
+		padding: 2.5rem 1.5rem 2rem;
+	}
+
+	.footer__content {
+		grid-template-columns: 1fr;
+		gap: 2rem;
+	}
+
+	.footer__column {
+		width: 100%;
+	}
+
+	.footer__column--brand {
+		padding-bottom: 1.5rem;
+		border-bottom: 1px solid rgba(251, 191, 36, 0.1);
+	}
+
+	.footer__bottom {
+		flex-direction: column;
+		align-items: flex-start;
+		gap: 1rem;
+		padding-top: 1rem;
+		border-top: none;
+	}
+
+	.footer__secondary-links {
+		gap: 1rem;
+		flex-direction: column;
+	}
+
+	.footer__cta-section {
+		margin-bottom: 1.5rem;
+		padding: 1.5rem 0;
+	}
+
+	.footer__button--primary {
+		width: 100%;
+		justify-content: center;
+	}
+
+	.footer__newsletter-subscribe {
+		flex-direction: column;
+		max-width: 100%;
+	}
+
+	.footer__newsletter-input,
+	.footer__newsletter-btn-submit {
+		width: 100%;
+	}
+}
+
+/* Ultra-mobile (< 480px) */
+@media (max-width: 479px) {
+	.footer,
+	.footer--premium {
+		padding: 2rem 1rem 1.5rem;
+	}
+
+	.footer__content {
+		gap: 1.5rem;
+	}
+
+	.footer__cta-label {
+		font-size: 1rem;
+	}
+
+	.footer__button--primary {
+		height: 44px;
+		padding: 0.75rem 2rem;
+		font-size: 0.9rem;
+	}
+
+	.footer__section-title {
+		font-size: 0.95rem;
+	}
+
+	.footer__link {
+		font-size: 0.9rem;
+	}
+
+	.footer__copyright {
+		font-size: 0.8rem;
+	}
+
+	.footer__social-link {
+		width: 36px;
+		height: 36px;
+		font-size: 0.9rem;
+	}
+}
+
+/* ============================================================================
+   Accessibility & Reduced Motion Support
+   ========================================================================== */
+
+@media (prefers-reduced-motion: reduce) {
+	.footer__link,
+	.footer__social-link,
+	.footer__button--primary,
+	.footer__newsletter-btn-submit,
+	.footer__logo-container {
+		transition: none;
+		will-change: auto;
+	}
+
+	.footer__link:hover::after {
+		width: 0;
+	}
+
+	.footer__link:hover,
+	.footer__social-link:hover {
+		transform: none;
+	}
+
+	.footer__button--primary::before {
+		display: none;
+	}
+
+	.footer__button--primary:hover {
+		transform: none;
+	}
+
+	.footer__cta-section {
+		animation: none;
+	}
+}
+
+/* ============================================================================
+   High Contrast Mode Support
+   ========================================================================== */
+
+@media (prefers-contrast: more) {
+	.footer__section-title {
+		font-weight: 900;
+		text-shadow: 0 0 0.5px rgba(251, 191, 36, 0.3);
+	}
+
+	.footer__button--primary {
+		border: 2px solid #fbbf24;
+	}
+
+	.footer__social-link {
+		border-width: 2px;
+	}
+
+	.footer__link::after {
+		height: 3px;
+	}
+}
+
+/* ============================================================================
+   Dark Mode / Light Mode Support
+   ========================================================================== */
+
+@media (prefers-color-scheme: light) {
+	.footer,
+	.footer--premium {
+		background: linear-gradient(180deg, #f8f9fa 0%, #ffffff 100%);
+		color: #1f2937;
+		border-top-color: rgba(251, 191, 36, 0.15);
+	}
+
+	.footer-divider,
+	.footer-divider--gradient {
+		background: linear-gradient(
+			90deg,
+			rgba(0, 0, 0, 0),
+			rgba(251, 191, 36, 0.15),
+			rgba(0, 0, 0, 0)
+		);
+	}
+
+	.footer__cta-label {
+		color: #4b5563;
+	}
+
+	.footer__brand-tagline,
+	.footer__link {
+		color: #6b7280;
+	}
+
+	.footer__copyright,
+	.footer__secondary-link {
+		color: #999;
+	}
+
+	.footer__logo-container:hover {
+		opacity: 0.75;
+	}
+}
+
+/* ============================================================================
+   Print Styles
+   ========================================================================== */
+
+@media print {
+	.footer,
+	.footer--premium {
+		page-break-inside: avoid;
+		background: transparent;
+		border: none;
+		padding: 0;
+	}
+
+	.footer-divider,
+	.footer__divider-line {
+		display: none;
+	}
+
+	.footer__cta-section,
+	.footer__social-links {
+		display: none;
+	}
+
+	.footer__link {
+		text-decoration: underline;
+		color: #000;
+	}
+
+	.footer__link:hover {
+		text-decoration: none;
+	}
+
+	.footer__button--primary {
+		border: 2px solid #000;
+		background: transparent;
+		color: #000;
+	}
+}
+
+/* ============================================================================
+   Animations (Fade-in for CTA)
+   ========================================================================== */
+
+@keyframes fadeIn {
+	from {
+		opacity: 0;
+		transform: translateY(10px);
+	}
+	to {
+		opacity: 1;
+		transform: translateY(0);
+	}
+}
+
+/* ============================================================================
+   Utility Classes
+   ========================================================================== */
+
+/* Screen reader only */
+.footer-sr-only {
+	position: absolute;
+	width: 1px;
+	height: 1px;
+	padding: 0;
+	margin: -1px;
+	overflow: hidden;
+	clip: rect(0, 0, 0, 0);
+	white-space: nowrap;
+	border-width: 0;
+}
+
+/* Loading state for newsletter button */
+.footer__newsletter-btn-submit.is-loading {
+	opacity: 0.7;
+	cursor: wait;
+	pointer-events: none;
+}
