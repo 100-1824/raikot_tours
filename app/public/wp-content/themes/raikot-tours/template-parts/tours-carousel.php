@@ -82,16 +82,22 @@ function render_tour_card($tour) {
                 </h3>
             </div>
             
-            <div class="flex items-center justify-between pt-8">
+            <div class="flex items-end justify-between pt-8 gap-4">
                 <div class="flex flex-col">
                     <span class="text-primary-color/40 text-[9px] uppercase tracking-[0.3em] font-black mb-1">Starting Rate</span>
                     <span class="text-2xl font-playfair font-black text-primary-color"><?php echo esc_html($tour['price']); ?></span>
                 </div>
-                
-                <a href="<?php echo esc_url($tour['permalink']); ?>" 
-                   class="w-16 h-16 rounded-2xl bg-primary-color flex items-center justify-center text-white transition-all duration-500 hover:bg-luxury-gold hover:rounded-[2rem] hover:scale-105 group/btn">
-                    <i class="fas fa-arrow-right text-sm transition-transform duration-500 group-hover/btn:translate-x-1"></i>
-                </a>
+
+                <div class="flex flex-col gap-2 min-w-[170px]">
+                    <a href="<?php echo esc_url($tour['permalink']); ?>"
+                       class="w-full text-center px-4 py-2 rounded-xl bg-primary-color text-white text-xs font-black uppercase tracking-[0.18em] transition-all duration-300 hover:bg-luxury-gold hover:text-primary-color">
+                        <?php esc_html_e( 'Learn More', 'raikot-tours' ); ?>
+                    </a>
+                    <a href="<?php echo esc_url($tour['permalink']); ?>"
+                       class="w-full text-center px-4 py-2 rounded-xl border border-primary-color/20 text-primary-color text-[11px] font-bold uppercase tracking-[0.14em] transition-all duration-300 hover:border-luxury-gold hover:text-luxury-gold">
+                        <?php esc_html_e( 'View Full Tour Details', 'raikot-tours' ); ?>
+                    </a>
+                </div>
             </div>
         </div>
 

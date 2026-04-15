@@ -138,9 +138,12 @@ function render_archive_tour_card($tour) {
                     </ul>
                 </div>
             </details>
-            <div class="mt-auto">
+            <div class="mt-auto space-y-3">
                 <a href="<?php echo esc_url($tour['permalink']); ?>" class="btn-gold w-full text-center py-4 rounded-xl block">
-                    <?php _e( 'Open Full Tour', 'raikot-tours' ); ?>
+                    <?php _e( 'Learn More', 'raikot-tours' ); ?>
+                </a>
+                <a href="<?php echo esc_url($tour['permalink']); ?>" class="w-full text-center py-3 rounded-xl block border border-[#1a2e44]/20 text-[#1a2e44] font-bold uppercase tracking-wider text-xs hover:border-[#d4af37] hover:text-[#d4af37] transition-colors">
+                    <?php _e( 'View Full Tour Details', 'raikot-tours' ); ?>
                 </a>
             </div>
         </div>
