@@ -13,6 +13,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 if ( ! defined( 'RAIKOT_MIN_VALID_IMAGE_SIZE' ) ) {
+	// Filters out tiny non-image responses (e.g., 404 HTML placeholders saved with .jpg extension).
 	define( 'RAIKOT_MIN_VALID_IMAGE_SIZE', 1024 );
 }
 
@@ -28,23 +29,34 @@ if ( ! defined( 'RAIKOT_MIN_VALID_IMAGE_SIZE' ) ) {
 function raikot_tours_resolve_theme_image_url( $relative_path, $fallback_relative_path ) {
 	$relative_path          = ltrim( (string) $relative_path, '/' );
 	$fallback_relative_path = ltrim( (string) $fallback_relative_path, '/' );
-
-	if ( false !== strpos( $relative_path, '..' ) || false !== strpos( $fallback_relative_path, '..' ) ) {
+	$template_root          = realpath( get_template_directory() );
+	if ( false === $template_root ) {
 		return '';
 	}
+	$template_root = untrailingslashit( $template_root );
 
-	$absolute_path          = trailingslashit( get_template_directory() ) . $relative_path;
-	$fallback_absolute_path = trailingslashit( get_template_directory() ) . $fallback_relative_path;
+	$candidates = array(
+		$relative_path,
+		$fallback_relative_path,
+	);
 
-	$target_size   = file_exists( $absolute_path ) ? filesize( $absolute_path ) : false;
-	$target_exists = false !== $target_size && $target_size > RAIKOT_MIN_VALID_IMAGE_SIZE;
-	if ( $target_exists ) {
-		return trailingslashit( get_template_directory_uri() ) . $relative_path;
-	}
+	foreach ( $candidates as $relative_candidate ) {
+		$absolute_candidate = $template_root . '/' . $relative_candidate;
+		if ( ! file_exists( $absolute_candidate ) ) {
+			continue;
+		}
 
-	$fallback_size = file_exists( $fallback_absolute_path ) ? filesize( $fallback_absolute_path ) : false;
-	if ( false !== $fallback_size && $fallback_size > RAIKOT_MIN_VALID_IMAGE_SIZE ) {
-		return trailingslashit( get_template_directory_uri() ) . $fallback_relative_path;
+		$resolved_candidate = realpath( $absolute_candidate );
+		if ( false === $resolved_candidate || 0 !== strpos( $resolved_candidate, $template_root . '/' ) ) {
+			continue;
+		}
+
+		$file_size = filesize( $resolved_candidate );
+		if ( false === $file_size || $file_size <= RAIKOT_MIN_VALID_IMAGE_SIZE ) {
+			continue;
+		}
+
+		return trailingslashit( get_template_directory_uri() ) . ltrim( $relative_candidate, '/' );
 	}
 
 	return '';
