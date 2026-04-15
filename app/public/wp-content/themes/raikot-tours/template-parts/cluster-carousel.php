@@ -53,7 +53,9 @@ $carousel_images = get_carousel_images();
                                             alt="<?php echo esc_attr( $image_title ); ?>"
                                             class="carousel-image"
                                             loading="lazy"
-                                            <?php if ( $index === 0 ) echo 'fetchpriority="high"'; ?>
+                                        <?php if ( $index === 0 ) : ?>
+                                            fetchpriority="<?php echo esc_attr( 'high' ); ?>"
+                                        <?php endif; ?>
                                         >
                                     <?php else : ?>
                                         <div class="carousel-image carousel-image--fallback" aria-hidden="true"></div>

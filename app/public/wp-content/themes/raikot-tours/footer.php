@@ -6,7 +6,7 @@
         <div class="footer-grid">
             <section class="footer-card footer-brand">
                 <span class="footer-kicker"><?php _e( 'Mountain Experts', 'raikot-tours' ); ?></span>
-                <h3><?php bloginfo( 'name' ); ?></h3>
+                <h3><?php echo esc_html( get_bloginfo( 'name' ) ); ?></h3>
                 <p><?php bloginfo( 'description' ); ?></p>
                 <div class="footer-socials">
                     <?php if ( get_theme_mod( 'raikot_tours_facebook' ) ) : ?>
@@ -77,7 +77,7 @@
         </div>
 
         <div class="footer-bottom">
-            <p>&copy; <?php echo gmdate( 'Y' ); ?> <?php bloginfo( 'name' ); ?>. <?php _e( 'All rights reserved.', 'raikot-tours' ); ?></p>
+            <p>&copy; <?php echo gmdate( 'Y' ); ?> <?php echo esc_html( get_bloginfo( 'name' ) ); ?>. <?php _e( 'All rights reserved.', 'raikot-tours' ); ?></p>
             <p><?php _e( 'Crafted for unforgettable mountain journeys.', 'raikot-tours' ); ?></p>
         </div>
     </div>

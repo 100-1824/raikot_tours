@@ -12,6 +12,10 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit; // Exit if accessed directly.
 }
 
+if ( ! defined( 'RAIKOT_MIN_VALID_IMAGE_SIZE' ) ) {
+	define( 'RAIKOT_MIN_VALID_IMAGE_SIZE', 1024 );
+}
+
 /**
  * Resolve theme image URL with a safe fallback.
  *
@@ -24,20 +28,22 @@ if ( ! defined( 'ABSPATH' ) ) {
 function raikot_tours_resolve_theme_image_url( $relative_path, $fallback_relative_path ) {
 	$relative_path          = ltrim( (string) $relative_path, '/' );
 	$fallback_relative_path = ltrim( (string) $fallback_relative_path, '/' );
+
+	if ( false !== strpos( $relative_path, '..' ) || false !== strpos( $fallback_relative_path, '..' ) ) {
+		return '';
+	}
+
 	$absolute_path          = trailingslashit( get_template_directory() ) . $relative_path;
 	$fallback_absolute_path = trailingslashit( get_template_directory() ) . $fallback_relative_path;
 
-	// Files below this threshold are usually invalid placeholders (e.g., short HTML responses).
-	$min_valid_image_size_bytes = 1024;
-
 	$target_size   = file_exists( $absolute_path ) ? filesize( $absolute_path ) : false;
-	$target_exists = false !== $target_size && $target_size > $min_valid_image_size_bytes;
+	$target_exists = false !== $target_size && $target_size > RAIKOT_MIN_VALID_IMAGE_SIZE;
 	if ( $target_exists ) {
 		return trailingslashit( get_template_directory_uri() ) . $relative_path;
 	}
 
 	$fallback_size = file_exists( $fallback_absolute_path ) ? filesize( $fallback_absolute_path ) : false;
-	if ( false !== $fallback_size && $fallback_size > $min_valid_image_size_bytes ) {
+	if ( false !== $fallback_size && $fallback_size > RAIKOT_MIN_VALID_IMAGE_SIZE ) {
 		return trailingslashit( get_template_directory_uri() ) . $fallback_relative_path;
 	}
 
