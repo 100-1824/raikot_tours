@@ -82,7 +82,7 @@ function render_tour_card($tour) {
                 </h3>
             </div>
             
-            <div class="flex items-end justify-between pt-8 gap-4">
+            <div class="flex items-center justify-between pt-8 gap-4">
                 <div class="flex flex-col">
                     <span class="text-primary-color/40 text-[9px] uppercase tracking-[0.3em] font-black mb-1">Starting Rate</span>
                     <span class="text-2xl font-playfair font-black text-primary-color"><?php echo esc_html($tour['price']); ?></span>
