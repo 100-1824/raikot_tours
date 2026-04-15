@@ -50,11 +50,11 @@ $carousel_images = get_carousel_images();
                                     <?php if ( ! empty( $image_url ) ) : ?>
                                         <img
                                             src="<?php echo esc_url( add_query_arg( 'w', '800', $image_url ) ); ?>"
-                                            alt="<?php echo esc_attr( $image_title ); ?>"
-                                            class="carousel-image"
-                                            loading="lazy"
-                                        <?php if ( $index === 0 ) : ?>fetchpriority="high"<?php endif; ?>
-                                        >
+                                        alt="<?php echo esc_attr( $image_title ); ?>"
+                                        class="carousel-image"
+                                        loading="lazy"
+                                        <?php echo 0 === $index ? ' fetchpriority="high"' : ''; ?>
+                                    >
                                     <?php else : ?>
                                         <div class="carousel-image carousel-image--fallback" aria-hidden="true"></div>
                                     <?php endif; ?>

@@ -77,7 +77,7 @@
         </div>
 
         <div class="footer-bottom">
-            <p>&copy; <?php echo gmdate( 'Y' ); ?> <?php echo esc_html( get_bloginfo( 'name' ) ); ?>. <?php _e( 'All rights reserved.', 'raikot-tours' ); ?></p>
+            <p>&copy; <?php echo esc_html( current_time( 'Y' ) ); ?> <?php echo esc_html( get_bloginfo( 'name' ) ); ?>. <?php _e( 'All rights reserved.', 'raikot-tours' ); ?></p>
             <p><?php _e( 'Crafted for unforgettable mountain journeys.', 'raikot-tours' ); ?></p>
         </div>
     </div>

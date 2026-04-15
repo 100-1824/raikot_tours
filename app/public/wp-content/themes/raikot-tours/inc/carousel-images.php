@@ -13,7 +13,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 if ( ! defined( 'RAIKOT_MIN_VALID_IMAGE_SIZE' ) ) {
-	// Filters out tiny non-image responses (e.g., 404 HTML placeholders saved with .jpg extension).
+	// 1024 bytes is used as a practical floor so tiny error-page files are rejected while normal images pass.
 	define( 'RAIKOT_MIN_VALID_IMAGE_SIZE', 1024 );
 }
 
