@@ -33,7 +33,8 @@ function raikot_tours_resolve_theme_image_url( $relative_path, $fallback_relativ
 	if ( false === $template_root ) {
 		return '';
 	}
-	$template_root = untrailingslashit( $template_root );
+	$template_root            = untrailingslashit( $template_root );
+	$normalized_template_root = trailingslashit( wp_normalize_path( $template_root ) );
 
 	$candidates = array(
 		$relative_path,
@@ -47,7 +48,12 @@ function raikot_tours_resolve_theme_image_url( $relative_path, $fallback_relativ
 		}
 
 		$resolved_candidate = realpath( $absolute_candidate );
-		if ( false === $resolved_candidate || 0 !== strpos( $resolved_candidate, $template_root . '/' ) ) {
+		if ( false === $resolved_candidate ) {
+			continue;
+		}
+
+		$normalized_candidate = wp_normalize_path( $resolved_candidate );
+		if ( 0 !== strpos( $normalized_candidate, $normalized_template_root ) ) {
 			continue;
 		}
 
