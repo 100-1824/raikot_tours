@@ -8,13 +8,15 @@
 // Helper function to keep code clean
 if ( ! function_exists( 'render_tour_card' ) ) :
 function render_tour_card($tour) {
+    $fallback_image = get_template_directory_uri() . '/assets/img/carousel/alpine-meadows.jpg';
+    $tour_image     = ! empty( $tour['image'] ) ? esc_url( $tour['image'] ) : esc_url( $fallback_image );
     ?>
     <article class="editorial-card group relative h-[600px] flex flex-col bg-alpen-muted rounded-[3rem] overflow-hidden transition-all duration-700 hover:shadow-luxury-hover" 
              data-tilt data-tilt-max="2" data-tilt-speed="1000">
         
         <!-- Image with Editorial Mask -->
         <div class="relative h-[65%] w-full overflow-hidden">
-            <img src="<?php echo esc_url($tour['image']); ?>" 
+            <img src="<?php echo $tour_image; ?>" 
                  alt="<?php echo esc_attr($tour['title']); ?>" 
                  class="absolute inset-0 w-full h-full object-cover grayscale-[0.2] transition-all duration-[2s] ease-out group-hover:scale-110 group-hover:grayscale-0">
             
@@ -131,10 +133,16 @@ if ( $tours_query->have_posts() || !empty($migrated_tours) ) : ?>
                 <?php 
                 // 1. Show Dynamic Posts if they exist
                 if ( $tours_query->have_posts() ) :
+                    $fallback_count = count( $migrated_tours );
+                    $post_index     = 0;
                     while ( $tours_query->have_posts() ) : $tours_query->the_post(); 
+                        $featured_image = get_the_post_thumbnail_url( get_the_ID(), 'large' );
+                        $fallback_image = $fallback_count > 0 ? $migrated_tours[ $post_index % $fallback_count ]['image'] : '';
+                        $resolved_image = ! empty( $featured_image ) ? $featured_image : $fallback_image;
+
                         $tour_data = [
                             'title'      => get_the_title(),
-                            'image'      => get_the_post_thumbnail_url(get_the_ID(), 'large'),
+                            'image'      => $resolved_image,
                             'price'      => get_post_meta( get_the_ID(), '_tour_price', true ),
                             'duration'   => get_post_meta( get_the_ID(), '_tour_duration', true ),
                             'difficulty' => get_post_meta( get_the_ID(), '_tour_difficulty', true ),
@@ -146,6 +154,7 @@ if ( $tours_query->have_posts() || !empty($migrated_tours) ) : ?>
                             <?php render_tour_card($tour_data); ?>
                         </div>
                         <?php
+                        $post_index++;
                     endwhile; 
                     wp_reset_postdata(); 
                 endif;
@@ -176,4 +185,3 @@ if ( $tours_query->have_posts() || !empty($migrated_tours) ) : ?>
 
 
 ?>
-
