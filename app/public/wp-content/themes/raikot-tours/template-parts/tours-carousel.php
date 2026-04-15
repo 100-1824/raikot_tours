@@ -6,17 +6,54 @@
  */
 
 // Helper function to keep code clean
+if ( ! function_exists( 'raikot_tours_get_tour_card_fallback_image' ) ) :
+function raikot_tours_get_tour_card_fallback_image() {
+    $template_dir = get_template_directory();
+    $template_uri = get_template_directory_uri();
+
+    $alpine_path = $template_dir . '/assets/img/carousel/alpine-meadows.jpg';
+    if ( file_exists( $alpine_path ) ) {
+        return $template_uri . '/assets/img/carousel/alpine-meadows.jpg';
+    }
+
+    $glacier_path = $template_dir . '/assets/img/carousel/glacier-valley.jpg';
+    if ( file_exists( $glacier_path ) ) {
+        return $template_uri . '/assets/img/carousel/glacier-valley.jpg';
+    }
+
+    return home_url( '/wp-content/uploads/2026/03/IMG_2559.jpg' );
+}
+endif;
+
+if ( ! function_exists( 'raikot_tours_resolve_tour_slide_image' ) ) :
+function raikot_tours_resolve_tour_slide_image( $featured_image, $fallback_pool, $post_index ) {
+    if ( ! empty( $featured_image ) ) {
+        return $featured_image;
+    }
+
+    if ( is_array( $fallback_pool ) && ! empty( $fallback_pool ) ) {
+        $fallback_count = count( $fallback_pool );
+        $fallback_index = $post_index % $fallback_count;
+        if ( isset( $fallback_pool[ $fallback_index ]['image'] ) && ! empty( $fallback_pool[ $fallback_index ]['image'] ) ) {
+            return $fallback_pool[ $fallback_index ]['image'];
+        }
+    }
+
+    return raikot_tours_get_tour_card_fallback_image();
+}
+endif;
+
 if ( ! function_exists( 'render_tour_card' ) ) :
 function render_tour_card($tour) {
-    $fallback_image = get_template_directory_uri() . '/assets/img/carousel/alpine-meadows.jpg';
-    $tour_image     = ! empty( $tour['image'] ) ? esc_url( $tour['image'] ) : esc_url( $fallback_image );
+    $fallback_image = raikot_tours_get_tour_card_fallback_image();
+    $tour_image = ! empty( $tour['image'] ) ? $tour['image'] : $fallback_image;
     ?>
     <article class="editorial-card group relative h-[600px] flex flex-col bg-alpen-muted rounded-[3rem] overflow-hidden transition-all duration-700 hover:shadow-luxury-hover" 
              data-tilt data-tilt-max="2" data-tilt-speed="1000">
         
         <!-- Image with Editorial Mask -->
         <div class="relative h-[65%] w-full overflow-hidden">
-            <img src="<?php echo $tour_image; ?>" 
+            <img src="<?php echo esc_url( $tour_image ); ?>" 
                  alt="<?php echo esc_attr($tour['title']); ?>" 
                  class="absolute inset-0 w-full h-full object-cover grayscale-[0.2] transition-all duration-[2s] ease-out group-hover:scale-110 group-hover:grayscale-0">
             
@@ -133,12 +170,11 @@ if ( $tours_query->have_posts() || !empty($migrated_tours) ) : ?>
                 <?php 
                 // 1. Show Dynamic Posts if they exist
                 if ( $tours_query->have_posts() ) :
-                    $fallback_count = count( $migrated_tours );
+                    $fallback_pool  = is_array( $migrated_tours ) ? $migrated_tours : [];
                     $post_index     = 0;
                     while ( $tours_query->have_posts() ) : $tours_query->the_post(); 
                         $featured_image = get_the_post_thumbnail_url( get_the_ID(), 'large' );
-                        $fallback_image = $fallback_count > 0 ? $migrated_tours[ $post_index % $fallback_count ]['image'] : '';
-                        $resolved_image = ! empty( $featured_image ) ? $featured_image : $fallback_image;
+                        $resolved_image = raikot_tours_resolve_tour_slide_image( $featured_image, $fallback_pool, $post_index );
 
                         $tour_data = [
                             'title'      => get_the_title(),
