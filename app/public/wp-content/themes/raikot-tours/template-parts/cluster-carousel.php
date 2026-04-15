@@ -40,16 +40,24 @@ $carousel_images = get_carousel_images();
                             $image_link = isset( $image['link'] ) ? esc_url( $image['link'] ) : '';
                             $position_class = isset( $image['position'] ) ? 'carousel-item--' . esc_attr( $image['position'] ) : '';
                             ?>
-                            <figure class="carousel-item <?php echo esc_attr( $position_class ); ?>" data-index="<?php echo esc_attr( $index ); ?>" role="img" aria-label="<?php echo esc_attr( $image_title ); ?>">
+                            <?php
+                            $figure_role = ! empty( $image_url ) ? 'img' : 'presentation';
+                            $figure_aria = ! empty( $image_url ) ? $image_title : '';
+                            ?>
+                            <figure class="carousel-item <?php echo esc_attr( $position_class ); ?>" data-index="<?php echo esc_attr( $index ); ?>" role="<?php echo esc_attr( $figure_role ); ?>"<?php if ( ! empty( $figure_aria ) ) : ?> aria-label="<?php echo esc_attr( $figure_aria ); ?>"<?php endif; ?>>
                                 <!-- Image Container with Lazy Loading -->
                                 <div class="carousel-image-container">
-                                    <img
-                                        src="<?php echo esc_url( add_query_arg( 'w', '800', $image_url ) ); ?>"
+                                    <?php if ( ! empty( $image_url ) ) : ?>
+                                        <img
+                                            src="<?php echo esc_url( add_query_arg( 'w', '800', $image_url ) ); ?>"
                                         alt="<?php echo esc_attr( $image_title ); ?>"
                                         class="carousel-image"
                                         loading="lazy"
-                                        <?php if ( $index === 0 ) echo 'fetchpriority="high"'; ?>
+                                        <?php echo 0 === $index ? ' fetchpriority="high"' : ''; ?>
                                     >
+                                    <?php else : ?>
+                                        <div class="carousel-image carousel-image--fallback" aria-hidden="true"></div>
+                                    <?php endif; ?>
 
                                     <!-- Overlay with Title and Description -->
                                     <div class="carousel-overlay">

@@ -11,7 +11,7 @@ get_header();
 $migrated_tours = [
     [
         'title'      => 'Hunza Valley 7-Day Tour',
-        'image'      => 'http://raikottours.local/wp-content/uploads/2026/03/IMG_2559.jpg',
+        'image'      => home_url( '/wp-content/uploads/2026/03/IMG_2559.jpg' ),
         'price'      => '$850',
         'duration'   => '7',
         'difficulty' => 'Easy',
@@ -19,7 +19,7 @@ $migrated_tours = [
     ],
     [
         'title'      => 'Fairy Meadows Tour',
-        'image'      => 'http://raikottours.local/wp-content/uploads/2026/03/IMG_1983.jpg',
+        'image'      => home_url( '/wp-content/uploads/2026/03/IMG_1983.jpg' ),
         'price'      => '$750',
         'duration'   => '5',
         'difficulty' => 'Moderate',
@@ -27,7 +27,7 @@ $migrated_tours = [
     ],
     [
         'title'      => 'Skardu & Shangrila',
-        'image'      => 'http://raikottours.local/wp-content/uploads/2026/03/IMG_3787.jpg',
+        'image'      => home_url( '/wp-content/uploads/2026/03/IMG_3787.jpg' ),
         'price'      => '$850',
         'duration'   => '6',
         'difficulty' => 'Easy',
@@ -35,7 +35,7 @@ $migrated_tours = [
     ],
     [
         'title'      => 'Naran Kaghan Valley',
-        'image'      => 'http://raikottours.local/wp-content/uploads/2026/03/IMG_1591.jpg',
+        'image'      => home_url( '/wp-content/uploads/2026/03/IMG_1591.jpg' ),
         'price'      => '$750',
         'duration'   => '5',
         'difficulty' => 'Easy',
@@ -43,7 +43,7 @@ $migrated_tours = [
     ],
     [
         'title'      => '9-Days North Pakistan',
-        'image'      => 'http://raikottours.local/wp-content/uploads/2026/03/IMG_2196.jpg',
+        'image'      => home_url( '/wp-content/uploads/2026/03/IMG_2196.jpg' ),
         'price'      => '$1,200',
         'duration'   => '9',
         'difficulty' => 'Moderate',
@@ -127,12 +127,20 @@ function render_archive_tour_card($tour) {
                     <?php echo esc_html($tour['title']); ?>
                 </a>
             </h2>
-            <div class="tour-excerpt text-gray-500 text-sm mb-8 line-clamp-3 leading-relaxed">
-                <?php echo esc_html($tour['excerpt']); ?>
-            </div>
+            <details class="tour-details-panel mb-6">
+                <summary class="tour-details-toggle"><?php _e( 'View tour details', 'raikot-tours' ); ?></summary>
+                <div class="tour-details-content">
+                    <p><?php echo esc_html( $tour['excerpt'] ); ?></p>
+                    <ul>
+                        <li><strong><?php _e( 'Duration:', 'raikot-tours' ); ?></strong> <?php echo esc_html( $tour['duration'] ); ?> <?php _e( 'Days', 'raikot-tours' ); ?></li>
+                        <li><strong><?php _e( 'Difficulty:', 'raikot-tours' ); ?></strong> <?php echo esc_html( $tour['difficulty'] ); ?></li>
+                        <li><strong><?php _e( 'Starting price:', 'raikot-tours' ); ?></strong> <?php echo esc_html( $tour['price'] ); ?></li>
+                    </ul>
+                </div>
+            </details>
             <div class="mt-auto">
                 <a href="<?php echo esc_url($tour['permalink']); ?>" class="btn-gold w-full text-center py-4 rounded-xl block">
-                    <?php _e( 'View Details', 'raikot-tours' ); ?>
+                    <?php _e( 'Open Full Tour', 'raikot-tours' ); ?>
                 </a>
             </div>
         </div>

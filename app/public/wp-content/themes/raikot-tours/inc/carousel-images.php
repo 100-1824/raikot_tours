@@ -12,6 +12,62 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit; // Exit if accessed directly.
 }
 
+if ( ! defined( 'RAIKOT_MIN_VALID_IMAGE_SIZE' ) ) {
+	// 1024 bytes is used as a practical floor so tiny error-page files are rejected while normal images pass.
+	define( 'RAIKOT_MIN_VALID_IMAGE_SIZE', 1024 );
+}
+
+/**
+ * Resolve theme image URL with a safe fallback.
+ *
+ * Ensures tiny placeholder/HTML files are not returned as image URLs.
+ *
+ * @param string $relative_path          Primary relative image path.
+ * @param string $fallback_relative_path Fallback relative image path.
+ * @return string
+ */
+function raikot_tours_resolve_theme_image_url( $relative_path, $fallback_relative_path ) {
+	$relative_path          = ltrim( (string) $relative_path, '/' );
+	$fallback_relative_path = ltrim( (string) $fallback_relative_path, '/' );
+	$template_root          = realpath( get_template_directory() );
+	if ( false === $template_root ) {
+		return '';
+	}
+	$template_root            = untrailingslashit( $template_root );
+	$normalized_template_root = trailingslashit( wp_normalize_path( $template_root ) );
+
+	$candidates = array(
+		$relative_path,
+		$fallback_relative_path,
+	);
+
+	foreach ( $candidates as $relative_candidate ) {
+		$absolute_candidate = $template_root . '/' . $relative_candidate;
+		if ( ! file_exists( $absolute_candidate ) ) {
+			continue;
+		}
+
+		$resolved_candidate = realpath( $absolute_candidate );
+		if ( false === $resolved_candidate ) {
+			continue;
+		}
+
+		$normalized_candidate = wp_normalize_path( $resolved_candidate );
+		if ( 0 !== strpos( $normalized_candidate, $normalized_template_root ) ) {
+			continue;
+		}
+
+		$file_size = filesize( $resolved_candidate );
+		if ( false === $file_size || $file_size <= RAIKOT_MIN_VALID_IMAGE_SIZE ) {
+			continue;
+		}
+
+		return trailingslashit( get_template_directory_uri() ) . ltrim( $relative_candidate, '/' );
+	}
+
+	return '';
+}
+
 /**
  * Get carousel images
  *
@@ -41,7 +97,7 @@ function get_carousel_images() {
 	$carousel_images = array(
 		array(
 			'id'          => 1,
-			'url'         => get_template_directory_uri() . '/assets/img/carousel/mountain-peak.jpg',
+			'url'         => raikot_tours_resolve_theme_image_url( 'assets/img/carousel/mountain-peak.jpg', 'assets/img/carousel/alpine-meadows.jpg' ),
 			'title'       => esc_html__( 'Mountain Peaks', 'raikot-tours' ),
 			'description' => esc_html__( 'Witness the majestic peaks of the Karakoram range', 'raikot-tours' ),
 			'link'        => home_url( '/our-tours' ),
@@ -49,7 +105,7 @@ function get_carousel_images() {
 		),
 		array(
 			'id'          => 2,
-			'url'         => get_template_directory_uri() . '/assets/img/carousel/alpine-meadows.jpg',
+			'url'         => raikot_tours_resolve_theme_image_url( 'assets/img/carousel/alpine-meadows.jpg', 'assets/img/carousel/glacier-valley.jpg' ),
 			'title'       => esc_html__( 'Alpine Meadows', 'raikot-tours' ),
 			'description' => esc_html__( 'Explore pristine meadows at breathtaking altitudes', 'raikot-tours' ),
 			'link'        => home_url( '/our-tours' ),
@@ -57,7 +113,7 @@ function get_carousel_images() {
 		),
 		array(
 			'id'          => 3,
-			'url'         => get_template_directory_uri() . '/assets/img/carousel/base-camp.jpg',
+			'url'         => raikot_tours_resolve_theme_image_url( 'assets/img/carousel/base-camp.jpg', 'assets/img/carousel/sunset-view.jpg' ),
 			'title'       => esc_html__( 'Base Camp', 'raikot-tours' ),
 			'description' => esc_html__( 'Experience luxury camping in remote wilderness', 'raikot-tours' ),
 			'link'        => home_url( '/our-tours' ),
@@ -65,7 +121,7 @@ function get_carousel_images() {
 		),
 		array(
 			'id'          => 4,
-			'url'         => get_template_directory_uri() . '/assets/img/carousel/glacier-valley.jpg',
+			'url'         => raikot_tours_resolve_theme_image_url( 'assets/img/carousel/glacier-valley.jpg', 'assets/img/carousel/alpine-meadows.jpg' ),
 			'title'       => esc_html__( 'Glacier Valley', 'raikot-tours' ),
 			'description' => esc_html__( 'Trek through ancient glacial formations', 'raikot-tours' ),
 			'link'        => home_url( '/our-tours' ),
@@ -73,7 +129,7 @@ function get_carousel_images() {
 		),
 		array(
 			'id'          => 5,
-			'url'         => get_template_directory_uri() . '/assets/img/carousel/sunset-view.jpg',
+			'url'         => raikot_tours_resolve_theme_image_url( 'assets/img/carousel/sunset-view.jpg', 'assets/img/carousel/glacier-valley.jpg' ),
 			'title'       => esc_html__( 'Golden Sunsets', 'raikot-tours' ),
 			'description' => esc_html__( 'Stunning views at the day\'s end', 'raikot-tours' ),
 			'link'        => home_url( '/our-tours' ),
@@ -81,7 +137,7 @@ function get_carousel_images() {
 		),
 		array(
 			'id'          => 6,
-			'url'         => get_template_directory_uri() . '/assets/img/carousel/local-culture.jpg',
+			'url'         => raikot_tours_resolve_theme_image_url( 'assets/img/carousel/local-culture.jpg', 'assets/img/carousel/alpine-meadows.jpg' ),
 			'title'       => esc_html__( 'Local Culture', 'raikot-tours' ),
 			'description' => esc_html__( 'Connect with the warm communities along our trails', 'raikot-tours' ),
 			'link'        => home_url( '/our-tours' ),
