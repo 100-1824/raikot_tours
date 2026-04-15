@@ -561,6 +561,65 @@ h4 { font-size: 1.5rem; }
     transform: scale(1.08);
 }
 
+.tour-details-panel {
+    border: 1px solid rgba(15, 23, 42, 0.12);
+    border-radius: 0.85rem;
+    background: rgba(248, 250, 252, 0.85);
+    overflow: hidden;
+}
+
+.tour-details-toggle {
+    list-style: none;
+    cursor: pointer;
+    padding: 0.75rem 1rem;
+    color: #1e293b;
+    font-size: 0.85rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+}
+
+.tour-details-toggle::-webkit-details-marker {
+    display: none;
+}
+
+.tour-details-toggle::after {
+    content: "+";
+    float: right;
+    color: var(--accent-color);
+    font-size: 1.1rem;
+    line-height: 1;
+}
+
+.tour-details-panel[open] .tour-details-toggle::after {
+    content: "−";
+}
+
+.tour-details-content {
+    border-top: 1px solid rgba(15, 23, 42, 0.08);
+    padding: 0.9rem 1rem 1rem;
+}
+
+.tour-details-content p {
+    margin-bottom: 0.75rem;
+    color: #475569;
+    line-height: 1.65;
+}
+
+.tour-details-content ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    gap: 0.35rem;
+    color: #334155;
+    font-size: 0.86rem;
+}
+
+.tour-details-content strong {
+    color: #0f172a;
+}
+
 /* Tour Content */
 .tour-content h2,
 .tour-content h3,
@@ -586,16 +645,149 @@ h4 { font-size: 1.5rem; }
 .tour-content table th { background: #f8fafc; font-weight: 700; color: var(--primary-color); }
 
 /* Footer */
-.footer-nav a {
-    color: #cbd5e1;
-    text-decoration: none;
-    transition: color 0.3s ease;
-    display: block;
-    font-weight: 500;
+.site-footer {
+    position: relative;
+    overflow: hidden;
+    padding: 5rem 0 1.25rem;
+    background: radial-gradient(circle at 85% 10%, rgba(245, 158, 11, 0.2), transparent 40%), linear-gradient(160deg, #020617 0%, #0f172a 45%, #111827 100%);
+    color: #fff;
 }
 
-.footer-nav a:hover {
+.footer-atmosphere {
+    position: absolute;
+    top: -4rem;
+    left: 5%;
+    width: 18rem;
+    height: 18rem;
+    border-radius: 999px;
+    background: radial-gradient(circle, rgba(245, 158, 11, 0.22), transparent 72%);
+    filter: blur(10px);
+    pointer-events: none;
+}
+
+.footer-grid {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 1.25rem;
+    margin-bottom: 2.5rem;
+}
+
+.footer-card {
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    border-radius: 1.2rem;
+    padding: 1.5rem;
+    backdrop-filter: blur(10px);
+}
+
+.footer-card h3 {
+    margin: 0 0 0.9rem;
+    color: #fff;
+    font-size: 1.15rem;
+}
+
+.footer-kicker {
+    display: inline-block;
+    margin-bottom: 0.65rem;
+    font-size: 0.64rem;
+    letter-spacing: 0.24em;
+    text-transform: uppercase;
+    color: rgba(255, 255, 255, 0.65);
+    font-weight: 700;
+}
+
+.footer-brand p {
+    margin-bottom: 1rem;
+    color: rgba(255, 255, 255, 0.72);
+    line-height: 1.75;
+}
+
+.footer-socials {
+    display: flex;
+    gap: 0.6rem;
+}
+
+.footer-socials a {
+    width: 2.25rem;
+    height: 2.25rem;
+    border-radius: 999px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.16);
+    color: #f8fafc;
+    text-decoration: none;
+    transition: all 0.25s ease;
+}
+
+.footer-socials a:hover {
+    transform: translateY(-2px);
+    color: #0f172a;
+    background: var(--accent-color);
+    border-color: var(--accent-color);
+}
+
+.footer-nav,
+.footer-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    gap: 0.6rem;
+}
+
+.footer-nav a,
+.footer-list a,
+.footer-list span {
+    color: rgba(255, 255, 255, 0.78);
+    text-decoration: none;
+    transition: color 0.25s ease;
+}
+
+.footer-nav a:hover,
+.footer-list a:hover {
+    color: var(--accent-light);
+}
+
+.footer-contact li {
+    display: flex;
+    gap: 0.6rem;
+    align-items: flex-start;
+}
+
+.footer-contact i {
     color: var(--accent-color);
+    margin-top: 0.2rem;
+    width: 1rem;
+}
+
+.footer-bottom {
+    border-top: 1px solid rgba(255, 255, 255, 0.14);
+    padding-top: 1.25rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.8rem;
+    flex-wrap: wrap;
+    color: rgba(255, 255, 255, 0.72);
+    font-size: 0.87rem;
+}
+
+.carousel-image--fallback {
+    background: linear-gradient(135deg, rgba(15, 23, 42, 0.95), rgba(71, 85, 105, 0.7));
+}
+
+@media (max-width: 1024px) {
+    .footer-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+
+@media (max-width: 640px) {
+    .footer-grid {
+        grid-template-columns: 1fr;
+    }
 }
 
 /* AOS Animations */

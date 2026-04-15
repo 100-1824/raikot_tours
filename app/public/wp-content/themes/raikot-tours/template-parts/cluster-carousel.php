@@ -43,13 +43,17 @@ $carousel_images = get_carousel_images();
                             <figure class="carousel-item <?php echo esc_attr( $position_class ); ?>" data-index="<?php echo esc_attr( $index ); ?>" role="img" aria-label="<?php echo esc_attr( $image_title ); ?>">
                                 <!-- Image Container with Lazy Loading -->
                                 <div class="carousel-image-container">
-                                    <img
-                                        src="<?php echo esc_url( add_query_arg( 'w', '800', $image_url ) ); ?>"
-                                        alt="<?php echo esc_attr( $image_title ); ?>"
-                                        class="carousel-image"
-                                        loading="lazy"
-                                        <?php if ( $index === 0 ) echo 'fetchpriority="high"'; ?>
-                                    >
+                                    <?php if ( ! empty( $image_url ) ) : ?>
+                                        <img
+                                            src="<?php echo esc_url( add_query_arg( 'w', '800', $image_url ) ); ?>"
+                                            alt="<?php echo esc_attr( $image_title ); ?>"
+                                            class="carousel-image"
+                                            loading="lazy"
+                                            <?php if ( $index === 0 ) echo 'fetchpriority="high"'; ?>
+                                        >
+                                    <?php else : ?>
+                                        <div class="carousel-image carousel-image--fallback" aria-hidden="true"></div>
+                                    <?php endif; ?>
 
                                     <!-- Overlay with Title and Description -->
                                     <div class="carousel-overlay">

@@ -38,10 +38,29 @@ function get_carousel_images() {
 
 	// Fallback: Images from media library or placeholder structure
 	// In production, replace with actual image URLs
+	$resolve_image_url = static function ( $relative_path, $fallback_relative_path ) {
+		$relative_path          = ltrim( (string) $relative_path, '/' );
+		$fallback_relative_path = ltrim( (string) $fallback_relative_path, '/' );
+		$absolute_path          = trailingslashit( get_template_directory() ) . $relative_path;
+		$fallback_absolute_path = trailingslashit( get_template_directory() ) . $fallback_relative_path;
+		$min_size_bytes         = 1024;
+
+		$target_exists = file_exists( $absolute_path ) && filesize( $absolute_path ) > $min_size_bytes;
+		if ( $target_exists ) {
+			return trailingslashit( get_template_directory_uri() ) . $relative_path;
+		}
+
+		if ( file_exists( $fallback_absolute_path ) && filesize( $fallback_absolute_path ) > $min_size_bytes ) {
+			return trailingslashit( get_template_directory_uri() ) . $fallback_relative_path;
+		}
+
+		return '';
+	};
+
 	$carousel_images = array(
 		array(
 			'id'          => 1,
-			'url'         => get_template_directory_uri() . '/assets/img/carousel/mountain-peak.jpg',
+			'url'         => $resolve_image_url( 'assets/img/carousel/mountain-peak.jpg', 'assets/img/carousel/alpine-meadows.jpg' ),
 			'title'       => esc_html__( 'Mountain Peaks', 'raikot-tours' ),
 			'description' => esc_html__( 'Witness the majestic peaks of the Karakoram range', 'raikot-tours' ),
 			'link'        => home_url( '/our-tours' ),
@@ -49,7 +68,7 @@ function get_carousel_images() {
 		),
 		array(
 			'id'          => 2,
-			'url'         => get_template_directory_uri() . '/assets/img/carousel/alpine-meadows.jpg',
+			'url'         => $resolve_image_url( 'assets/img/carousel/alpine-meadows.jpg', 'assets/img/carousel/glacier-valley.jpg' ),
 			'title'       => esc_html__( 'Alpine Meadows', 'raikot-tours' ),
 			'description' => esc_html__( 'Explore pristine meadows at breathtaking altitudes', 'raikot-tours' ),
 			'link'        => home_url( '/our-tours' ),
@@ -57,7 +76,7 @@ function get_carousel_images() {
 		),
 		array(
 			'id'          => 3,
-			'url'         => get_template_directory_uri() . '/assets/img/carousel/base-camp.jpg',
+			'url'         => $resolve_image_url( 'assets/img/carousel/base-camp.jpg', 'assets/img/carousel/sunset-view.jpg' ),
 			'title'       => esc_html__( 'Base Camp', 'raikot-tours' ),
 			'description' => esc_html__( 'Experience luxury camping in remote wilderness', 'raikot-tours' ),
 			'link'        => home_url( '/our-tours' ),
@@ -65,7 +84,7 @@ function get_carousel_images() {
 		),
 		array(
 			'id'          => 4,
-			'url'         => get_template_directory_uri() . '/assets/img/carousel/glacier-valley.jpg',
+			'url'         => $resolve_image_url( 'assets/img/carousel/glacier-valley.jpg', 'assets/img/carousel/alpine-meadows.jpg' ),
 			'title'       => esc_html__( 'Glacier Valley', 'raikot-tours' ),
 			'description' => esc_html__( 'Trek through ancient glacial formations', 'raikot-tours' ),
 			'link'        => home_url( '/our-tours' ),
@@ -73,7 +92,7 @@ function get_carousel_images() {
 		),
 		array(
 			'id'          => 5,
-			'url'         => get_template_directory_uri() . '/assets/img/carousel/sunset-view.jpg',
+			'url'         => $resolve_image_url( 'assets/img/carousel/sunset-view.jpg', 'assets/img/carousel/glacier-valley.jpg' ),
 			'title'       => esc_html__( 'Golden Sunsets', 'raikot-tours' ),
 			'description' => esc_html__( 'Stunning views at the day\'s end', 'raikot-tours' ),
 			'link'        => home_url( '/our-tours' ),
@@ -81,7 +100,7 @@ function get_carousel_images() {
 		),
 		array(
 			'id'          => 6,
-			'url'         => get_template_directory_uri() . '/assets/img/carousel/local-culture.jpg',
+			'url'         => $resolve_image_url( 'assets/img/carousel/local-culture.jpg', 'assets/img/carousel/alpine-meadows.jpg' ),
 			'title'       => esc_html__( 'Local Culture', 'raikot-tours' ),
 			'description' => esc_html__( 'Connect with the warm communities along our trails', 'raikot-tours' ),
 			'link'        => home_url( '/our-tours' ),
