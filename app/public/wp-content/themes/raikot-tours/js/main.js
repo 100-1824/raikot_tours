@@ -115,11 +115,30 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
-    // Smooth Scroll for Anchor Links
-    document.querySelectorAll('a[href^="#"]').forEach(link => {
+    // Smooth Scroll for Anchor Links + Home Link
+    document.querySelectorAll('a').forEach(link => {
         link.addEventListener('click', function(e) {
             const href = this.getAttribute('href');
-            if (href === '#' || href === '#0') return;
+            if (!href) return;
+
+            const isHomePage = window.location.pathname === '/' || window.location.pathname === '';
+            const isRootLink = href === '/' || href === window.location.origin || href === `${window.location.origin}/`;
+
+            if (isRootLink && isHomePage) {
+                e.preventDefault();
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+
+                // Close mobile menu if open
+                if (mobileMenu && !mobileMenu.classList.contains('hidden')) {
+                    mobileMenu.classList.add('hidden');
+                    document.body.classList.remove('overflow-hidden');
+                    const icon = menuToggle.querySelector('i');
+                    if (icon) icon.classList.replace('fa-times', 'fa-bars');
+                }
+                return;
+            }
+
+            if (!href.startsWith('#') || href === '#' || href === '#0') return;
 
             const target = document.querySelector(href);
             if (target) {
@@ -208,4 +227,3 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
 });
-
