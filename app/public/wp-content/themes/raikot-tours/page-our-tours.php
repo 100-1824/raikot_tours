@@ -130,7 +130,7 @@ function render_full_tour_card($tour) {
                 </a>
             </h2>
             <details class="tour-details-panel mb-6">
-                <summary class="tour-details-toggle"><?php _e( 'Tap to view tour details', 'raikot-tours' ); ?></summary>
+                <summary class="tour-details-toggle"><?php _e( 'View tour details', 'raikot-tours' ); ?></summary>
                 <div class="tour-details-content">
                     <p><?php echo esc_html( $tour['excerpt'] ); ?></p>
                     <ul>

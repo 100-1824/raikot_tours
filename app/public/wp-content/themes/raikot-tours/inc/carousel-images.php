@@ -30,12 +30,14 @@ function raikot_tours_resolve_theme_image_url( $relative_path, $fallback_relativ
 	// Files below this threshold are usually invalid placeholders (e.g., short HTML responses).
 	$min_valid_image_size_bytes = 1024;
 
-	$target_exists = file_exists( $absolute_path ) && filesize( $absolute_path ) > $min_valid_image_size_bytes;
+	$target_size   = file_exists( $absolute_path ) ? filesize( $absolute_path ) : false;
+	$target_exists = false !== $target_size && $target_size > $min_valid_image_size_bytes;
 	if ( $target_exists ) {
 		return trailingslashit( get_template_directory_uri() ) . $relative_path;
 	}
 
-	if ( file_exists( $fallback_absolute_path ) && filesize( $fallback_absolute_path ) > $min_valid_image_size_bytes ) {
+	$fallback_size = file_exists( $fallback_absolute_path ) ? filesize( $fallback_absolute_path ) : false;
+	if ( false !== $fallback_size && $fallback_size > $min_valid_image_size_bytes ) {
 		return trailingslashit( get_template_directory_uri() ) . $fallback_relative_path;
 	}
 
