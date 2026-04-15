@@ -38,9 +38,6 @@ get_header();
     </div>
 </section>
 
-<!-- Cluster Image Carousel (Replaces "Raikot Signature" Section) -->
-<?php get_template_part( 'template-parts/cluster-carousel' ); ?>
-
 <!-- Testimonials -->
 <section class="testimonials py-20 bg-white overflow-hidden">
     <div class="container mx-auto px-4">

@@ -6,15 +6,54 @@
  */
 
 // Helper function to keep code clean
+if ( ! function_exists( 'raikot_tours_get_tour_card_fallback_image' ) ) :
+function raikot_tours_get_tour_card_fallback_image() {
+    $template_dir = get_template_directory();
+    $template_uri = get_template_directory_uri();
+
+    $alpine_path = $template_dir . '/assets/img/carousel/alpine-meadows.jpg';
+    if ( file_exists( $alpine_path ) ) {
+        return $template_uri . '/assets/img/carousel/alpine-meadows.jpg';
+    }
+
+    $glacier_path = $template_dir . '/assets/img/carousel/glacier-valley.jpg';
+    if ( file_exists( $glacier_path ) ) {
+        return $template_uri . '/assets/img/carousel/glacier-valley.jpg';
+    }
+
+    return home_url( '/wp-content/uploads/2026/03/IMG_2559.jpg' );
+}
+endif;
+
+if ( ! function_exists( 'raikot_tours_resolve_tour_slide_image' ) ) :
+function raikot_tours_resolve_tour_slide_image( $featured_image, $fallback_pool, $post_index ) {
+    if ( ! empty( $featured_image ) ) {
+        return $featured_image;
+    }
+
+    if ( is_array( $fallback_pool ) && ! empty( $fallback_pool ) ) {
+        $fallback_count = count( $fallback_pool );
+        $fallback_index = $post_index % $fallback_count;
+        if ( isset( $fallback_pool[ $fallback_index ]['image'] ) && ! empty( $fallback_pool[ $fallback_index ]['image'] ) ) {
+            return $fallback_pool[ $fallback_index ]['image'];
+        }
+    }
+
+    return raikot_tours_get_tour_card_fallback_image();
+}
+endif;
+
 if ( ! function_exists( 'render_tour_card' ) ) :
 function render_tour_card($tour) {
+    $fallback_image = raikot_tours_get_tour_card_fallback_image();
+    $tour_image = ! empty( $tour['image'] ) ? $tour['image'] : $fallback_image;
     ?>
     <article class="editorial-card group relative h-[600px] flex flex-col bg-alpen-muted rounded-[3rem] overflow-hidden transition-all duration-700 hover:shadow-luxury-hover" 
              data-tilt data-tilt-max="2" data-tilt-speed="1000">
         
         <!-- Image with Editorial Mask -->
         <div class="relative h-[65%] w-full overflow-hidden">
-            <img src="<?php echo esc_url($tour['image']); ?>" 
+            <img src="<?php echo esc_url( $tour_image ); ?>" 
                  alt="<?php echo esc_attr($tour['title']); ?>" 
                  class="absolute inset-0 w-full h-full object-cover grayscale-[0.2] transition-all duration-[2s] ease-out group-hover:scale-110 group-hover:grayscale-0">
             
@@ -43,16 +82,24 @@ function render_tour_card($tour) {
                 </h3>
             </div>
             
-            <div class="flex items-center justify-between pt-8">
+            <div class="flex items-center justify-between pt-8 gap-4">
                 <div class="flex flex-col">
                     <span class="text-primary-color/40 text-[9px] uppercase tracking-[0.3em] font-black mb-1">Starting Rate</span>
                     <span class="text-2xl font-playfair font-black text-primary-color"><?php echo esc_html($tour['price']); ?></span>
                 </div>
-                
-                <a href="<?php echo esc_url($tour['permalink']); ?>" 
-                   class="w-16 h-16 rounded-2xl bg-primary-color flex items-center justify-center text-white transition-all duration-500 hover:bg-luxury-gold hover:rounded-[2rem] hover:scale-105 group/btn">
-                    <i class="fas fa-arrow-right text-sm transition-transform duration-500 group-hover/btn:translate-x-1"></i>
-                </a>
+
+                <div class="flex flex-col gap-2 min-w-[170px]">
+                    <a href="<?php echo esc_url($tour['permalink']); ?>"
+                       aria-label="<?php echo esc_attr( sprintf( __( 'Learn more about %s', 'raikot-tours' ), $tour['title'] ) ); ?>"
+                       class="w-full text-center px-4 py-2 rounded-xl bg-primary-color text-white text-xs font-black uppercase tracking-[0.18em] transition-all duration-300 hover:bg-luxury-gold hover:text-primary-color">
+                        <?php esc_html_e( 'Learn More', 'raikot-tours' ); ?>
+                    </a>
+                    <a href="<?php echo esc_url($tour['permalink']); ?>"
+                       aria-label="<?php echo esc_attr( sprintf( __( 'View full tour details for %s', 'raikot-tours' ), $tour['title'] ) ); ?>"
+                       class="w-full text-center px-4 py-2 rounded-xl border border-primary-color/20 text-primary-color text-[11px] font-bold uppercase tracking-[0.14em] transition-all duration-300 hover:border-luxury-gold hover:text-luxury-gold">
+                        <?php esc_html_e( 'View Full Tour Details', 'raikot-tours' ); ?>
+                    </a>
+                </div>
             </div>
         </div>
 
@@ -131,10 +178,15 @@ if ( $tours_query->have_posts() || !empty($migrated_tours) ) : ?>
                 <?php 
                 // 1. Show Dynamic Posts if they exist
                 if ( $tours_query->have_posts() ) :
+                    $fallback_pool  = is_array( $migrated_tours ) ? $migrated_tours : [];
+                    $post_index     = 0;
                     while ( $tours_query->have_posts() ) : $tours_query->the_post(); 
+                        $featured_image = get_the_post_thumbnail_url( get_the_ID(), 'large' );
+                        $resolved_image = raikot_tours_resolve_tour_slide_image( $featured_image, $fallback_pool, $post_index );
+
                         $tour_data = [
                             'title'      => get_the_title(),
-                            'image'      => get_the_post_thumbnail_url(get_the_ID(), 'large'),
+                            'image'      => $resolved_image,
                             'price'      => get_post_meta( get_the_ID(), '_tour_price', true ),
                             'duration'   => get_post_meta( get_the_ID(), '_tour_duration', true ),
                             'difficulty' => get_post_meta( get_the_ID(), '_tour_difficulty', true ),
@@ -146,6 +198,7 @@ if ( $tours_query->have_posts() || !empty($migrated_tours) ) : ?>
                             <?php render_tour_card($tour_data); ?>
                         </div>
                         <?php
+                        $post_index++;
                     endwhile; 
                     wp_reset_postdata(); 
                 endif;
@@ -176,4 +229,3 @@ if ( $tours_query->have_posts() || !empty($migrated_tours) ) : ?>
 
 
 ?>
-

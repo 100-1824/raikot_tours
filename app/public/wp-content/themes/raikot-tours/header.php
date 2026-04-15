@@ -14,9 +14,9 @@
                 extend: {
                     colors: {
                         luxury: {
-                            gold: '#c5a059',
-                            'gold-light': '#f7ef8a',
-                            'gold-dark': '#aa8913',
+                            gold: '#f59e0b',
+                            'gold-light': '#fbbf24',
+                            'gold-dark': '#b45309',
                             navy: '#020617',
                             'navy-light': '#0f172a',
                         }
@@ -82,21 +82,22 @@
             text-decoration: none !important;
         }
         .header-actions a:first-of-type {
-            color: #c5a059 !important;
+            color: #f59e0b !important;
             font-weight: bold !important;
-            padding: 1rem 0.5rem !important;
+            padding: 1rem 0.75rem !important;
             border-bottom: 2px solid transparent !important;
+            font-size: 11px !important;
         }
         .header-actions a:last-of-type {
-            background: #c5a059 !important;
+            background: #f59e0b !important;
             color: #020617 !important;
-            padding: 0.6rem 1.25rem !important;
+            padding: 0.8rem 1.6rem !important;
             border-radius: 9999px !important;
             font-weight: bold !important;
-            font-size: 9px !important;
+            font-size: 10px !important;
             text-transform: uppercase !important;
             letter-spacing: 0.2em !important;
-            box-shadow: 0 4px 15px rgba(197, 160, 89, 0.3) !important;
+            box-shadow: 0 4px 15px rgba(245, 158, 11, 0.3) !important;
         }
         .header-actions a:last-of-type:hover {
             background: white !important;
@@ -174,7 +175,7 @@
             </ul>
         </nav>
 
-        <div class="header-actions flex items-center ml-auto gap-3">
+        <div class="header-actions flex items-center ml-auto mr-6 gap-4">
             <a href="<?php echo home_url('/contact'); ?>" class="block text-luxury-gold text-[10px] font-bold tracking-[0.2em] uppercase hover:text-luxury-gold/80 transition-all border-b-2 border-transparent hover:border-luxury-gold py-4 px-2">
                 Contact
             </a>
